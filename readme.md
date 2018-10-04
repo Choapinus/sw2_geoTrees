@@ -1,17 +1,17 @@
-1.- crear proyecto
-$ docker-compose run web django-admin.py startproject comuniTree .
+1.- crear proyecto <br/>
+```$ docker-compose run web django-admin.py startproject comuniTree .```
 
-2.- configurar base de datos con las credenciales que corresponden
-  -> ENGINE: django.db.backends.postgresql
-  -> NAME: postgres
-  -> USER: postgres
-  -> HOST: db
-  -> PORT: 5432
+2.- configurar base de datos con las credenciales que corresponden <br/>
+  -> ENGINE: django.db.backends.postgresql <br/>
+  -> NAME: postgres <br/>
+  -> USER: postgres <br/>
+  -> HOST: db <br/>
+  -> PORT: 5432 <br/>
 
-3.- correr servicio web
-$ docker-compose up -d
+3.- correr servicio web<br/>
+```$ docker-compose up -d```
 
-4.- migraciones
-$ docker run web python manage.py migrate
+4.- migraciones<br/>
+```$ docker run web python manage.py migrate```
 
 5.- acceder a localhost:8080/admin
