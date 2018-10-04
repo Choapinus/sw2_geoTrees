@@ -1,7 +1,7 @@
 1.- crear proyecto <br/>
 ```$ docker-compose run web django-admin.py startproject comuniTree .```
 
-2.- configurar base de datos con las credenciales que corresponden <br/>
+2.- configurar base de datos con las credenciales que corresponden en *./comuniTree/settings.py* <br/>
   -> ENGINE: django.db.backends.postgresql <br/>
   -> NAME: postgres <br/>
   -> USER: postgres <br/>
