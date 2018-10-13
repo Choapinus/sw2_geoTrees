@@ -95,15 +95,14 @@ TipoArbol
   |- ramas
   |- hojas
   |- flores
-  |- frutos(Beneficio)
   |- tamaño
   |- edad_aprox
   |- habitat
   |- especie
   |- familia
   |- color_corteza
-  |- usos(Beneficio)
-  |- desventajas(Inconveniente)
+  |- usos, frutos, medicinal, otros(Beneficio)
+  |- desventajas, alergias, otros(Inconveniente)
 
 
 Arbol
