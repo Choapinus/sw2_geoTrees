@@ -15,7 +15,7 @@ class Root(models.Model):
 		verbose_name_plural = "raices"
 	
 	def __str__(self):
-		self.name
+		return self.name
 
 class Trunk(models.Model):
 	name = models.CharField(max_length=150, verbose_name='Nombre')
@@ -29,7 +29,7 @@ class Trunk(models.Model):
 		verbose_name_plural = "troncos"
 	
 	def __str__(self):
-		self.name
+		return self.name
 
 class Leaf(models.Model):
 	name = models.CharField(max_length=150, verbose_name='Nombre')
@@ -43,7 +43,7 @@ class Leaf(models.Model):
 		verbose_name_plural = "hojas"
 	
 	def __str__(self):
-		self.name
+		return self.name
 
 class Branch(models.Model):
 	name = models.CharField(max_length=150, verbose_name='Nombre')
@@ -57,7 +57,7 @@ class Branch(models.Model):
 		verbose_name_plural = "ramas"
 	
 	def __str__(self):
-		self.name
+		return self.name
 
 class Flower(models.Model):
 	name = models.CharField(max_length=150, verbose_name='Nombre')
@@ -71,7 +71,7 @@ class Flower(models.Model):
 		verbose_name_plural = "flores"
 	
 	def __str__(self):
-		self.name
+		return self.name
 
 class Specie(models.Model):
 	name = models.CharField(max_length=150, verbose_name='Nombre')
@@ -85,7 +85,7 @@ class Specie(models.Model):
 		verbose_name_plural = "especies"
 	
 	def __str__(self):
-		self.name
+		return self.name
 
 class Habitat(models.Model):
 	name = models.CharField(max_length=150, verbose_name='Nombre')
@@ -99,7 +99,7 @@ class Habitat(models.Model):
 		verbose_name_plural = "habitats"
 	
 	def __str__(self):
-		self.name
+		return self.name
 
 class TypeTree(models.Model):
 	name = models.CharField(max_length=150, verbose_name='Nombre')
@@ -128,15 +128,15 @@ class TypeTree(models.Model):
 		verbose_name_plural = "árboles"
 	
 	def __str__(self):
-		self.name
+		return self.name
 
 class Tree(models.Model):
+	_type = models.ForeignKey(TypeTree, on_delete=models.CASCADE, verbose_name='Tipo de Árbol')
 	description = models.TextField(verbose_name='Descripción')
 	lon = models.DecimalField(max_digits=9, decimal_places=6, verbose_name='Longitud')
 	lat = models.DecimalField(max_digits=9, decimal_places=6, verbose_name='Latitud')
-	size = models.PositiveSmallIntegerField(verbose_name='Altura en centimetros')
+	size = models.PositiveSmallIntegerField(verbose_name='Altura en centimetros aproximada')
 	grounded = models.DateTimeField(auto_now_add=False, verbose_name='Fecha de plantación')
-	_type = models.ForeignKey(TypeTree, on_delete=models.CASCADE, verbose_name='Tipo de Árbol')
 	active = models.BooleanField(default=True, verbose_name='Activo')
 	created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
 	updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de edición')
@@ -146,13 +146,14 @@ class Tree(models.Model):
 		verbose_name_plural = "árboles"
 	
 	def __str__(self):
-		self._type.name
+		return self._type.name
 
 class Benefict(models.Model):
 	name = models.CharField(max_length=150, verbose_name='Nombre')
 	description = models.TextField(verbose_name='Descripción', blank=True)
 	characteristic = models.TextField(verbose_name='Caracteristica', blank=True)
-	tree = models.ForeignKey(TypeTree, on_delete=models.CASCADE, blank=True, null=True)
+	# tree = models.ForeignKey(TypeTree, on_delete=models.CASCADE, blank=True, null=True)
+	tree = models.ManyToManyField(TypeTree, verbose_name='Árboles con beneficios')
 	active = models.BooleanField(default=True, verbose_name='Activo')
 	created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
 	updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de edición')
@@ -236,4 +237,4 @@ class Water(models.Model):
 		verbose_name_plural = "riegos"
 	
 	def __str__(self):
-		self.created
+		return self.created
