@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import mark_safe
 from .models import *
 
 # Register your models here.
@@ -25,54 +26,91 @@ class FlowerAdmin(admin.ModelAdmin):
 
 class SpecieAdmin(admin.ModelAdmin):
 	readonly_fields = ('created', 'updated')
-	# list_display = ()
+	list_display = ('name', 'description', 'updated', )
 
 class HabitatAdmin(admin.ModelAdmin):
 	readonly_fields = ('created', 'updated')
 	list_display = ('name', 'description', 'updated', )
 
-class TypeTreeAdmin(admin.ModelAdmin):
-	readonly_fields = ('created', 'updated')
-	list_display = ('name', 'scientific_name', 'description', 'family', 'clase', 'specie', 'updated', )
-
-class TreeAdmin(admin.ModelAdmin):
-	readonly_fields = ('created', 'updated')
-	# list_display = ()
-	# _type = models.ForeignKey(TypeTree, on_delete=models.CASCADE, verbose_name='Tipo de Árbol')
-	# description = models.TextField(verbose_name='Descripción')
-	# lon = models.DecimalField(max_digits=9, decimal_places=6, verbose_name='Longitud')
-	# lat = models.DecimalField(max_digits=9, decimal_places=6, verbose_name='Latitud')
-	# size = models.PositiveSmallIntegerField(verbose_name='Altura en centimetros aproximada')
-	# grounded = models.DateTimeField(auto_now_add=False, verbose_name='Fecha de plantación')
-	# active = models.BooleanField(default=True, verbose_name='Activo')
-	# created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
-	# updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de edición')
-
-
-
 class BenefictAdmin(admin.ModelAdmin):
 	readonly_fields = ('created', 'updated')
-	# list_display = ()
+	list_display = ('name', 'description', 'characteristic', 'updated', )
 
 class HazardAdmin(admin.ModelAdmin):
 	readonly_fields = ('created', 'updated')
-	# list_display = ()
+	list_display = ('name', 'description', 'characteristic', 'updated', )
+
+class TypeTreeAdmin(admin.ModelAdmin):
+	readonly_fields = ('created', 'updated')
+	list_display = (
+		'name', 'scientific_name', 'description', 
+		'family', 'clase', 'specie', 'benefict_names', 'updated', 
+	)
+
+	def benefict_names(self, obj):
+		return [field.name for field in obj.benefict.all()]
+
+	benefict_names.short_description = 'Beneficios'
+
+class TreeAdmin(admin.ModelAdmin):
+	readonly_fields = ('created', 'updated')
+	list_display = (
+		'code', 'description', 'lon', 'lat', 
+		'size', 'grounded', 'hazard_names', 'updated', )
+	
+	def code(self, obj):
+		return obj.id
+
+	def hazard_names(self, obj):
+		return [field.name for field in obj.hazard.all()]
+
+	code.short_description = 'Código de Árbol'
+	hazard_names.short_description = 'Amenazas'
 
 class PhotoAdmin(admin.ModelAdmin):
-	readonly_fields = ('created', 'updated')
-	# list_display = ()
+	readonly_fields = ('get_image', 'created', 'updated')
+	list_display = ('get_image', 'tree_name', 'description', 'updated', )
+
+	def tree_name(self, obj):
+		return obj.tree._type.name
+
+	def get_image(self, obj):
+		return mark_safe(u'<img src="%s" style="width:200px;height:200px;"/>' % (obj.image.url))
+
+	tree_name.short_description = 'Tipo de Árbol'
+
 
 class ActivityAdmin(admin.ModelAdmin):
 	readonly_fields = ('created', 'updated')
-	# list_display = ()
+	list_display = ('name', 'description', 'reason', 'get_tree_id', 'updated', )
+
+	def get_tree_id(self, obj):
+		return obj.tree.id
+
+	get_tree_id.short_description = 'Código Árbol'
 
 class StateAdmin(admin.ModelAdmin):
 	readonly_fields = ('created', 'updated')
-	# list_display = ()
+	list_display = ('name', 'description', 'get_tree_id', 'updated', )
+
+	def get_tree_id(self, obj):
+		return obj.tree.id
+
+	get_tree_id.short_description = 'Código Árbol'
 
 class WaterAdmin(admin.ModelAdmin):
 	readonly_fields = ('created', 'updated')
-	# list_display = ()
+	list_display = ('get_tree_id', 'last_time_watered', )
+
+	def get_tree_id(self, obj):
+		return obj.tree.id
+
+	def last_time_watered(self, obj):
+		return obj.created
+
+	get_tree_id.short_description = 'Código Árbol'
+	last_time_watered.short_description = 'Última vez regado'
+
 
 admin.site.register(Root, RootAdmin)
 admin.site.register(Trunk, TrunkAdmin)
