@@ -1,1 +1,1 @@
-web: gunicorn comuniTree.wsgi
+web: gunicorn comuniTree:comuniTree
