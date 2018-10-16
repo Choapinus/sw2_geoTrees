@@ -6,8 +6,12 @@ RUN mkdir /code
 
 WORKDIR /code
 
-ADD requeriments.txt /code/
+COPY requeriments.txt /code/
 
 RUN pip install -r requeriments.txt
 
-ADD . /code/
+COPY . /code/
+
+EXPOSE 8080
+
+CMD python manage.py runserver 0:$PORT
