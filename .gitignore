@@ -1,1 +1,4 @@
 .vscode
+comuniTree/__pycache__/
+tree/__pycache__/
+tree/migrations/__pycache__/
