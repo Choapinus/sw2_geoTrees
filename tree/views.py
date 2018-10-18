@@ -38,25 +38,48 @@ def list_tree(request):
 		}
 		return JsonResponse(response)
 
-def get_tree(request, tree_id):
-	try:
-		tree = Tree.objects.get(pk=tree_id)
-		serializer = TreeSerializer(tree)
-		data = {
-			'ok': True,
-			'data': serializer.data
-		}
-		return JSONResponse(data)
-
-	except Tree.DoesNotExist:
-		response = {
-			'ok': False,
-			'status': 204,
-			'error': {
-				'message': 'There is no tree with id {}'.format(tree_id),
+def get_tree(request, tree_id=None):
+	if tree_id:
+		try:
+			tree = Tree.objects.get(pk=tree_id)
+			serializer = TreeSerializer(tree)
+			data = {
+				'ok': True,
+				'data': serializer.data
 			}
-		}
-		return JsonResponse(response)
+			return JSONResponse(data)
+
+		except Tree.DoesNotExist:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no tree with id {}'.format(tree_id),
+				}
+			}
+			return JsonResponse(response)
+	else:
+		skip = request.GET.get('desde', None)
+		to = request.GET.get('hasta', None)
+		if skip and to:
+			skip, to = int(skip), int(to)
+			trees = Tree.objects.all()[skip-1:to+1]
+			serializer = TreeSerializer(trees, many=True)
+			data = {
+				'ok': True,
+				'data': serializer.data,
+			}
+			return JSONResponse(data)
+		else:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no limits specified',
+				}
+			}
+			return JsonResponse(response)
+
 
 
 def index(request):
