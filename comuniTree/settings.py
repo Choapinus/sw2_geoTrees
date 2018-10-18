@@ -25,7 +25,11 @@ SECRET_KEY = '5*gt-_cqyxv5idqvk4x+kl=-(9e&)+m9b2bkwrnpp*^3w56q&4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'comunitree.herokuapp.com']
+
+ALLOWED_HOSTS = ['comunitree.herokuapp.com', ]
+
+if DEBUG:
+    ALLOWED_HOSTS = []
 
 
 # Application definition
