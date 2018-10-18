@@ -1,6 +1,16 @@
-FROM python:3
+FROM python:3.6-alpine
 
 ENV PYTHONBUFFERED 1
+
+RUN apk update
+
+RUN apk add build-base
+
+RUN apk add jpeg-dev
+
+RUN apk add zlib-dev
+
+ENV LIBRARY_PATH=/lib:/usr/lib
 
 RUN mkdir /code
 
