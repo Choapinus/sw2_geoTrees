@@ -1,27 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { MaterialModule } from './material.module';
+import { MapaComponent } from './components/mapa/mapa.component';
 
-import { APP_ROUTING } from './app.routes';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { AboutComponent } from './components/about/about.component';
-import { SendreportComponent } from './components/sendreport/sendreport.component';
-import { MapComponent } from './components/map/map.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    NavbarComponent,
-    AboutComponent,
-    SendreportComponent,
-    MapComponent
+    MapaComponent
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    BrowserAnimationsModule,
+    MaterialModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA0f1JGCUziQ-AXZPASnZ3dq7krgUx_IuU'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
