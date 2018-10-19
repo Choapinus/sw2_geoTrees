@@ -72,7 +72,10 @@ class PhotoAdmin(admin.ModelAdmin):
 	list_display = ('get_image', 'tree_name', 'description', 'updated', )
 
 	def tree_name(self, obj):
-		return obj.tree._type.name
+		if obj.tree._type.name:
+			return obj.tree._type.name
+		else:
+			return 'No existe nombre'
 
 	def get_image(self, obj):
 		return mark_safe(u'<img src="%s" style="width:200px;height:200px;"/>' % (obj.image.url))
