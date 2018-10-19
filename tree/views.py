@@ -80,7 +80,5 @@ def get_tree(request, tree_id=None):
 			}
 			return JsonResponse(response)
 
-
-
 def index(request):
 	return HttpResponse('index')
