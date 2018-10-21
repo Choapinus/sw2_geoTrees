@@ -6,7 +6,7 @@ import { RegisterPage } from '../register/register';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class Home {
 
   username:string;
   password:string;
