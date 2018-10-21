@@ -1,9 +1,17 @@
 from rest_framework import serializers
 from .models import (
-	Tree, Hazard, TypeTree, Root, Trunk,
+	Tree, Hazard, TypeTree, Root, Trunk, Photo,
 	Leaf, Branch, Flower, Specie, Habitat, Benefict
 )
 
+class PhotoSerializer(serializers.ModelSerializer):
+	url = serializers.SerializerMethodField('get_url_image')
+	class Meta:
+		model = Photo
+		fields = ('id', 'name', 'description', 'url', )
+
+	def get_url_image(self, obj):
+		return obj.image.url
 
 class RootSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -71,6 +79,7 @@ class TypeTreeSerializer(serializers.ModelSerializer):
 class TreeSerializer(serializers.ModelSerializer):
 	hazard = HazardSerializer(read_only=True, many=True)
 	_type = TypeTreeSerializer(read_only=True, many=False)
+	photos = PhotoSerializer(read_only=True, source='photo_set', many=True)
 	
 	class Meta:
 		model = Tree
