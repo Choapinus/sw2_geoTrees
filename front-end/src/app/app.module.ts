@@ -13,6 +13,7 @@ import { SendreportComponent } from './components/sendreport/sendreport.componen
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HomeComponent } from './components/home/home.component';
 
 // Services
 
@@ -26,6 +27,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ToolbarComponent,
     AlertsComponent,
     DashboardComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
