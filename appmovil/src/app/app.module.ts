@@ -5,25 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { RegisterPage } from '../pages/register/register';
-
-//import { Camera } from '@ionic-native/camera';
-
-
-
-/*class CameraMock extends Camera {
-  getPicture(options) {
-    return new Promise((resolve, reject) => {
-      resolve("BASE_64_ENCODED_DATA_GOES_HERE");
-    })
-  }
-}*/
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     RegisterPage
   ],
   imports: [
@@ -33,7 +19,6 @@ import { RegisterPage } from '../pages/register/register';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     RegisterPage
   ],
   providers: [
