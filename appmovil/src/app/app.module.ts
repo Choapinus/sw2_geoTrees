@@ -5,12 +5,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { RegisterPage } from '../pages/register/register';
 
 @NgModule({
   declarations: [
-    MyApp,
-    RegisterPage
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -18,14 +16,12 @@ import { RegisterPage } from '../pages/register/register';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    RegisterPage
+    MyApp
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-/*{ provide: Camera, useClass: CameraMock }*/
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

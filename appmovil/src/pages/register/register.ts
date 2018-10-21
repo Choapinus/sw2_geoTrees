@@ -13,7 +13,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-register',
   templateUrl: 'register.html',
 })
-export class RegisterPage {
+export class register {
   username:string=null;
   password:string=null;
   repassword:string=null;

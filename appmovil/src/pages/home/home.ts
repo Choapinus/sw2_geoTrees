@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { RegisterPage } from '../register/register';
+import { NavController, IonicPage } from 'ionic-angular';
 
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -20,7 +20,7 @@ export class Home {
     console.log("Password: " + this.password);
   }
   goRegister(){
-    this.navCtrl.push(RegisterPage);
+    this.navCtrl.push("register");
   }
 
 
