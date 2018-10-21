@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-content>
+        <h1>{{ title }}</h1>
+        <agm-map [latitude]="lat_init" [longitude]="lng_init" [zoom]="15">
+            <agm-marker *ngFor="let data of tree; let i = index" [latitude]="data.lat" [longitude]="data.lng" [iconUrl]="'/assets/icon.png'">
+                <agm-info-window>
+                    <strong style="color:black">ComuniTree</strong>
+                    <p style="color:black">Raza de Arbol = Platano oriental </p>
+                    <p style="color:black">Latitud = {{ data.lat }} </p>
+                    <p style="color:black">Longitud = {{ data.lng }} </p>
+                    <div>
+                        <button mat-raised-button color="primary">Editar</button>
+                        <button mat-raised-button color="Warn">Borrar</button>
+                    </div>
+                </agm-info-window>
+            </agm-marker>
+        </agm-map>
+    </mat-card-content>
+</mat-card>
