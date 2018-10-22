@@ -4,7 +4,13 @@
             <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
               <mat-icon>menu</mat-icon>
             </button>
-            <span>ComuniTree</span>
+		<span>
+            		<a class="nav-link" [routerLink]="['home']" mat-button>
+            		<mat-icon>home</mat-icon>
+                   	ComuniTree
+            		</a>
+		</span>
+
             <span class="example-spacer"></span>
             <div fxShow="true" fxHide.lt-md="true">
                 <!-- The following menu items will be hidden on both SM and XS screen sizes -->
@@ -31,18 +37,18 @@
     <mat-sidenav-container fxFlexFill>
         <mat-sidenav #sidenav>
             <mat-nav-list>
-                <a class="nav-link" [routerLink]="['alerts']" mat-list-item>
+                <a class="nav-link" [routerLink]="['alerts']" mat-list-item (click)="sidenav.toggle()">
                     <mat-icon>notifications_active</mat-icon>
                     Alertas
                 </a>
-                <a class="nav-link" [routerLink]="['map']" mat-list-item>
+                <a class="nav-link" [routerLink]="['map']" mat-list-item (click)="sidenav.toggle()">
                     <mat-icon>map</mat-icon>
                     Ver Mapa ComuniTree</a>
-                <a class="nav-link" [routerLink]="['sendreport']" mat-button>
+                <a class="nav-link" [routerLink]="['sendreport']" mat-list-item (click)="sidenav.toggle()">
                     <mat-icon>backup</mat-icon>
                     Enviar Reporte
                 </a>
-                <a class="nav-link" [routerLink]="['dashboard']" mat-list-item>
+                <a class="nav-link" [routerLink]="['dashboard']" mat-list-item (click)="sidenav.toggle()">
                     <mat-icon>account_box</mat-icon>
                     Dashboard
                 </a>
