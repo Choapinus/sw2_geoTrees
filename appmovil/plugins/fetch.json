@@ -16,5 +16,16 @@
     "variables": {
       "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
     }
+  },
+  "cordova-plugin-googlemaps": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-googlemaps@2.4.6"
+    },
+    "is_top_level": true,
+    "variables": {
+      "API_KEY_FOR_ANDROID": "AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y",
+      "API_KEY_FOR_IOS": "AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y"
+    }
   }
 }
