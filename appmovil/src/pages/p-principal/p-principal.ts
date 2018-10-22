@@ -1,5 +1,15 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {
+  GoogleMaps,
+  GoogleMap,
+  GoogleMapsEvent,
+  GoogleMapOptions,
+  CameraPosition,
+  MarkerOptions,
+  Marker,
+  Environment
+} from '@ionic-native/google-maps';
 
 /**
  * Generated class for the PPrincipalPage page.
@@ -14,6 +24,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'p-principal.html',
 })
 export class PPrincipal {
+
+  map: GoogleMap;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
