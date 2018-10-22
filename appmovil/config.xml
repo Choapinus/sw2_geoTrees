@@ -3,7 +3,7 @@
     <name>ComuniTreeApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.0.6:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -89,4 +89,7 @@
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y" />
     </plugin>
+    <allow-navigation href="http://192.168.0.6:8100" sessionid="e79f492f" />
+    <engine name="android" spec="7.1.1" />
+    <engine name="browser" spec="5.0.4" />
 </widget>

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
-import { PPrincipal } from '../p-principal/p-principal';
 
 @IonicPage()//importante
 @Component({
