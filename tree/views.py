@@ -335,7 +335,7 @@ def get_branch(request, branch_id=None):
 # flower
 def list_flower(request):
 	if request.method == 'GET':
-		flower = flower.objects.filter(active=True)
+		flower = Flower.objects.filter(active=True)
 		serializer = FlowerSerializer(flower, many=True)
 		data = {
 			'ok': True,
