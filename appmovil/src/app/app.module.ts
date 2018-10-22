@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 
-@NgModule({
+@NgModule({//pages no declaradas lazy loading
   declarations: [
     MyApp
   ],

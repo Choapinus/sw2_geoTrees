@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 
-@IonicPage()
+@IonicPage()//importante
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class Home {
+export class Home {// lazy loading 
 
   username:string;
   password:string;
