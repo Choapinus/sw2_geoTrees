@@ -26,7 +26,7 @@ export class PPrincipal {
 
   map: GoogleMap;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation) {
+  constructor(public navCtrl: NavController, public navParams: NavParams /*,private geolocation: Geolocation*/) {
   }
 
   ionViewDidLoad() {
