@@ -1,8 +1,15 @@
 from django.http import HttpResponse, JsonResponse
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from .models import Tree, Root
-from .serializers import TreeSerializer, RootSerializer
+from .models import (
+	Tree, Root, Trunk, Leaf, Branch, 
+	Flower, Specie, Habitat, Benefict, Hazard
+)
+from .serializers import (
+	TreeSerializer, RootSerializer, TrunkSerializer, LeafSerializer, 
+	BranchSerializer, FlowerSerializer, SpecieSerializer, HabitatSerializer, 
+	BenefictSerializer, HazardSerializer
+)
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 
@@ -56,8 +63,8 @@ def get_tree(request, tree_id=None):
 			}
 			return JsonResponse(response)
 	else:
-		skip = request.GET.get('desde', None)
-		to = request.GET.get('hasta', None)
+		skip = request.GET.get('desde', 1)
+		to = request.GET.get('hasta', 2)
 		if skip and to:
 			skip, to = int(skip), int(to)
 			trees = Tree.objects.all()[skip-1:to+1]
@@ -118,8 +125,8 @@ def get_root(request, root_id=None):
 			}
 			return JsonResponse(response)
 	else:
-		skip = request.GET.get('desde', None)
-		to = request.GET.get('hasta', None)
+		skip = request.GET.get('desde', 1)
+		to = request.GET.get('hasta', 2)
 		if skip and to:
 			skip, to = int(skip), int(to)
 			roots = Root.objects.all()[skip-1:to+1]
@@ -143,7 +150,7 @@ def get_root(request, root_id=None):
 def list_trunk(request):
 	if request.method == 'GET':
 		trunk = Trunk.objects.filter(active=True)
-		serializer = RootSerializer(trunk, many=True)
+		serializer = TrunkSerializer(trunk, many=True)
 		data = {
 			'ok': True,
 			'data': serializer.data
@@ -180,8 +187,8 @@ def get_trunk(request, trunk_id=None):
 			}
 			return JsonResponse(response)
 	else:
-		skip = request.GET.get('desde', None)
-		to = request.GET.get('hasta', None)
+		skip = request.GET.get('desde', 1)
+		to = request.GET.get('hasta', 2)
 		if skip and to:
 			skip, to = int(skip), int(to)
 			trunks = Trunk.objects.all()[skip-1:to+1]
@@ -242,8 +249,8 @@ def get_leaf(request, leaf_id=None):
 			}
 			return JsonResponse(response)
 	else:
-		skip = request.GET.get('desde', None)
-		to = request.GET.get('hasta', None)
+		skip = request.GET.get('desde', 1)
+		to = request.GET.get('hasta', 2)
 		if skip and to:
 			skip, to = int(skip), int(to)
 			leafs = Leaf.objects.all()[skip-1:to+1]
@@ -304,8 +311,8 @@ def get_branch(request, branch_id=None):
 			}
 			return JsonResponse(response)
 	else:
-		skip = request.GET.get('desde', None)
-		to = request.GET.get('hasta', None)
+		skip = request.GET.get('desde', 1)
+		to = request.GET.get('hasta', 2)
 		if skip and to:
 			skip, to = int(skip), int(to)
 			branches = Branch.objects.all()[skip-1:to+1]
@@ -349,7 +356,7 @@ def get_flower(request, flower_id=None):
 	if flower_id:
 		try:
 			flower = Flower.objects.get(pk=flower_id)
-			serializer = BranchSerializer(flower)
+			serializer = FlowerSerializer(flower)
 			data = {
 				'ok': True,
 				'data': serializer.data
@@ -366,8 +373,8 @@ def get_flower(request, flower_id=None):
 			}
 			return JsonResponse(response)
 	else:
-		skip = request.GET.get('desde', None)
-		to = request.GET.get('hasta', None)
+		skip = request.GET.get('desde', 1)
+		to = request.GET.get('hasta', 2)
 		if skip and to:
 			skip, to = int(skip), int(to)
 			flowers = Flower.objects.all()[skip-1:to+1]
@@ -388,7 +395,256 @@ def get_flower(request, flower_id=None):
 			return JsonResponse(response)
 
 
+# specie
+def list_specie(request):
+	if request.method == 'GET':
+		specie = Specie.objects.filter(active=True)
+		serializer = SpecieSerializer(specie, many=True)
+		data = {
+			'ok': True,
+			'data': serializer.data
+		}
+		return JSONResponse(data)
+		
+	else:
+		response = {
+			'ok': False,
+			'error': {
+				'message': 'There is no POST method implemented'
+			}
+		}
+		return JsonResponse(response)
 
+def get_specie(request, specie_id=None):
+	if specie_id:
+		try:
+			specie = Specie.objects.get(pk=specie_id)
+			serializer = SpecieSerializer(specie)
+			data = {
+				'ok': True,
+				'data': serializer.data
+			}
+			return JSONResponse(data)
+
+		except Specie.DoesNotExist:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no specie with id {}'.format(specie_id),
+				}
+			}
+			return JsonResponse(response)
+	else:
+		skip = request.GET.get('desde', 1)
+		to = request.GET.get('hasta', 2)
+		if skip and to:
+			skip, to = int(skip), int(to)
+			species = Specie.objects.all()[skip-1:to+1]
+			serializer = SpecieSerializer(species, many=True)
+			data = {
+				'ok': True,
+				'data': serializer.data,
+			}
+			return JSONResponse(data)
+		else:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no limits specified',
+				}
+			}
+			return JsonResponse(response)
+
+# habitat
+def list_habitat(request):
+	if request.method == 'GET':
+		habitat = Habitat.objects.filter(active=True)
+		serializer = HabitatSerializer(habitat, many=True)
+		data = {
+			'ok': True,
+			'data': serializer.data
+		}
+		return JSONResponse(data)
+		
+	else:
+		response = {
+			'ok': False,
+			'error': {
+				'message': 'There is no POST method implemented'
+			}
+		}
+		return JsonResponse(response)
+
+def get_habitat(request, habitat_id=None):
+	if habitat_id:
+		try:
+			habitat = Habitat.objects.get(pk=habitat_id)
+			serializer = HabitatSerializer(habitat)
+			data = {
+				'ok': True,
+				'data': serializer.data
+			}
+			return JSONResponse(data)
+
+		except Habitat.DoesNotExist:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no habitat with id {}'.format(habitat_id),
+				}
+			}
+			return JsonResponse(response)
+	else:
+		skip = request.GET.get('desde', 1)
+		to = request.GET.get('hasta', 2)
+		if skip and to:
+			skip, to = int(skip), int(to)
+			habitats = Habitat.objects.all()[skip-1:to+1]
+			serializer = HabitatSerializer(habitats, many=True)
+			data = {
+				'ok': True,
+				'data': serializer.data,
+			}
+			return JSONResponse(data)
+		else:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no limits specified',
+				}
+			}
+			return JsonResponse(response)
+
+# benefict
+def list_benefict(request):
+	if request.method == 'GET':
+		benefict = Benefict.objects.filter(active=True)
+		serializer = BenefictSerializer(benefict, many=True)
+		data = {
+			'ok': True,
+			'data': serializer.data
+		}
+		return JSONResponse(data)
+		
+	else:
+		response = {
+			'ok': False,
+			'error': {
+				'message': 'There is no POST method implemented'
+			}
+		}
+		return JsonResponse(response)
+
+def get_benefict(request, benefict_id=None):
+	if benefict_id:
+		try:
+			benefict = Benefict.objects.get(pk=benefict_id)
+			serializer = BenefictSerializer(benefict)
+			data = {
+				'ok': True,
+				'data': serializer.data
+			}
+			return JSONResponse(data)
+
+		except Benefict.DoesNotExist:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no benefict with id {}'.format(benefict_id),
+				}
+			}
+			return JsonResponse(response)
+	else:
+		skip = request.GET.get('desde', 1)
+		to = request.GET.get('hasta', 2)
+		if skip and to:
+			skip, to = int(skip), int(to)
+			beneficts = Benefict.objects.all()[skip-1:to+1]
+			serializer = BenefictSerializer(beneficts, many=True)
+			data = {
+				'ok': True,
+				'data': serializer.data,
+			}
+			return JSONResponse(data)
+		else:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no limits specified',
+				}
+			}
+			return JsonResponse(response)
+
+# hazard
+def list_hazard(request):
+	if request.method == 'GET':
+		hazard = Hazard.objects.filter(active=True)
+		serializer = HazardSerializer(hazard, many=True)
+		data = {
+			'ok': True,
+			'data': serializer.data
+		}
+		return JSONResponse(data)
+		
+	else:
+		response = {
+			'ok': False,
+			'error': {
+				'message': 'There is no POST method implemented'
+			}
+		}
+		return JsonResponse(response)
+
+def get_hazard(request, hazard_id=None):
+	if hazard_id:
+		try:
+			hazard = Hazard.objects.get(pk=hazard_id)
+			serializer = HazardSerializer(hazard)
+			data = {
+				'ok': True,
+				'data': serializer.data
+			}
+			return JSONResponse(data)
+
+		except Hazard.DoesNotExist:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no hazard with id {}'.format(hazard_id),
+				}
+			}
+			return JsonResponse(response)
+	else:
+		skip = request.GET.get('desde', 1)
+		to = request.GET.get('hasta', 2)
+		if skip and to:
+			skip, to = int(skip), int(to)
+			hazards = Hazard.objects.all()[skip-1:to+1]
+			serializer = HazardSerializer(hazards, many=True)
+			data = {
+				'ok': True,
+				'data': serializer.data,
+			}
+			return JSONResponse(data)
+		else:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no limits specified',
+				}
+			}
+			return JsonResponse(response)
+
+
+# todo
 @csrf_exempt
 def add_tree(request):
 	if request.method == 'POST':
@@ -407,7 +663,7 @@ def add_tree(request):
 		}
 		return JsonResponse(response)
 
-
+# activity, state, photo & water not implemented
 
 
 def index(request):
