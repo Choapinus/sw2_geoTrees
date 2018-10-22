@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 268:
+/***/ 269:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeModule", function() { return HomeModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PPrincipalModule", function() { return PPrincipalModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__p_principal__ = __webpack_require__(272);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomeModule = /** @class */ (function () {
-    function HomeModule() {
+var PPrincipalModule = /** @class */ (function () {
+    function PPrincipalModule() {
     }
-    HomeModule = __decorate([
+    PPrincipalModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */],
+                __WEBPACK_IMPORTED_MODULE_2__p_principal__["a" /* PPrincipal */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__p_principal__["a" /* PPrincipal */]),
             ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */]
-            ]
         })
-    ], HomeModule);
-    return HomeModule;
+    ], PPrincipalModule);
+    return PPrincipalModule;
 }());
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=p-principal.module.js.map
 
 /***/ }),
 
-/***/ 270:
+/***/ 272:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Home; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PPrincipal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(98);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59,29 +56,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-//importante
-var Home = /** @class */ (function () {
-    function Home(navCtrl) {
+/**
+ * Generated class for the PPrincipalPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var PPrincipal = /** @class */ (function () {
+    function PPrincipal(navCtrl, navParams) {
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
     }
-    Home.prototype.login = function () {
-        console.log("Username: " + this.username);
-        console.log("Password: " + this.password);
+    PPrincipal.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PPrincipalPage');
     };
-    Home.prototype.goRegister = function () {
-        this.navCtrl.push("register");
-    };
-    Home = __decorate([
+    PPrincipal = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\home\home.html"*/'<ion-content padding center text-center>\n\n  <ion-title>Trewa</ion-title>\n\n   <ion-list>\n\n     <ion-item>\n\n       <ion-input placeholder="Username" [(ngModel)]="username"></ion-input>\n\n     </ion-item>\n\n     <ion-item>\n\n       <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>\n\n     </ion-item>\n\n\n\n   </ion-list>\n\n   <button ion-button full (click)="login()">Log in</button>\n\n   <button ion-button full color="light" (click)="goRegister()">Register</button>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\home\home.html"*/
+            selector: 'page-p-principal',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\p-principal\p-principal.html"*/'<!--\n\n  Generated template for the PPrincipalPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <ion-title text-center padding:10px>Home</ion-title>\n\n        <button ion-button icon-only menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\p-principal\p-principal.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object])
-    ], Home);
-    return Home;
-    var _a;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+    ], PPrincipal);
+    return PPrincipal;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=p-principal.js.map
 
 /***/ })
 

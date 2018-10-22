@@ -25682,3 +25682,8 @@ page-home ion-title * {
   margin-top: 30vh;
   margin-bottom: 5vh;
 }
+
+page-p-principal ion-title * {
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+}
