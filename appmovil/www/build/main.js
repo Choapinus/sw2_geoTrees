@@ -23,15 +23,19 @@ webpackEmptyAsyncContext.id = 109;
 var map = {
 	"../pages/home/home.module": [
 		269,
-		2
+		8
 	],
 	"../pages/p-principal/p-principal.module": [
 		270,
-		1
+		7
+	],
+	"../pages/perfil/perfil.module": [
+		275,
+		6
 	],
 	"../pages/register/register.module": [
 		271,
-		0
+		5
 	]
 };
 function webpackAsyncContext(req) {

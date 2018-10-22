@@ -6,6 +6,7 @@ import { NavController, IonicPage } from 'ionic-angular';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class Home {// lazy loading 
 
   username:string;

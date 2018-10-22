@@ -10,12 +10,6 @@ import {
   Environment
 } from '@ionic-native/google-maps';
 
-/**
- * Generated class for the PPrincipalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -23,7 +17,12 @@ import {
   templateUrl: 'p-principal.html',
 })
 export class PPrincipal {
-
+  irpaginaprincipal(){
+    this.navCtrl.push("PPrincipal");
+  }
+  irperfil(){
+    this.navCtrl.push("Perfil");
+  }
   map: GoogleMap;
 
   constructor(public navCtrl: NavController, public navParams: NavParams /*,private geolocation: Geolocation*/) {

@@ -7,26 +7,26 @@
 
 <!--HEADER-->
 <ion-header>
-
+    <!--BARRA-->
     <ion-navbar>
-
-        <button ion-button padding>
-            <ion-icon name="home"></ion-icon>
-        </button>
+        <ion-buttons>
+            <button ion-button icon-only (click)="irpaginaprincipal()">
+                <ion-icon name="home"></ion-icon>
+            </button>
+        </ion-buttons>
         <!--<ion-title padding text-center>Home</ion-title>-->
-        HOME
         <ion-buttons end>
             <button ion-button icon-only>
                   <ion-icon name="options"></ion-icon>
                 </button>
         </ion-buttons>
         <ion-buttons start>
-            <button ion-button icon-only>
+            <button ion-button icon-only (click)="irperfil()">
                   <ion-icon name="contact"></ion-icon>
                 </button>
         </ion-buttons>
     </ion-navbar>
-
+    <!--FIN-BARRA-->
 </ion-header>
 
 <!--CONTENIDO-->
