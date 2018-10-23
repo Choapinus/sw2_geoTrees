@@ -76,10 +76,9 @@ var Home = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\home\home.html"*/'<ion-content padding center text-center>\n\n    <ion-title>ComuniTree</ion-title>\n\n    <ion-list>\n\n        <ion-item>\n\n            <ion-input placeholder="Username" [(ngModel)]="username"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>\n\n        </ion-item>\n\n\n\n    </ion-list>\n\n    <button ion-button full (click)="login()">Log in</button>\n\n    <button ion-button full color="light" (click)="goRegister()">Register</button>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
     ], Home);
     return Home;
-    var _a;
 }());
 
 //# sourceMappingURL=home.js.map

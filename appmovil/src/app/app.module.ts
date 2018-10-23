@@ -7,6 +7,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 
 import { MyApp } from './app.component';
 
+
+
 @NgModule({//pages no declaradas lazy loading
   declarations: [
     MyApp

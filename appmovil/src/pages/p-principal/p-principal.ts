@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { TranslateService, TranslateCompiler } from '@ngx-translate/core';
+
 import {
   GoogleMaps,
   GoogleMap,
@@ -10,12 +12,18 @@ import {
   Environment
 } from '@ionic-native/google-maps';
 
+import { Perfil } from '../perfil/perfil';
+
+
+
 @IonicPage()
 @Component({
   selector: 'page-p-principal',
   templateUrl: 'p-principal.html',
 })
 export class PPrincipal {
+
+
   irpaginaprincipal(){
     this.navCtrl.push("PPrincipal");
   }
