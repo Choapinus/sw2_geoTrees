@@ -1,4 +1,4 @@
-webpackJsonp([3],{
+webpackJsonp([4],{
 
 /***/ 109:
 /***/ (function(module, exports) {
@@ -23,19 +23,19 @@ webpackEmptyAsyncContext.id = 109;
 var map = {
 	"../pages/home/home.module": [
 		269,
-		8
+		3
 	],
 	"../pages/p-principal/p-principal.module": [
 		270,
-		7
+		2
 	],
 	"../pages/perfil/perfil.module": [
-		275,
-		6
+		271,
+		1
 	],
 	"../pages/register/register.module": [
-		271,
-		5
+		272,
+		0
 	]
 };
 function webpackAsyncContext(req) {
@@ -107,8 +107,8 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/home/home.module#HomeModule', name: 'Home', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/p-principal/p-principal.module#PPrincipalModule', name: 'PPrincipal', segment: 'p-principal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterModule', name: 'register', segment: 'register', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/perfil/perfil.module#PerfilModule', name: 'Perfil', segment: 'perfil', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/perfil/perfil.module#PerfilModule', name: 'Perfil', segment: 'perfil', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/register/register.module#RegisterModule', name: 'register', segment: 'register', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],

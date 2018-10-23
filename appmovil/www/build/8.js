@@ -1,14 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 269:
+/***/ 271:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeModule", function() { return HomeModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PerfilModule", function() { return PerfilModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__perfil__ = __webpack_require__(275);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomeModule = /** @class */ (function () {
-    function HomeModule() {
+var PerfilModule = /** @class */ (function () {
+    function PerfilModule() {
     }
-    HomeModule = __decorate([
+    PerfilModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */],
+                __WEBPACK_IMPORTED_MODULE_2__perfil__["a" /* Perfil */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__perfil__["a" /* Perfil */]),
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */]
+                __WEBPACK_IMPORTED_MODULE_2__perfil__["a" /* Perfil */]
             ]
         })
-    ], HomeModule);
-    return HomeModule;
+    ], PerfilModule);
+    return PerfilModule;
 }());
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=perfil.module.js.map
 
 /***/ }),
 
-/***/ 272:
+/***/ 275:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Home; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Perfil; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(99);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59,29 +59,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-//importante
-var Home = /** @class */ (function () {
-    function Home(navCtrl) {
+var Perfil = /** @class */ (function () {
+    function Perfil(navCtrl, navParams) {
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
     }
-    Home.prototype.login = function () {
-        this.navCtrl.push("PPrincipal");
-        /*console.log("Username: " + this.username);
-        console.log("Password: " + this.password);*/
-    };
-    Home.prototype.goRegister = function () {
-        this.navCtrl.push("register");
-    };
-    Home = __decorate([
+    Perfil = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\home\home.html"*/'<ion-content padding center text-center>\n\n    <ion-title>ComuniTree</ion-title>\n\n    <ion-list>\n\n        <ion-item>\n\n            <ion-input placeholder="Username" [(ngModel)]="username"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>\n\n        </ion-item>\n\n\n\n    </ion-list>\n\n    <button ion-button full (click)="login()">Log in</button>\n\n    <button ion-button full color="light" (click)="goRegister()">Register</button>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\home\home.html"*/
+            selector: 'page-perfil',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\perfil\perfil.html"*/'<!--\n\n  Generated template for the PerfilPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <ion-title>perfil</ion-title>\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\perfil\perfil.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
-    ], Home);
-    return Home;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+    ], Perfil);
+    return Perfil;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=perfil.js.map
 
 /***/ })
 
