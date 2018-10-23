@@ -10,7 +10,6 @@ import {
   Environment
 } from '@ionic-native/google-maps';
 
-
 @IonicPage()
 @Component({
   selector: 'page-p-principal',
@@ -29,7 +28,7 @@ export class PPrincipal {
   }
 
   ionViewDidLoad() {
-    this.loadMap();
+    //this.loadMap();
     //console.log('ionViewDidLoad PPrincipalPage');
   }
 

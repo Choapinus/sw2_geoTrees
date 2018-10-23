@@ -58,19 +58,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the PPrincipalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 var PPrincipal = /** @class */ (function () {
     function PPrincipal(navCtrl, navParams /*,private geolocation: Geolocation*/) {
         this.navCtrl = navCtrl;
         this.navParams = navParams; /*,private geolocation: Geolocation*/
     }
+    PPrincipal.prototype.irpaginaprincipal = function () {
+        this.navCtrl.push("PPrincipal");
+    };
+    PPrincipal.prototype.irperfil = function () {
+        this.navCtrl.push("Perfil");
+    };
     PPrincipal.prototype.ionViewDidLoad = function () {
-        this.loadMap();
+        //this.loadMap();
         //console.log('ionViewDidLoad PPrincipalPage');
     };
     PPrincipal.prototype.loadMap = function () {
@@ -107,9 +107,10 @@ var PPrincipal = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-p-principal',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\p-principal\p-principal.html"*/'<!--\n\n  Generated template for the PPrincipalPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<!--HEADER-->\n\n<ion-header>\n\n    <!--BARRA-->\n\n    <ion-navbar>\n\n        <ion-buttons>\n\n            <button ion-button icon-only (click)="irpaginaprincipal()">\n\n                <ion-icon name="home"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n        <!--<ion-title padding text-center>Home</ion-title>-->\n\n        <ion-buttons end>\n\n            <button ion-button icon-only>\n\n                  <ion-icon name="options"></ion-icon>\n\n                </button>\n\n        </ion-buttons>\n\n        <ion-buttons start>\n\n            <button ion-button icon-only (click)="irperfil()">\n\n                  <ion-icon name="contact"></ion-icon>\n\n                </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n    <!--FIN-BARRA-->\n\n</ion-header>\n\n\n\n<!--CONTENIDO-->\n\n\n\n<ion-content padding>\n\n\n\n    <div id="map_canvas">\n\n    </div>\n\n</ion-content>\n\n\n\n<!--FOOTER-->\n\n\n\n<ion-footer>\n\n\n\n\n\n</ion-footer>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\p-principal\p-principal.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] /*,private geolocation: Geolocation*/])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] /*,private geolocation: Geolocation*/ !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] /*,private geolocation: Geolocation*/) === "function" && _b || Object])
     ], PPrincipal);
     return PPrincipal;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=p-principal.js.map
