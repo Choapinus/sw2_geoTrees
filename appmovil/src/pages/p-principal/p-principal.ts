@@ -12,20 +12,16 @@ import {
   Environment
 } from '@ionic-native/google-maps';
 
-import { Perfil } from '../perfil/perfil';
 
-
-
-@IonicPage()
 @Component({
   selector: 'page-p-principal',
   templateUrl: 'p-principal.html',
 })
-export class PPrincipal {
+export class PPrincipalPage {
 
 
   irpaginaprincipal(){
-    this.navCtrl.push("PPrincipal");
+    this.navCtrl.push(PPrincipalPage);
   }
   irperfil(){
     this.navCtrl.push("Perfil");

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { PPrincipal } from './p-principal';
+import { PPrincipalPage } from './p-principal';
 
 @NgModule({
   declarations: [
-    PPrincipal,
+    PPrincipalPage,
   ],
   imports: [
-    IonicPageModule.forChild(PPrincipal),
+    IonicPageModule.forChild(PPrincipalPage),
   ],
 })
-export class PPrincipalModule {}
+export class PPrincipalPageModule {}

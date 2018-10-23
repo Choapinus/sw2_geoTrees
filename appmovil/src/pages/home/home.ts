@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
+import { PPrincipalPage } from '../p-principal/p-principal';
 
-@IonicPage()//importante
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 
-export class Home {// lazy loading 
+export class HomePage {
 
   username:string;
   password:string;
@@ -17,7 +17,7 @@ export class Home {// lazy loading
   }
 
   login(){
-    this.navCtrl.push("PPrincipal");
+    this.navCtrl.push(PPrincipalPage);
     /*console.log("Username: " + this.username);
     console.log("Password: " + this.password);*/
   }

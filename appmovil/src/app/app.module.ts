@@ -6,12 +6,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { GoogleMaps } from '@ionic-native/google-maps';
 
 import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { PPrincipalPage } from '../pages/p-principal/p-principal';
 
-
-
-@NgModule({//pages no declaradas lazy loading
+@NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    HomePage,
+    PPrincipalPage
   ],
   imports: [
     BrowserModule,
@@ -19,7 +21,9 @@ import { MyApp } from './app.component';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    HomePage,
+    PPrincipalPage
   ],
   providers: [
     StatusBar,
