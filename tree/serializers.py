@@ -84,3 +84,6 @@ class TreeSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Tree
 		exclude = ['active', 'created', 'updated', ]
+
+	def create(self, validated_data):
+		return Tree.objects.create(**validated_data)

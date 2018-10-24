@@ -1,4 +1,4 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, QueryDict
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from .models import (
@@ -648,6 +648,16 @@ def get_hazard(request, hazard_id=None):
 @csrf_exempt
 def add_tree(request):
 	if request.method == 'POST':
+		data = JSONParser().parse(request)
+		print(data["description"])
+		# data = JSONParser().parse(request)
+		# serializer = TreeSerializer(data=data)
+		# if serializer.is_valid():
+		# 	serializer.save()
+		# 	return JsonResponse(serializer.data, status=201)
+
+		# return JsonResponse(serializer.errors, status=400)		
+
 		data = {
 			'ok': True,
 			'message': 'not implemented :P'
@@ -658,7 +668,7 @@ def add_tree(request):
 			'ok': False,
 			'status': 204,
 			'error': {
-				'message': 'There is no limits specified',
+				'message': 'method {} not implemented'.format(request.method),
 			}
 		}
 		return JsonResponse(response)
