@@ -6,13 +6,15 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
+import { SuccessComponent } from './components/success/success.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'map', component: MapComponent },
-  { path: 'sendreport', component: SendreportComponent },
+  { path: 'sendreport/:idx', component: SendreportComponent },
   { path: 'alerts', component: AlertsComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'success', component: SuccessComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

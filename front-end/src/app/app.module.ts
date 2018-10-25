@@ -14,6 +14,9 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
+import { TreeComponent } from './components/tree/tree.component';
+import { SuccessComponent } from './components/success/success.component';
+
 
 // Services
 
@@ -22,12 +25,13 @@ import { HomeComponent } from './components/home/home.component';
   declarations: [
     AppComponent,
     MapComponent,
-    MapComponent,
     SendreportComponent,
     ToolbarComponent,
     AlertsComponent,
     DashboardComponent,
     HomeComponent,
+    TreeComponent,
+    SuccessComponent,
   ],
   imports: [
     BrowserModule,

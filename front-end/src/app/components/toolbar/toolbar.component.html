@@ -4,7 +4,7 @@
             <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
               <mat-icon>menu</mat-icon>
             </button>
-		<span>
+            <span>
             		<a class="nav-link" [routerLink]="['home']" mat-button>
             		<mat-icon>home</mat-icon>
                    	ComuniTree
@@ -21,10 +21,6 @@
                 <a class="nav-link" [routerLink]="['map']" mat-button>
                     <mat-icon>map</mat-icon>
                     Ver Mapa ComuniTree
-                </a>
-                <a class="nav-link" [routerLink]="['sendreport']" mat-button>
-                    <mat-icon>backup</mat-icon>
-                    Enviar Reporte
                 </a>
                 <a class="nav-link" [routerLink]="['dashboard']" mat-button>
                     <mat-icon>account_box</mat-icon>
@@ -44,10 +40,6 @@
                 <a class="nav-link" [routerLink]="['map']" mat-list-item (click)="sidenav.toggle()">
                     <mat-icon>map</mat-icon>
                     Ver Mapa ComuniTree</a>
-                <a class="nav-link" [routerLink]="['sendreport']" mat-list-item (click)="sidenav.toggle()">
-                    <mat-icon>backup</mat-icon>
-                    Enviar Reporte
-                </a>
                 <a class="nav-link" [routerLink]="['dashboard']" mat-list-item (click)="sidenav.toggle()">
                     <mat-icon>account_box</mat-icon>
                     Dashboard
