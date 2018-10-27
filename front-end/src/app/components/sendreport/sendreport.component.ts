@@ -12,7 +12,6 @@ import {FormControl, Validators} from '@angular/forms';
 export class SendreportComponent implements OnInit {
   tree: any;
   email: any;
-
   constructor( private router: Router,
                private activatedRoute: ActivatedRoute,
                private _treesService: TreesService) { }
@@ -25,12 +24,4 @@ export class SendreportComponent implements OnInit {
   success( ) {
     this.router.navigate( ['/success']);
   }
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
-  }
 }
-
-export class FormFieldErrorExample {
-  email = new FormControl('', [Validators.required, Validators.email]);

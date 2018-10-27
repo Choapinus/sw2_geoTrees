@@ -26,7 +26,7 @@
             </td>
             <td>
                 <mat-form-field>
-                    <input matInput placeholder="Ingrese su E-mail" required>
+                    <input matInput placeholder="Enter your email" required>
                 </mat-form-field>
             </td>
 
@@ -35,7 +35,7 @@
     <div class="example-container">
         <mat-form-field>
             <mat-label>Describe el problema</mat-label>
-            <textarea #input maxlength="500" matInput formControlName="Describa el problema" matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=5></textarea>
+            <textarea #input maxlength="500" matInput matTextareaAutosize matAutosizeMinRows=1 matAutosizeMaxRows=5></textarea>
             <mat-hint align="end">{{input.value?.length || 0}}/500</mat-hint>
         </mat-form-field>
 

@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 // AGM
 import { AgmCoreModule } from '@agm/core';
-import { TreesService } from './services/trees.service';
 import { SendreportComponent } from './components/sendreport/sendreport.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
@@ -19,7 +18,8 @@ import { SuccessComponent } from './components/success/success.component';
 
 
 // Services
-
+import { TreesService } from './services/trees.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,10 +40,11 @@ import { SuccessComponent } from './components/success/success.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA0f1JGCUziQ-AXZPASnZ3dq7krgUx_IuU'
     }),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    TreesService
+    TreesService,
   ],
   bootstrap: [AppComponent]
 })
