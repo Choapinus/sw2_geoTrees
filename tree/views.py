@@ -2,16 +2,17 @@ from django.http import HttpResponse, JsonResponse, QueryDict
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from .models import (
-	Tree, Root, Trunk, Leaf, Branch, 
+	Tree, Root, Trunk, Leaf, Branch, TypeTree,
 	Flower, Specie, Habitat, Benefict, Hazard
 )
 from .serializers import (
 	TreeSerializer, RootSerializer, TrunkSerializer, LeafSerializer, 
 	BranchSerializer, FlowerSerializer, SpecieSerializer, HabitatSerializer, 
-	BenefictSerializer, HazardSerializer
+	BenefictSerializer, HazardSerializer, TypeTreeSerializer
 )
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
+import datetime
 
 # Create your views here.
 class JSONResponse(HttpResponse):
@@ -643,24 +644,107 @@ def get_hazard(request, hazard_id=None):
 			}
 			return JsonResponse(response)
 
+# type
+def list_type(request):
+	if request.method == 'GET':
+		_type = TypeTree.objects.filter(active=True)
+		serializer = TypeTreeSerializer(_type, many=True)
+		data = {
+			'ok': True,
+			'data': serializer.data
+		}
+		return JSONResponse(data)
+		
+	else:
+		response = {
+			'ok': False,
+			'error': {
+				'message': 'There is no POST method implemented'
+			}
+		}
+		return JsonResponse(response)
+
+def get_type(request, type_id=None):
+	if type_id:
+		try:
+			_type = TypeTree.objects.get(pk=type_id)
+			serializer = TypeTreeSerializer(_type)
+			data = {
+				'ok': True,
+				'data': serializer.data
+			}
+			return JSONResponse(data)
+
+		except TypeTree.DoesNotExist:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no type tree with id {}'.format(type_id),
+				}
+			}
+			return JsonResponse(response)
+	else:
+		skip = request.GET.get('desde', 1)
+		to = request.GET.get('hasta', 2)
+		if skip and to:
+			skip, to = int(skip), int(to)
+			_type = TypeTree.objects.all()[skip-1:to+1]
+			serializer = TypeTreeSerializer(_type, many=True)
+			data = {
+				'ok': True,
+				'data': serializer.data,
+			}
+			return JSONResponse(data)
+		else:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no limits specified',
+				}
+			}
+			return JsonResponse(response)
 
 # todo
 @csrf_exempt
 def add_tree(request):
 	if request.method == 'POST':
-		data = JSONParser().parse(request)
-		print(data["description"])
-		# data = JSONParser().parse(request)
-		# serializer = TreeSerializer(data=data)
-		# if serializer.is_valid():
-		# 	serializer.save()
-		# 	return JsonResponse(serializer.data, status=201)
+		data = request.POST
 
-		# return JsonResponse(serializer.errors, status=400)		
+		tree = Tree()
+		tree._type = TypeTree.objects.get(pk=int(data["type_id"]))
+		tree.description = data["description"]
+		tree.lon = float(data["lon"])
+		tree.lat = float(data["lat"])
+		tree.size = int(data["size"])
+		date = datetime.datetime.strptime(data["grounded"], "%d/%m/%Y")
+		tree.grounded = date
+		tree.circumference = int(data["circumference"])
+		
+		tree.save()
+
+		hazard_list = request.POST.getlist("hazard")
+		hazard_list = list(map(int, hazard_list))
+		
+		if len(hazard_list) != 0:
+			for idx in hazard_list:
+				try:
+					hazard = Hazard.objects.get(pk=idx)
+					tree.hazard.add(hazard)
+				except Hazard.DoesNotExist:
+					data = {
+						'ok': False,
+						'message': 'Hazard with id {} does not exists'.format(idx)
+					}
+					return JSONResponse(data)
+
+		tree.save()
+		serializer = TreeSerializer(tree)
 
 		data = {
 			'ok': True,
-			'message': 'not implemented :P'
+			'data': serializer.data
 		}
 		return JSONResponse(data)
 	else:

@@ -10,6 +10,7 @@ from .views import (index,
 	get_habitat, list_habitat,
 	get_benefict, list_benefict,
 	get_hazard, list_hazard,
+	get_type, list_type,
 )
 
 urlpatterns = [
@@ -65,4 +66,9 @@ urlpatterns = [
 	path('amenaza/', get_hazard, name='get_hazard'),
 	path('amenaza/<int:hazard_id>/', get_hazard, name='get_hazard'),
 	path('amenaza/all/', list_hazard, name='list_hazard'), 
+
+	# type paths
+	path('tipo/', get_type, name='get_type'),
+	path('tipo/<int:type_id>/', get_type, name='get_type'),
+	path('tipo/all/', list_type, name='list_type'), 
 ]
