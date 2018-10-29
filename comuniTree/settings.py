@@ -26,7 +26,7 @@ SECRET_KEY = '5*gt-_cqyxv5idqvk4x+kl=-(9e&)+m9b2bkwrnpp*^3w56q&4'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['.comunitree.tk', '186.64.122.194']
+ALLOWED_HOSTS = ['.comunitree.tk', '186.64.122.194', 'localhost', '127.0.0.1', ]
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders'
+    'corsheaders',
     'rest_framework',
     'tree.apps.TreeConfig',
 ]
