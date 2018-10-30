@@ -1,0 +1,9 @@
+<div *ngIf="tree">
+    <h1>Virtual Scroll</h1>
+    <hr>
+    <cdk-virtual-scroll-viewport itemSize="50" class="list-container">
+        <div class="caja" *ngFor="let img of tree.photos; let i = index">
+            <img [src]='img.url' height="30px" width="30px">
+        </div>
+    </cdk-virtual-scroll-viewport>
+</div>

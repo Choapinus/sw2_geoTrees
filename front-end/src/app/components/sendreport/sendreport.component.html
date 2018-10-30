@@ -1,4 +1,4 @@
-<div class="example-cont">
+<div class="example-cont" fxFlexFill>
     <form class="example-form" *ngIf="tree">
 
         <mat-form-field class="Id">
@@ -15,21 +15,29 @@
 
         <table class="example-full-width" cellspacing="0">
             <tr>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Ingrese su nombre" required>
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Ingrese su apellido" required>
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field>
-                        <input matInput placeholder="Enter your email" required>
-                    </mat-form-field>
-                </td>
+                <div>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Ingrese su nombre" required>
+                        </mat-form-field>
+                    </td>
+
+                </div>
+                <div>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Ingrese su apellido" required>
+                        </mat-form-field>
+                    </td>
+                </div>
+                <div>
+                    <td>
+                        <mat-form-field>
+                            <input matInput placeholder="Enter your email" required>
+                        </mat-form-field>
+                    </td>
+                </div>
+
 
         </table>
 

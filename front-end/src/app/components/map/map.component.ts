@@ -31,6 +31,9 @@ export class MapComponent implements OnInit {
   sendReport( idx: number ) {
     this.router.navigate( ['/sendreport', idx] );
   }
+  seeMore( idx: number ) {
+    this.router.navigate( ['/seemore', idx] );
+  }
   getData( ) {
     return this.trees;
   }

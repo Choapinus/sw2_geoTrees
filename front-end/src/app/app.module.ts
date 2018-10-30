@@ -20,6 +20,7 @@ import { SuccessComponent } from './components/success/success.component';
 // Services
 import { TreesService } from './services/trees.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SeemoreComponent } from './components/seemore/seemore.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     TreeComponent,
     SuccessComponent,
+    SeemoreComponent,
   ],
   imports: [
     BrowserModule,

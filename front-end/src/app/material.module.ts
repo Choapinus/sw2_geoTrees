@@ -15,6 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 
 @NgModule({
   imports: [
@@ -32,7 +34,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScrollingModule
   ],
   exports: [
     MatToolbarModule,
@@ -48,7 +51,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScrollingModule
   ],
   declarations: []
 })

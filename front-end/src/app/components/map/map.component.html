@@ -8,7 +8,7 @@
                     <p style="color:black">Latitud = {{ tree.lat }} </p>
                     <p style="color:black">Longitud = {{ tree.lon }} </p>
                     <div>
-                        <a [routerLink]="['/sendreport']" mat-raised-button color="primary">Ver más</a>
+                        <button *ngIf="getData(); let trees" (click)="seeMore(trees[i].id)" mat-raised-button color="primary" type="button">Ver más</button>
                         <button *ngIf="getData(); let trees" (click)="sendReport(trees[i].id)" mat-raised-button color="warn" type="button">Enviar reporte</button>
                     </div>
                 </agm-info-window>
