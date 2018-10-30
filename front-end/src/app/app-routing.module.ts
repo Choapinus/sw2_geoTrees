@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'alerts', component: AlertsComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'success', component: SuccessComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'home' }
+  // { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 @NgModule({

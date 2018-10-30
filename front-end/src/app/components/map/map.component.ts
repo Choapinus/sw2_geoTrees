@@ -9,19 +9,32 @@ import { Router } from '@angular/router';
 })
 export class MapComponent implements OnInit {
   title = 'Mapa';
-  tree: any[] = [];
+  trees: any;
+  info: any;
+  response = 0;
   lat_init: number;
   lng_init: number;
 
   constructor(private _treesService: TreesService,
               private router: Router) {
-    this.tree = this._treesService.getTrees();
-    this.lat_init = this.tree[0].lat;
-    this.lng_init = this.tree[0].lng;
+                this._treesService.getTrees().subscribe(
+                  data => {
+                    this.trees = data.data;
+                  }
+                );
+                this.lat_init = -33.446947;
+                this.lng_init = -70.679253;
   }
   ngOnInit() {
+
   }
   sendReport( idx: number ) {
     this.router.navigate( ['/sendreport', idx] );
   }
+  getData( ) {
+    return this.trees;
+  }
+
+
+
 }

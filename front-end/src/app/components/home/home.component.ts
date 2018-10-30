@@ -8,7 +8,7 @@ import { TreesService } from '../../services/trees.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _treesService: TreesService) { }
+  constructor(private _treesService: TreesService) {}
 
   ngOnInit() {
   }
