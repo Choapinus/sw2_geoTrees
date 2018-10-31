@@ -2,17 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TreesService } from '../../services/trees.service';
 import { Router } from '@angular/router';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroupDirective, NgForm, Validators, EmailValidator} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
 import { CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER } from '@angular/cdk/overlay/typings/overlay-directives';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sendreport',
   templateUrl: './sendreport.component.html',
   styleUrls: ['./sendreport.component.css']
 })
+
 export class SendreportComponent implements OnInit {
+  email: string;
   tree: any;
-  email: any;
+  report: Object = {
+    name: '',
+    lastname: '',
+    email: '',
+    description: '',
+    priority: '3'
+  };
   constructor( private router: Router,
                private activatedRoute: ActivatedRoute,
                private _treesService: TreesService) {
@@ -27,7 +37,8 @@ export class SendreportComponent implements OnInit {
       );
     });
   }
-  success( ) {
+  submit(form: NgForm) {
     this.router.navigate( ['/success']);
+    console.log(this.report);
   }
 }
