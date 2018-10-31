@@ -16,7 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   imports: [
@@ -35,7 +35,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    ScrollingModule
+    ScrollingModule,
+    MatTabsModule
   ],
   exports: [
     MatToolbarModule,
@@ -52,7 +53,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    ScrollingModule
+    ScrollingModule,
+    MatTabsModule
   ],
   declarations: []
 })

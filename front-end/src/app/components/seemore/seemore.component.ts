@@ -19,9 +19,15 @@ export class SeemoreComponent implements OnInit {
     this._treesService.getTree(params['idx']).subscribe(
       data => {
         this.tree = data.data;
+        console.log(this.tree);
       }
     );
   });
   }
-
+  sendReport( idx: number ) {
+    this.router.navigate( ['/sendreport', idx] );
+  }
+  getData( ) {
+    return this.tree;
+  }
 }
