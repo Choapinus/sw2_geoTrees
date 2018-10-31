@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
-import { TranslateService, TranslateCompiler } from '@ngx-translate/core';
+import { NavController, NavParams } from 'ionic-angular';
+//import { Geolocation } from '@ionic-native/geolocation';
+//import { TranslateService, TranslateCompiler } from '@ngx-translate/core';
 
 import {
   GoogleMaps,
@@ -32,7 +32,7 @@ export class PPrincipalPage {
   }
 
   ionViewDidLoad() {
-    //this.loadMap();
+    this.loadMap();
     //console.log('ionViewDidLoad PPrincipalPage');
   }
 
