@@ -8,6 +8,7 @@
         <img mat-card-image [src]='("http://comunitree.tk:8080"+tree.photos[0].url)' [alt]='tree.id'>
         <mat-card-content>
             <mat-tab-group>
+
                 <mat-tab label="Identificación">
                     <p>Código de identificación: {{ tree.id }}</p>
                     <p>Latitud: {{ tree.lat }}</p>
@@ -35,9 +36,11 @@
             <button *ngIf="getData(); let trees" (click)="sendReport(tree.id)" mat-raised-button color="warn" type="button">Enviar reporte</button>
         </mat-card-actions>
     </mat-card>
-    <cdk-virtual-scroll-viewport itemSize="3" class="list-container">
-        <div class="caja" *ngFor="let img of tree.photos">
-            <img [src]='("http://comunitree.tk:8080"+img.url)' height="200px" width="200px">
-        </div>
-    </cdk-virtual-scroll-viewport>
+    <div #sidenav>
+        <cdk-virtual-scroll-viewport itemSize="3" class="list-container">
+            <div class="caja" *ngFor="let img of tree.photos">
+                <img [src]='("http://comunitree.tk:8080"+img.url)' height="300px" width="300px">
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </div>
 </div>

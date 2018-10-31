@@ -15,7 +15,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { TreeComponent } from './components/tree/tree.component';
 import { SuccessComponent } from './components/success/success.component';
-
+import {ErrorStateMatcher, ShowOnDirtyErrorStateMatcher} from '@angular/material/core';
 
 // Services
 import { TreesService } from './services/trees.service';
@@ -33,7 +33,7 @@ import { SeemoreComponent } from './components/seemore/seemore.component';
     HomeComponent,
     TreeComponent,
     SuccessComponent,
-    SeemoreComponent,
+    SeemoreComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +47,7 @@ import { SeemoreComponent } from './components/seemore/seemore.component';
   ],
   providers: [
     TreesService,
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ],
   bootstrap: [AppComponent]
 })
