@@ -16,10 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from rest_framework.documentation import include_docs_urls
+
+# schema_view = get_swagger_view(title='Polls API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tree.urls')),
+    path('api/v1/', include('api.urls')),
+    # path(r'swagger-docs/', schema_view),
+    path(r'docs/', include_docs_urls(title='Polls API')),
 ]
 
 if settings.DEBUG:

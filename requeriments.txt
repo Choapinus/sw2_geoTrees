@@ -3,3 +3,4 @@ djangorestframework
 Pillow
 requests
 django-cors-headers
+coreapi
