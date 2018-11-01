@@ -4,3 +4,4 @@ Pillow
 requests
 django-cors-headers
 coreapi
+django-rest-auth
