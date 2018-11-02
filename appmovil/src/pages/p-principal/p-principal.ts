@@ -19,7 +19,6 @@ import {
 })
 export class PPrincipalPage {
 
-
   irpaginaprincipal(){
     this.navCtrl.push(PPrincipalPage);
   }
@@ -33,15 +32,15 @@ export class PPrincipalPage {
 
   ionViewDidLoad() {
     this.loadMap();
-    console.log('ionViewDidLoad PPrincipalPage');
+    //console.log('ionViewDidLoad PPrincipalPage');
   }
 
   loadMap() {
 
     // This code is necessary for browser
     Environment.setEnv({
-      'API_KEY_FOR_BROWSER_RELEASE': '',
-      'API_KEY_FOR_BROWSER_DEBUG': ''
+      'API_KEY_FOR_BROWSER_RELEASE': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap',
+      'API_KEY_FOR_BROWSER_DEBUG': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap'
     });
 
     let mapOptions: GoogleMapOptions = {
