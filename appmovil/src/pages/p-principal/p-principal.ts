@@ -33,7 +33,7 @@ export class PPrincipalPage {
 
   ionViewDidLoad() {
     this.loadMap();
-    //console.log('ionViewDidLoad PPrincipalPage');
+    console.log('ionViewDidLoad PPrincipalPage');
   }
 
   loadMap() {
@@ -70,4 +70,7 @@ export class PPrincipalPage {
       alert('clicked');
     });
   }
+
+
+
 }

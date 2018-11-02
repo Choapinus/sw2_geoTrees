@@ -127,7 +127,7 @@ var PPrincipalPage = /** @class */ (function () {
     };
     PPrincipalPage.prototype.ionViewDidLoad = function () {
         this.loadMap();
-        //console.log('ionViewDidLoad PPrincipalPage');
+        console.log('ionViewDidLoad PPrincipalPage');
     };
     PPrincipalPage.prototype.loadMap = function () {
         // This code is necessary for browser

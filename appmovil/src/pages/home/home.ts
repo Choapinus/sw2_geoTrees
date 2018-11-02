@@ -15,7 +15,7 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
 
   }
-
+  
   login(){
     this.navCtrl.push(PPrincipalPage);
     /*console.log("Username: " + this.username);
