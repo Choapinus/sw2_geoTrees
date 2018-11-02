@@ -3,14 +3,14 @@ services:
         # db:
                 # container_name: postgres_django
                 # image: postgres
-        web:
+        web_test:
                 build: .
-                command: python manage.py runserver 0:8080
+                command: python manage.py runserver 0:8081
                 environment:
                         - PYTHONUNBUFFERED=1
                 volumes:
                         - .:/code
                 ports:
-                        - "8080:8080"
+                        - "8081:8081"
                 # depends_on:
                 #        - db

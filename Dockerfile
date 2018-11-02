@@ -1,6 +1,6 @@
 FROM python:3.6-alpine
 
-ENV PYTHONBUFFERED 1
+# ENV PYTHONBUFFERED 1
 
 RUN apk update
 
@@ -22,6 +22,6 @@ RUN pip install -r requeriments.txt
 
 COPY . /code/
 
-EXPOSE 8080
+# EXPOSE 8080
 
-CMD python manage.py runserver 0:$PORT
+# CMD python manage.py runserver 0:$PORT
