@@ -6,10 +6,10 @@ import { NavController, NavParams } from 'ionic-angular';
 import {
   GoogleMaps,
   GoogleMap,
-  GoogleMapsEvent,
+  //GoogleMapsEvent,
   GoogleMapOptions,
-  Marker,
-  Environment
+  //Marker,
+  //Environment
 } from '@ionic-native/google-maps';
 
 
@@ -37,17 +37,23 @@ export class PPrincipalPage {
 
   loadMap() {
 
-    // This code is necessary for browser
+/*    // This code is necessary for browser
     Environment.setEnv({
       'API_KEY_FOR_BROWSER_RELEASE': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap',
       'API_KEY_FOR_BROWSER_DEBUG': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap'
     });
-
+*/
     let mapOptions: GoogleMapOptions = {
+      controls: {
+        compass: true,
+        myLocation: true,
+        myLocationButton: true,
+        mapToolbar: true
+      },
       camera: {
          target: {
-           lat: -33.610554,
-           lng: -70.594103
+           lat: 43.0741904,
+           lng: -89.3809802
          },
          zoom: 18,
          tilt: 30
@@ -56,6 +62,8 @@ export class PPrincipalPage {
 
     this.map = GoogleMaps.create('map_canvas', mapOptions);
 
+
+/*
     let marker: Marker = this.map.addMarkerSync({
       title: 'Ionic',
       icon: 'blue',
@@ -68,6 +76,7 @@ export class PPrincipalPage {
     marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
       alert('clicked');
     });
+*/
   }
 
 

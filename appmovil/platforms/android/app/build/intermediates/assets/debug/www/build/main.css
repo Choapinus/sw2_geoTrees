@@ -25689,5 +25689,7 @@ page-p-principal ion-title * {
 }
 
 page-p-principal #map_canvas {
-  height: 90%;
+  display: block;
+  height: 100%;
+  width: 100%;
 }

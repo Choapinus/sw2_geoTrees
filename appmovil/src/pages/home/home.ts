@@ -17,7 +17,7 @@ export class HomePage {
   }
   
   login(){
-    this.navCtrl.push(PPrincipalPage);
+    this.navCtrl.push(HomePage);
     /*console.log("Username: " + this.username);
     console.log("Password: " + this.password);*/
   }
