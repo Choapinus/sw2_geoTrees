@@ -9,22 +9,25 @@ import {
   //GoogleMapsEvent,
   GoogleMapOptions,
   //Marker,
-  //Environment
+  Environment
 } from '@ionic-native/google-maps';
+import { HomePage } from '../home/home';
+import { PerfilPage } from '../perfil/perfil';
 
 
 @Component({
   selector: 'page-p-principal',
-  templateUrl: 'p-principal.html',
+  templateUrl: 'p-principal.html'
 })
 export class PPrincipalPage {
 
-  irpaginaprincipal(){
-    this.navCtrl.push(PPrincipalPage);
-  }
   irperfil(){
-    this.navCtrl.push("Perfil");
+    this.navCtrl.push(PerfilPage);
   }
+  regresar(){
+    this.navCtrl.setRoot(PPrincipalPage);
+  }
+
   map: GoogleMap;
 
   constructor(public navCtrl: NavController, public navParams: NavParams /*,private geolocation: Geolocation*/) {
@@ -37,12 +40,12 @@ export class PPrincipalPage {
 
   loadMap() {
 
-/*    // This code is necessary for browser
+    // This code is necessary for browser
     Environment.setEnv({
       'API_KEY_FOR_BROWSER_RELEASE': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap',
       'API_KEY_FOR_BROWSER_DEBUG': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap'
     });
-*/
+
     let mapOptions: GoogleMapOptions = {
       controls: {
         compass: true,
@@ -52,8 +55,8 @@ export class PPrincipalPage {
       },
       camera: {
          target: {
-           lat: 43.0741904,
-           lng: -89.3809802
+           lat: -33.599623, 
+           lng: -70.577780
          },
          zoom: 18,
          tilt: 30

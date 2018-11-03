@@ -9,7 +9,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'perfil.html',
 })
 
-export class Perfil {//lazy loading
+export class PerfilPage {//lazy loading
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
