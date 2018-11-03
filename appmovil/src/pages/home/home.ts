@@ -1,23 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ArbolPage } from '../arbol/arbol'
-
-import {
-  GoogleMaps,
-  GoogleMap,
-  //GoogleMapsEvent,
-  GoogleMapOptions,
-  //Marker,
-  //Environment
-} from '@ionic-native/google-maps';
+import { Geolocation } from '@ionic-native/geolocation';
+declare var google;
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage 
+export class HomePage implements OnInit
 {
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+    private geolocation: Geolocation) {
 
   }
 
@@ -25,10 +19,32 @@ export class HomePage
     this.navCtrl.push( ArbolPage );
   }
 
+  ngOnInit(){
+    this.loadMap();
+  }
+  async loadMap() {
+    const rta = await this.geolocation.getCurrentPosition();
 
+    const myLatLng = {
+      lat: rta.coords.latitude,
+      lng: rta.coords.longitude
+    };
+    console.log(myLatLng);
+    const mapEle: HTMLElement = document.getElementById('map');
+    const map = new google.maps.Map(mapEle, {
+      center: myLatLng,
+      zoom: 12
+    });
+  }
+
+
+
+
+
+/*
   map: GoogleMap;
 
-  ionViewDidLoad() {
+  ngOnInit() {
     this.loadMap();
     //console.log('ionViewDidLoad PPrincipalPage');
   }
@@ -39,7 +55,7 @@ export class HomePage
     /*Environment.setEnv({
       'API_KEY_FOR_BROWSER_RELEASE': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap',
       'API_KEY_FOR_BROWSER_DEBUG': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap'
-    });*/
+    });
 
     let mapOptions: GoogleMapOptions = {
       controls: {
@@ -76,4 +92,3 @@ export class HomePage
     });
 */
   }
-}

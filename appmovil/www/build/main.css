@@ -25678,10 +25678,12 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-google-map #map {
+#map {
+  width: 100%;
   height: 100%;
 }
 
-page-p-principal #map_canvas {
+page-p-principal #map {
   height: 100%;
+  width: 100%;
 }

@@ -1,12 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
-import {
-  GoogleMaps,
-  GoogleMap,
-  //GoogleMapsEvent,
-  GoogleMapOptions,
-  //Marker,
-  //Environment
-} from '@ionic-native/google-maps';
+import { Component, ViewChild, OnInit } from '@angular/core';
+declare var google;
+
+import { Geolocation } from '@ionic-native/geolocation';
 /**
  * Generated class for the GoogleMapComponent component.
  *
@@ -17,32 +12,28 @@ import {
   selector: 'google-map',
   templateUrl: 'google-map.html'
 })
-export class GoogleMapComponent {
-  map: GoogleMap;
-  constructor() {
+export class GoogleMapComponent implements OnInit{
+  constructor(
+    private geolocation: Geolocation
+  ) {
   }
 
   ngOnInit(){
     this.loadMap();
   }
-  
-  loadMap() {
+  async loadMap() {
+    const rta = await this.geolocation.getCurrentPosition();
 
-    // This code is necessary for browser
-    
-
-    let mapOptions: GoogleMapOptions = {
-      camera: {
-         target: {
-           lat: 43.0741904,
-           lng: -89.3809802
-         },
-         zoom: 18,
-         tilt: 30
-       }
+    const myLatLng = {
+      lat: rta.coords.latitude,
+      lng: rta.coords.longitude
     };
-
-    this.map = GoogleMaps.create('map_canvas', mapOptions);
+    console.log(myLatLng);
+    const mapEle: HTMLElement = document.getElementById('map');
+    const map = new google.maps.Map(mapEle, {
+      center: myLatLng,
+      zoom: 12
+    });
   }
 
 }
