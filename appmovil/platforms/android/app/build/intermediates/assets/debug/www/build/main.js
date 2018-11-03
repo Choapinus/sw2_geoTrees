@@ -230,7 +230,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.loadMap = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var rta, myLatLng, mapEle, map;
+            var rta, myLatLng, mapEle, mapOptions, map;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.geolocation.getCurrentPosition()];
@@ -242,10 +242,14 @@ var HomePage = /** @class */ (function () {
                         };
                         console.log(myLatLng);
                         mapEle = document.getElementById('map');
-                        map = new google.maps.Map(mapEle, {
+                        mapOptions = {
+                            controls: {
+                                myLocationButton: true
+                            },
                             center: myLatLng,
                             zoom: 12
-                        });
+                        };
+                        map = new google.maps.Map(mapEle, mapOptions);
                         return [2 /*return*/];
                 }
             });
