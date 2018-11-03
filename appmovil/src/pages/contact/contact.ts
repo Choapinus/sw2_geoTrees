@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ArbolPage } from '../arbol/arbol';
 
 @Component({
   selector: 'page-contact',
@@ -7,8 +8,11 @@ import { NavController } from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private navCtrl: NavController) {
 
+  }
+  openarbol(){
+    this.navCtrl.push( ArbolPage );
   }
 
 }

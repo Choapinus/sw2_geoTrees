@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ArbolPage } from '../arbol/arbol'
 
 import {
   GoogleMaps,
@@ -18,6 +19,10 @@ export class HomePage
 {
   constructor(public navCtrl: NavController) {
 
+  }
+
+  openarbol(){
+    this.navCtrl.push( ArbolPage );
   }
 
 
