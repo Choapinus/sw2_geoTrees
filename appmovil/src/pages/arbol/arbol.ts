@@ -15,7 +15,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   templateUrl: 'arbol.html',
 })
 export class ArbolPage {
-  private base64Image : string;
+  public base64Image : string;
   constructor(public navCtrl: NavController, private camera: Camera) {
 
   }

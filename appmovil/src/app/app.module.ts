@@ -13,6 +13,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 
+import { GoogleMapComponent } from '../components/google-map/google-map'
+
 @NgModule({
   declarations: [
     MyApp,
@@ -20,7 +22,8 @@ import { Camera } from '@ionic-native/camera';
     ContactPage,
     HomePage,
     TabsPage,
-    ArbolPage
+    ArbolPage,
+    GoogleMapComponent,
   ],
   imports: [
     BrowserModule,

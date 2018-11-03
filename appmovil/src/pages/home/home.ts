@@ -8,7 +8,7 @@ import {
   //GoogleMapsEvent,
   GoogleMapOptions,
   //Marker,
-  Environment
+  //Environment
 } from '@ionic-native/google-maps';
 
 @Component({
@@ -36,10 +36,10 @@ export class HomePage
   loadMap() {
 
     // This code is necessary for browser
-    Environment.setEnv({
+    /*Environment.setEnv({
       'API_KEY_FOR_BROWSER_RELEASE': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap',
       'API_KEY_FOR_BROWSER_DEBUG': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap'
-    });
+    });*/
 
     let mapOptions: GoogleMapOptions = {
       controls: {
