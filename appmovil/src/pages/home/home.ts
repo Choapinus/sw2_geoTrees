@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ArbolPage } from '../arbol/arbol'
 import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMaps, GoogleMap, GoogleMapOptions } from '@ionic-native/google-maps';
 declare var google;
 
 @Component({
@@ -31,10 +32,16 @@ export class HomePage implements OnInit
     };
     console.log(myLatLng);
     const mapEle: HTMLElement = document.getElementById('map');
-    const map = new google.maps.Map(mapEle, {
+
+    let mapOptions: GoogleMapOptions = {
+      controls: {
+        myLocationButton: true
+      },
       center: myLatLng,
       zoom: 12
-    });
+
+    }
+    const map = new google.maps.Map(mapEle,mapOptions);
   }
 
 

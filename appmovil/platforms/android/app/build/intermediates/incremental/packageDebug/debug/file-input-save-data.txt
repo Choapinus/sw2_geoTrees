@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Nov 03 06:53:30 CLST 2018
+#Sat Nov 03 07:39:22 CLST 2018
 60.set=ASSET
 52.set=ASSET
 53.base=D\:\\Project\\SW2_geoTrees\\appmovil\\platforms\\android\\app\\build\\intermediates\\assets\\debug
