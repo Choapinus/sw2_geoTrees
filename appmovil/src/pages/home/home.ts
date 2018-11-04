@@ -32,16 +32,14 @@ export class HomePage implements OnInit
     };
     console.log(myLatLng);
     const mapEle: HTMLElement = document.getElementById('map');
-
+    
     let mapOptions: GoogleMapOptions = {
-      controls: {
-        myLocationButton: true
-      },
       center: myLatLng,
       zoom: 12
 
     }
     const map = new google.maps.Map(mapEle,mapOptions);
+    console.log(map);
   }
 
 

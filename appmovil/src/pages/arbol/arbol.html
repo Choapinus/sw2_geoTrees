@@ -15,21 +15,87 @@
 
 <ion-content padding>
     <ion-list>
+        <ion-card>
+            <ion-item>
+                <ion-label stacked>Nombre</ion-label>
+                <ion-input type="nombre"></ion-input>
+            </ion-item>
 
+            <ion-item>
+                <ion-label stacked>Nombre Cientifico</ion-label>
+                <ion-input type="nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Descripción</ion-label>
+                <ion-input type="nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Familia</ion-label>
+                <ion-input type="nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Orden</ion-label>
+                <ion-input type="nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Clase</ion-label>
+                <ion-input type="nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>subClase</ion-label>
+                <ion-input type="nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Origen</ion-label>
+                <ion-input type="nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Preservación</ion-label>
+                <ion-input type="nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Color de la corteza</ion-label>
+                <ion-input type="nombre"></ion-input>
+            </ion-item>
+        </ion-card>
         <ion-item>
-            <ion-label stacked>Nombre</ion-label>
+            <ion-label floating>Descripcion General</ion-label>
             <ion-input type="nombre"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label stacked>Tipo</ion-label>
+            <ion-label floating>Tamaño</ion-label>
             <ion-input type="tipo"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Fotografia</ion-label>
+            <ion-label floating>Circunferencia</ion-label>
+            <ion-input type="tipo"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <p>Coordenadas</p>
+            <p>
+                {{lat}}
+            </p>
+            <p>
+                {{lon}}
+            </p>
+        </ion-item>
+
+        <ion-item>
+            <p>Fotografia</p>
             <img [src]="base64Image">
         </ion-item>
+
         <ion-label>
             <button ion-button full icon-start (click)="sacarfoto()">
                         Tomar Fotografia 

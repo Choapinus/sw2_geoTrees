@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-
+import { Geolocation } from '@ionic-native/geolocation';
 /**
  * Generated class for the ArbolPage page.
  *
@@ -15,13 +15,27 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   templateUrl: 'arbol.html',
 })
 export class ArbolPage {
+  public lat:any;
+  public lon:any;
+
   public base64Image : string;
-  constructor(public navCtrl: NavController, private camera: Camera) {
+  constructor(
+    public navCtrl: NavController, 
+    private camera: Camera, 
+    public geo: Geolocation) {
 
   }
   
 
   ionViewDidLoad() {
+    this.geo.getCurrentPosition().then( pos => {
+      this.lat = pos.coords.latitude;
+      this.lon = pos.coords.longitude;
+    }
+
+    ).catch( err => console.log(err));
+
+
     console.log('ionViewDidLoad ArbolPage');
   }
 

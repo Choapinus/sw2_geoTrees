@@ -12,8 +12,10 @@ import { ArbolPage } from '../pages/arbol/arbol'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
-import { Geolocation } from '@ionic-native/geolocation'
-import { GoogleMapComponent } from '../components/google-map/google-map'
+import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMapComponent } from '../components/google-map/google-map';
+import { ProArbolesProvider } from '../providers/pro-arboles/pro-arboles';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { GoogleMapComponent } from '../components/google-map/google-map'
     GoogleMapComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -43,7 +46,8 @@ import { GoogleMapComponent } from '../components/google-map/google-map'
     SplashScreen,
     Camera,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ProArbolesProvider,
   ]
 })
 export class AppModule {}
