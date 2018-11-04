@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ArbolPage } from '../arbol/arbol'
 import { Geolocation } from '@ionic-native/geolocation';
-import { GoogleMaps, GoogleMap, GoogleMapOptions } from '@ionic-native/google-maps';
+import { GoogleMaps, GoogleMap, GoogleMapOptions, Marker, MarkerOptions } from '@ionic-native/google-maps';
+import { HttpClient } from '@angular/common/http';
+import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
+import { hostViewClassName } from '@angular/compiler';
+
 declare var google;
 
 @Component({
@@ -11,8 +15,12 @@ declare var google;
 })
 export class HomePage implements OnInit
 {
-  constructor(public navCtrl: NavController,
-    private geolocation: Geolocation) {
+  constructor(
+    public navCtrl: NavController,
+    private geolocation: Geolocation,
+    public http: HttpClient
+    ){
+
 
   }
 
@@ -36,11 +44,19 @@ export class HomePage implements OnInit
     let mapOptions: GoogleMapOptions = {
       center: myLatLng,
       zoom: 12
-
     }
+    
+    
+
     const map = new google.maps.Map(mapEle,mapOptions);
     console.log(map);
+
+
+
+
   }
+  
+
 
 
 
