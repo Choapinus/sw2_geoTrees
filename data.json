@@ -1,0 +1,867 @@
+[{
+  "type_id": 1,
+  "description": "lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt",
+  "lon": -11.784943,
+  "lat": 20.788986,
+  "size": 42,
+  "grounded": "29/11/2010",
+  "circumference": 77
+}, {
+  "type_id": 1,
+  "description": "fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat",
+  "lon": 46.79198,
+  "lat": 48.169233,
+  "size": 53,
+  "grounded": "07/07/2012",
+  "circumference": 90,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend",
+  "lon": -8.620053,
+  "lat": -12.93395,
+  "size": 58,
+  "grounded": "19/07/2011",
+  "circumference": 65
+}, {
+  "type_id": 1,
+  "description": "vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget",
+  "lon": 45.212532,
+  "lat": 23.970194,
+  "size": 11,
+  "grounded": "25/04/2013",
+  "circumference": 72
+}, {
+  "type_id": 1,
+  "description": "duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis",
+  "lon": 15.930154,
+  "lat": 46.685389,
+  "size": 70,
+  "grounded": "27/07/2017",
+  "circumference": 73
+}, {
+  "type_id": 1,
+  "description": "curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae",
+  "lon": -18.755174,
+  "lat": 42.728572,
+  "size": 3,
+  "grounded": "31/12/2016",
+  "circumference": 49
+}, {
+  "type_id": 1,
+  "description": "id lobortis convallis tortor risus dapibus augue vel accumsan tellus",
+  "lon": 12.315319,
+  "lat": 24.721609,
+  "size": 15,
+  "grounded": "06/09/2014",
+  "circumference": 26
+}, {
+  "type_id": 1,
+  "description": "nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis",
+  "lon": 37.716255,
+  "lat": 48.755496,
+  "size": 69,
+  "grounded": "01/05/2013",
+  "circumference": 98
+}, {
+  "type_id": 1,
+  "description": "natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida",
+  "lon": 39.212635,
+  "lat": 43.881139,
+  "size": 42,
+  "grounded": "15/08/2016",
+  "circumference": 56,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "a suscipit nulla elit ac nulla sed vel enim sit amet",
+  "lon": 31.97081,
+  "lat": -26.951668,
+  "size": 72,
+  "grounded": "08/02/2018",
+  "circumference": 69
+}, {
+  "type_id": 1,
+  "description": "consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia",
+  "lon": -20.470466,
+  "lat": -28.232126,
+  "size": 53,
+  "grounded": "22/05/2011",
+  "circumference": 93
+}, {
+  "type_id": 1,
+  "description": "posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi",
+  "lon": -16.061262,
+  "lat": -8.53157,
+  "size": 82,
+  "grounded": "31/07/2017",
+  "circumference": 52
+}, {
+  "type_id": 1,
+  "description": "sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante",
+  "lon": -18.13858,
+  "lat": -12.729503,
+  "size": 41,
+  "grounded": "01/11/2017",
+  "circumference": 77
+}, {
+  "type_id": 1,
+  "description": "vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel",
+  "lon": -20.071805,
+  "lat": -21.949306,
+  "size": 82,
+  "grounded": "30/12/2011",
+  "circumference": 60
+}, {
+  "type_id": 1,
+  "description": "vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede",
+  "lon": -24.474045,
+  "lat": 0.610777,
+  "size": 29,
+  "grounded": "26/10/2014",
+  "circumference": 88,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea",
+  "lon": 8.629717,
+  "lat": -1.067598,
+  "size": 46,
+  "grounded": "08/01/2018",
+  "circumference": 75
+}, {
+  "type_id": 1,
+  "description": "elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam",
+  "lon": 44.49238,
+  "lat": 45.463275,
+  "size": 97,
+  "grounded": "27/05/2011",
+  "circumference": 40
+}, {
+  "type_id": 1,
+  "description": "odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar",
+  "lon": -15.533531,
+  "lat": 43.466149,
+  "size": 25,
+  "grounded": "13/05/2012",
+  "circumference": 70
+}, {
+  "type_id": 1,
+  "description": "mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer",
+  "lon": 1.43176,
+  "lat": -12.500619,
+  "size": 97,
+  "grounded": "02/12/2017",
+  "circumference": 61
+}, {
+  "type_id": 1,
+  "description": "vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a",
+  "lon": 39.408882,
+  "lat": 36.858693,
+  "size": 38,
+  "grounded": "30/10/2014",
+  "circumference": 56
+}, {
+  "type_id": 1,
+  "description": "fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi",
+  "lon": 38.760803,
+  "lat": 16.203783,
+  "size": 53,
+  "grounded": "25/05/2018",
+  "circumference": 60
+}, {
+  "type_id": 1,
+  "description": "donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed",
+  "lon": 34.654559,
+  "lat": -17.700474,
+  "size": 50,
+  "grounded": "05/07/2015",
+  "circumference": 98
+}, {
+  "type_id": 1,
+  "description": "sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean",
+  "lon": 40.011914,
+  "lat": 19.803517,
+  "size": 84,
+  "grounded": "23/04/2014",
+  "circumference": 59
+}, {
+  "type_id": 1,
+  "description": "curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum",
+  "lon": 15.224319,
+  "lat": 20.948095,
+  "size": 56,
+  "grounded": "23/07/2017",
+  "circumference": 27
+}, {
+  "type_id": 1,
+  "description": "magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus",
+  "lon": 38.529819,
+  "lat": 12.957813,
+  "size": 23,
+  "grounded": "06/04/2018",
+  "circumference": 53
+}, {
+  "type_id": 1,
+  "description": "magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget",
+  "lon": -27.087279,
+  "lat": 11.546346,
+  "size": 90,
+  "grounded": "04/10/2018",
+  "circumference": 56,
+  "hazard": [
+    2
+  ]
+}, {
+  "type_id": 1,
+  "description": "mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus",
+  "lon": 0.652607,
+  "lat": -19.117483,
+  "size": 78,
+  "grounded": "18/10/2018",
+  "circumference": 70
+}, {
+  "type_id": 1,
+  "description": "ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec",
+  "lon": -22.851668,
+  "lat": 8.790259,
+  "size": 14,
+  "grounded": "02/09/2018",
+  "circumference": 35,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque",
+  "lon": -4.519738,
+  "lat": -15.239479,
+  "size": 60,
+  "grounded": "23/09/2012",
+  "circumference": 65
+}, {
+  "type_id": 1,
+  "description": "ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in",
+  "lon": 11.467351,
+  "lat": -13.238412,
+  "size": 20,
+  "grounded": "01/08/2015",
+  "circumference": 31
+}, {
+  "type_id": 1,
+  "description": "felis donec semper sapien a libero nam dui proin leo",
+  "lon": 49.287323,
+  "lat": 19.366266,
+  "size": 29,
+  "grounded": "07/10/2012",
+  "circumference": 37
+}, {
+  "type_id": 1,
+  "description": "lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat",
+  "lon": -12.349538,
+  "lat": -17.2804,
+  "size": 69,
+  "grounded": "08/08/2014",
+  "circumference": 92,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat",
+  "lon": 17.150748,
+  "lat": 14.182534,
+  "size": 78,
+  "grounded": "20/11/2010",
+  "circumference": 55
+}, {
+  "type_id": 1,
+  "description": "morbi a ipsum integer a nibh in quis justo maecenas",
+  "lon": 45.08988,
+  "lat": 26.83416,
+  "size": 42,
+  "grounded": "28/05/2018",
+  "circumference": 77
+}, {
+  "type_id": 1,
+  "description": "diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum",
+  "lon": -26.720321,
+  "lat": -18.351478,
+  "size": 54,
+  "grounded": "28/08/2014",
+  "circumference": 82
+}, {
+  "type_id": 1,
+  "description": "nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce",
+  "lon": 40.152666,
+  "lat": 9.329571,
+  "size": 23,
+  "grounded": "26/07/2014",
+  "circumference": 70
+}, {
+  "type_id": 1,
+  "description": "rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus",
+  "lon": 43.138989,
+  "lat": -28.900627,
+  "size": 41,
+  "grounded": "08/04/2011",
+  "circumference": 48,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus",
+  "lon": 5.083726,
+  "lat": 40.512946,
+  "size": 57,
+  "grounded": "15/04/2015",
+  "circumference": 53
+}, {
+  "type_id": 1,
+  "description": "vulputate elementum nullam varius nulla facilisi cras non velit nec",
+  "lon": -11.644061,
+  "lat": 19.21395,
+  "size": 32,
+  "grounded": "07/05/2015",
+  "circumference": 50
+}, {
+  "type_id": 1,
+  "description": "posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros",
+  "lon": 49.526804,
+  "lat": -18.319842,
+  "size": 1,
+  "grounded": "07/01/2014",
+  "circumference": 65,
+  "hazard": [
+    2
+  ]
+}, {
+  "type_id": 1,
+  "description": "sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque",
+  "lon": 36.447648,
+  "lat": 25.206936,
+  "size": 24,
+  "grounded": "15/08/2016",
+  "circumference": 35,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum",
+  "lon": -13.591876,
+  "lat": 5.246266,
+  "size": 51,
+  "grounded": "21/03/2017",
+  "circumference": 34,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui",
+  "lon": -18.06289,
+  "lat": 43.476386,
+  "size": 99,
+  "grounded": "30/03/2013",
+  "circumference": 33
+}, {
+  "type_id": 1,
+  "description": "convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate",
+  "lon": -25.921106,
+  "lat": 31.900227,
+  "size": 57,
+  "grounded": "05/02/2014",
+  "circumference": 98
+}, {
+  "type_id": 1,
+  "description": "in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum",
+  "lon": 47.335588,
+  "lat": 21.514121,
+  "size": 39,
+  "grounded": "15/12/2014",
+  "circumference": 33,
+  "hazard": [
+    2
+  ]
+}, {
+  "type_id": 1,
+  "description": "vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra",
+  "lon": 45.992511,
+  "lat": -16.127982,
+  "size": 86,
+  "grounded": "14/07/2013",
+  "circumference": 72
+}, {
+  "type_id": 1,
+  "description": "volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in",
+  "lon": 23.387425,
+  "lat": -27.141551,
+  "size": 10,
+  "grounded": "05/07/2018",
+  "circumference": 25
+}, {
+  "type_id": 1,
+  "description": "proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit",
+  "lon": -27.410857,
+  "lat": -21.691723,
+  "size": 15,
+  "grounded": "22/07/2015",
+  "circumference": 43
+}, {
+  "type_id": 1,
+  "description": "odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec",
+  "lon": -4.796441,
+  "lat": -12.466902,
+  "size": 27,
+  "grounded": "21/05/2016",
+  "circumference": 34
+}, {
+  "type_id": 1,
+  "description": "pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac",
+  "lon": -19.869473,
+  "lat": 39.020467,
+  "size": 80,
+  "grounded": "13/05/2018",
+  "circumference": 25
+}, {
+  "type_id": 1,
+  "description": "vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget",
+  "lon": 43.117884,
+  "lat": -15.727759,
+  "size": 36,
+  "grounded": "30/10/2013",
+  "circumference": 90
+}, {
+  "type_id": 1,
+  "description": "vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra",
+  "lon": -6.417594,
+  "lat": 37.064043,
+  "size": 72,
+  "grounded": "07/10/2012",
+  "circumference": 70
+}, {
+  "type_id": 1,
+  "description": "at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit",
+  "lon": 2.365016,
+  "lat": -7.228736,
+  "size": 11,
+  "grounded": "22/06/2014",
+  "circumference": 55
+}, {
+  "type_id": 1,
+  "description": "curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet",
+  "lon": -4.924972,
+  "lat": 43.073332,
+  "size": 80,
+  "grounded": "10/01/2017",
+  "circumference": 99
+}, {
+  "type_id": 1,
+  "description": "fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit",
+  "lon": -7.236069,
+  "lat": -0.698539,
+  "size": 61,
+  "grounded": "27/09/2012",
+  "circumference": 58
+}, {
+  "type_id": 1,
+  "description": "tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis",
+  "lon": 6.149958,
+  "lat": -21.232828,
+  "size": 66,
+  "grounded": "16/11/2017",
+  "circumference": 37
+}, {
+  "type_id": 1,
+  "description": "aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet",
+  "lon": -6.62115,
+  "lat": 44.438315,
+  "size": 15,
+  "grounded": "17/09/2016",
+  "circumference": 70
+}, {
+  "type_id": 1,
+  "description": "suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus",
+  "lon": 21.793323,
+  "lat": -20.861044,
+  "size": 67,
+  "grounded": "30/05/2011",
+  "circumference": 85
+}, {
+  "type_id": 1,
+  "description": "amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus",
+  "lon": 49.51354,
+  "lat": -25.395226,
+  "size": 25,
+  "grounded": "06/06/2012",
+  "circumference": 41
+}, {
+  "type_id": 1,
+  "description": "vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus",
+  "lon": 31.118431,
+  "lat": -17.154506,
+  "size": 89,
+  "grounded": "06/09/2014",
+  "circumference": 39
+}, {
+  "type_id": 1,
+  "description": "vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta",
+  "lon": -10.461983,
+  "lat": -23.388952,
+  "size": 76,
+  "grounded": "14/10/2015",
+  "circumference": 62,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi",
+  "lon": -5.346259,
+  "lat": 19.498218,
+  "size": 70,
+  "grounded": "05/04/2014",
+  "circumference": 70
+}, {
+  "type_id": 1,
+  "description": "quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in",
+  "lon": -6.22521,
+  "lat": 31.631853,
+  "size": 25,
+  "grounded": "09/04/2016",
+  "circumference": 28
+}, {
+  "type_id": 1,
+  "description": "id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis",
+  "lon": -19.465773,
+  "lat": -2.411948,
+  "size": 37,
+  "grounded": "20/06/2015",
+  "circumference": 100,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus",
+  "lon": 27.897159,
+  "lat": 46.732221,
+  "size": 57,
+  "grounded": "29/01/2013",
+  "circumference": 67,
+  "hazard": [
+    2
+  ]
+}, {
+  "type_id": 1,
+  "description": "lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in",
+  "lon": 24.70609,
+  "lat": 25.058502,
+  "size": 29,
+  "grounded": "09/09/2015",
+  "circumference": 89,
+  "hazard": [
+    2
+  ]
+}, {
+  "type_id": 1,
+  "description": "diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum",
+  "lon": 48.939961,
+  "lat": 12.418174,
+  "size": 58,
+  "grounded": "03/01/2016",
+  "circumference": 69
+}, {
+  "type_id": 1,
+  "description": "neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit",
+  "lon": 23.547205,
+  "lat": 27.947034,
+  "size": 11,
+  "grounded": "02/09/2011",
+  "circumference": 48
+}, {
+  "type_id": 1,
+  "description": "nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt",
+  "lon": -15.285619,
+  "lat": 1.294278,
+  "size": 12,
+  "grounded": "25/04/2017",
+  "circumference": 88,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel",
+  "lon": 48.982601,
+  "lat": -15.634842,
+  "size": 5,
+  "grounded": "21/09/2018",
+  "circumference": 49
+}, {
+  "type_id": 1,
+  "description": "pede venenatis non sodales sed tincidunt eu felis fusce posuere",
+  "lon": 37.970362,
+  "lat": 0.057517,
+  "size": 43,
+  "grounded": "03/06/2016",
+  "circumference": 78
+}, {
+  "type_id": 1,
+  "description": "a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla",
+  "lon": 45.829281,
+  "lat": 45.667697,
+  "size": 16,
+  "grounded": "01/09/2011",
+  "circumference": 41
+}, {
+  "type_id": 1,
+  "description": "nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor",
+  "lon": -0.827619,
+  "lat": -29.395941,
+  "size": 82,
+  "grounded": "11/12/2014",
+  "circumference": 31
+}, {
+  "type_id": 1,
+  "description": "nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel",
+  "lon": 43.434838,
+  "lat": -17.557333,
+  "size": 84,
+  "grounded": "10/04/2012",
+  "circumference": 91
+}, {
+  "type_id": 1,
+  "description": "vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non",
+  "lon": -19.66416,
+  "lat": 30.490825,
+  "size": 81,
+  "grounded": "21/08/2012",
+  "circumference": 29
+}, {
+  "type_id": 1,
+  "description": "ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla",
+  "lon": 29.882601,
+  "lat": 20.466453,
+  "size": 31,
+  "grounded": "03/04/2011",
+  "circumference": 97
+}, {
+  "type_id": 1,
+  "description": "sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum",
+  "lon": 17.563442,
+  "lat": 44.451017,
+  "size": 56,
+  "grounded": "28/11/2012",
+  "circumference": 83
+}, {
+  "type_id": 1,
+  "description": "rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non",
+  "lon": -26.616381,
+  "lat": 15.854809,
+  "size": 75,
+  "grounded": "20/03/2017",
+  "circumference": 49
+}, {
+  "type_id": 1,
+  "description": "tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat",
+  "lon": -8.604089,
+  "lat": 1.474624,
+  "size": 26,
+  "grounded": "10/09/2014",
+  "circumference": 91,
+  "hazard": [
+    2
+  ]
+}, {
+  "type_id": 1,
+  "description": "consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis",
+  "lon": 4.71883,
+  "lat": 36.07345,
+  "size": 13,
+  "grounded": "10/04/2012",
+  "circumference": 30
+}, {
+  "type_id": 1,
+  "description": "erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac",
+  "lon": -16.716577,
+  "lat": -8.64364,
+  "size": 98,
+  "grounded": "03/03/2018",
+  "circumference": 66
+}, {
+  "type_id": 1,
+  "description": "nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a",
+  "lon": -0.645165,
+  "lat": 9.310731,
+  "size": 2,
+  "grounded": "29/01/2016",
+  "circumference": 29
+}, {
+  "type_id": 1,
+  "description": "vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa",
+  "lon": 0.505569,
+  "lat": -27.252418,
+  "size": 62,
+  "grounded": "04/04/2011",
+  "circumference": 86
+}, {
+  "type_id": 1,
+  "description": "pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in",
+  "lon": 9.397314,
+  "lat": -21.199737,
+  "size": 55,
+  "grounded": "26/09/2013",
+  "circumference": 89,
+  "hazard": [
+    2
+  ]
+}, {
+  "type_id": 1,
+  "description": "sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam",
+  "lon": 34.592169,
+  "lat": -22.585609,
+  "size": 75,
+  "grounded": "04/11/2017",
+  "circumference": 51,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare",
+  "lon": -3.819963,
+  "lat": -14.536665,
+  "size": 44,
+  "grounded": "04/04/2014",
+  "circumference": 52
+}, {
+  "type_id": 1,
+  "description": "in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat",
+  "lon": -4.319901,
+  "lat": -2.134364,
+  "size": 94,
+  "grounded": "20/04/2016",
+  "circumference": 80
+}, {
+  "type_id": 1,
+  "description": "etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris",
+  "lon": -11.953038,
+  "lat": 5.313861,
+  "size": 9,
+  "grounded": "24/07/2016",
+  "circumference": 85
+}, {
+  "type_id": 1,
+  "description": "sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est",
+  "lon": 47.765753,
+  "lat": -8.14012,
+  "size": 11,
+  "grounded": "23/01/2011",
+  "circumference": 100
+}, {
+  "type_id": 1,
+  "description": "felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis",
+  "lon": -1.758697,
+  "lat": 37.618912,
+  "size": 63,
+  "grounded": "27/05/2011",
+  "circumference": 94,
+  "hazard": [
+    2
+  ]
+}, {
+  "type_id": 1,
+  "description": "eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis",
+  "lon": 38.941185,
+  "lat": 39.461916,
+  "size": 100,
+  "grounded": "30/06/2016",
+  "circumference": 31
+}, {
+  "type_id": 1,
+  "description": "sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate",
+  "lon": 0.901404,
+  "lat": 15.35891,
+  "size": 48,
+  "grounded": "17/06/2017",
+  "circumference": 77
+}, {
+  "type_id": 1,
+  "description": "praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus",
+  "lon": 27.909072,
+  "lat": 25.477123,
+  "size": 71,
+  "grounded": "09/02/2015",
+  "circumference": 46,
+  "hazard": [
+    1
+  ]
+}, {
+  "type_id": 1,
+  "description": "posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor",
+  "lon": 37.058841,
+  "lat": 23.889905,
+  "size": 12,
+  "grounded": "19/06/2012",
+  "circumference": 34
+}, {
+  "type_id": 1,
+  "description": "quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam",
+  "lon": -3.842073,
+  "lat": 37.468479,
+  "size": 99,
+  "grounded": "15/12/2013",
+  "circumference": 78
+}, {
+  "type_id": 1,
+  "description": "nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper",
+  "lon": -9.476974,
+  "lat": 47.471084,
+  "size": 33,
+  "grounded": "27/10/2015",
+  "circumference": 49
+}, {
+  "type_id": 1,
+  "description": "ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero",
+  "lon": -5.544829,
+  "lat": -23.630053,
+  "size": 80,
+  "grounded": "14/09/2011",
+  "circumference": 63,
+  "hazard": [
+    2
+  ]
+}, {
+  "type_id": 1,
+  "description": "quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus",
+  "lon": 19.844997,
+  "lat": 31.712182,
+  "size": 47,
+  "grounded": "06/07/2016",
+  "circumference": 83
+}, {
+  "type_id": 1,
+  "description": "venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in",
+  "lon": 28.398888,
+  "lat": -29.834773,
+  "size": 55,
+  "grounded": "03/12/2010",
+  "circumference": 31
+}, {
+  "type_id": 1,
+  "description": "felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed",
+  "lon": 12.573686,
+  "lat": -7.042162,
+  "size": 60,
+  "grounded": "01/12/2013",
+  "circumference": 69
+}]
