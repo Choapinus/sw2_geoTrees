@@ -15,13 +15,30 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'arbol.html',
 })
 export class ArbolPage {
+  //coordenadas
   public lat:any;
   public lon:any;
+  //arbol
+  public nombre:any;
+  public nombrecientifico:any;
+  public descripcion:any;
+  public familia:any;
+  public orden:any;
+  public clase:any;
+  public subclase:any;
+  public origen:any;
+  public preservacion:any;
+  public colorcorteza:any;
+  //arbol general
+  public descripciongeneral:any;
+  public tamano:any;
+  public circunferencia:any;
+  //imagen
+  public fotografia :any;
 
-  public base64Image : string;
   constructor(
     public navCtrl: NavController, 
-    private camera: Camera, 
+    public camera: Camera, 
     public geo: Geolocation) {
 
   }
@@ -41,7 +58,7 @@ export class ArbolPage {
 
   sacarfoto(){
     const options: CameraOptions = {
-      quality: 100,
+      quality: 80,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
@@ -50,7 +67,7 @@ export class ArbolPage {
     this.camera.getPicture(options).then((imageData) => {
      // imageData is either a base64 encoded string or a file URI
      // If it's base64 (DATA_URL):
-     this.base64Image = 'data:image/jpeg;base64,' + imageData;
+     this.fotografia = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
      // Handle error
     });
