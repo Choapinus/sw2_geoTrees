@@ -25678,18 +25678,12 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-page-home ion-title * {
-  margin-top: 30vh;
-  margin-bottom: 5vh;
+#map {
+  width: 100%;
+  height: 100%;
 }
 
-page-p-principal {
-  /*ion-title * {
-        margin-top: 5vh;
-        margin-bottom: 2vh;
-    }*/
-}
-
-page-p-principal #map_canvas {
-  height: 90%;
+page-p-principal #map {
+  height: 100%;
+  width: 100%;
 }
