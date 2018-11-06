@@ -267,7 +267,7 @@ var HomePage = /** @class */ (function () {
                             zoom: 15
                         };
                         map = new google.maps.Map(mapEle, mapOptions);
-                        this.addMarker(myLatLng, map);
+                        this.addMarker(myLatLng, map, "xd");
                         this.http.get(this.proveedor.apiUrl + '/all/')
                             .subscribe(function (data) {
                             _this.arboles = data.data;
@@ -276,7 +276,7 @@ var HomePage = /** @class */ (function () {
                                 _this.addMarker({
                                     lat: Number(arbol.lat),
                                     lng: Number(arbol.lon)
-                                }, map);
+                                }, map, "xd");
                             }
                             ;
                             console.log("fin for");
@@ -288,10 +288,11 @@ var HomePage = /** @class */ (function () {
             });
         });
     };
-    HomePage.prototype.addMarker = function (position, map) {
+    HomePage.prototype.addMarker = function (position, map, title) {
         return new google.maps.Marker({
             position: position,
-            map: map
+            map: map,
+            title: title
         });
     };
     HomePage = __decorate([

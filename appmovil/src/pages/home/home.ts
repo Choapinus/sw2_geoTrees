@@ -56,7 +56,7 @@ export class HomePage implements OnInit
 
     var map = new google.maps.Map(mapEle,mapOptions);
 
-    this.addMarker(myLatLng,map);
+    this.addMarker(myLatLng,map,"xd");
     
     this.http.get(this.proveedor.apiUrl+'/all/')
     .subscribe(data => {
@@ -66,7 +66,9 @@ export class HomePage implements OnInit
         this.addMarker({
           lat: Number(arbol.lat),
           lng: Number(arbol.lon)
-        },map);
+        }
+        ,map
+        ,"xd");
       };
       console.log("fin for");
 
@@ -76,10 +78,11 @@ export class HomePage implements OnInit
     });
   }
 
-  addMarker(position,map){
+  addMarker(position,map, title){
     return new google.maps.Marker({
       position,
-      map
+      map,
+      title
     });
   }
 
