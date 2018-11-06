@@ -101,8 +101,8 @@ export class ArbolPage {
     let datos = {
       type_id:'1', 
       description: this.descripcion,
-      lon: this.lat,
-      lat: this.lon,
+      lon: this.lon,
+      lat: this.lat,
       size: this.tamano,
       grounded: fechatemp,
       circumference: this.circunferencia,
