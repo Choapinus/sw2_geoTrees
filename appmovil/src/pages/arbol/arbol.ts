@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
+import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 /**
  * Generated class for the ArbolPage page.
  *
@@ -39,7 +43,9 @@ export class ArbolPage {
   constructor(
     public navCtrl: NavController, 
     public camera: Camera, 
-    public geo: Geolocation) {
+    public geo: Geolocation,
+    public proveedor:ProArbolesProvider,
+    public http: HttpClient) {
 
   }
   
@@ -71,6 +77,35 @@ export class ArbolPage {
     }, (err) => {
      // Handle error
     });
+
+    
+  }
+  data :Observable<any>;
+  subir(){
+    let datos = { 
+      type_id:'1', 
+      description:this.descripcion,
+      lon: this.lon,
+      lat: this.lat,
+      size: this.tamano,
+      grounded: '21/12/1996',
+      circumference: '123',
+      hazard: ['1','2']
+    }
+  
+  let options = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  };
+
+  var url = this.proveedor.apiUrl+'/agregar';
+  return new Promise(resolve => {
+  this.http.post(url,JSON.stringify(datos),options)
+     .subscribe(data => {
+       resolve(data);
+      });
+ });
   }
 
 }
