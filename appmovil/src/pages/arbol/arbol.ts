@@ -5,7 +5,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import * as $ from 'jquery'
 /**
  * Generated class for the ArbolPage page.
  *
@@ -80,32 +80,48 @@ export class ArbolPage {
 
     
   }
-  data :Observable<any>;
+  
   subir(){
     let datos = { 
       type_id:'1', 
-      description:this.descripcion,
-      lon: this.lon,
-      lat: this.lat,
-      size: this.tamano,
+      description: 'oe que huea',
+      lon: '-70.5919239',
+      lat: '-33.6141621',
+      size: '10',
       grounded: '21/12/1996',
       circumference: '123',
-      hazard: ['1','2']
+      //hazard: ['1','2']
     }
-  
-  let options = {
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
-  };
 
+/*
+    var data ={
+      json: JSON.stringify(json),
+    }
+*/
+
+    console.log(this.proveedor.apiUrl+'/agregar/');
+    $.ajax({
+      url: this.proveedor.apiUrl+'/agregar/',
+      type: 'post',
+      dataType: 'json',
+      data: datos,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      // contentType: 'application/json', <-- no need this.
+      success: function(json) {
+        if (json) {
+            alert('ok');
+        } else {
+            alert('failed');
+        }
+      },
+      });/*
   var url = this.proveedor.apiUrl+'/agregar';
   return new Promise(resolve => {
   this.http.post(url,JSON.stringify(datos),options)
      .subscribe(data => {
        resolve(data);
       });
- });
+ });*/
   }
 
 }
