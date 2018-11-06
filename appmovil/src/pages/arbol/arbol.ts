@@ -6,6 +6,7 @@ import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import * as $ from 'jquery';
+import { stringify } from '@angular/core/src/util';
 /**
  * Generated class for the ArbolPage page.
  *
@@ -37,6 +38,7 @@ export class ArbolPage {
   public descripciongeneral:any;
   public tamano:any;
   public circunferencia:any;
+  public fecha:any;
   //imagen
   public fotografia :any;
 
@@ -82,14 +84,28 @@ export class ArbolPage {
   }
   
   subir(){
-    let datos = { 
+    var fechatemp:any;
+    fechatemp = this.fecha.charAt(8)
+    +this.fecha.charAt(9)
+    +"/"
+    +this.fecha.charAt(5)
+    +this.fecha.charAt(6)
+    +"/"
+    +this.fecha.charAt(0)
+    +this.fecha.charAt(1)
+    +this.fecha.charAt(2)
+    +this.fecha.charAt(3);
+
+    console.log(this.fecha);
+    console.log(fechatemp);
+    let datos = {
       type_id:'1', 
-      description: 'oe que huea',
-      lon: '-70.5919239',
-      lat: '-33.6141621',
-      size: '10',
-      grounded: '21/12/1996',
-      circumference: '123',
+      description: this.descripcion,
+      lon: this.lat,
+      lat: this.lon,
+      size: this.tamano,
+      grounded: fechatemp,
+      circumference: this.circunferencia,
       //hazard: ['1','2']
     }
 
