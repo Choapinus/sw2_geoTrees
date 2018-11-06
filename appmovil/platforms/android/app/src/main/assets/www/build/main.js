@@ -22,7 +22,7 @@ webpackEmptyAsyncContext.id = 115;
 
 var map = {
 	"../pages/arbol/arbol.module": [
-		282,
+		283,
 		0
 	]
 };
@@ -92,7 +92,7 @@ var TabsPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_pro_arboles_pro_arboles__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_pro_arboles_pro_arboles__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -121,7 +121,7 @@ var AboutPage = /** @class */ (function () {
     };
     AboutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-about',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\about\about.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Arbol\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n    <ion-card *ngFor="let arbol of arboles">\n\n        <button ion-button full outline icon-only item-end>\n            <ion-card-title padding>\n                {{arbol._type.name}}\n            </ion-card-title>\n            <ion-icon name="pin"></ion-icon>\n        </button>\n\n        <ion-card-content>\n            <ion-list>\n                <ion-item>\n                    <ion-label>\n                        <p>id:{{arbol.id}}</p>\n                        <p>\n                            latitud = {{arbol.lat}}\n                        </p>\n                        <p>\n                            longitud = {{arbol.lon}}\n                        </p>\n                        <p>\n                            size = {{arbol.size}}\n                        </p>\n                    </ion-label>\n                </ion-item>\n            </ion-list>\n\n        </ion-card-content>\n\n    </ion-card>\n\n\n</ion-content>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\about\about.html"*/
+            selector: 'page-about',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\about\about.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Arbol\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n    <ion-card *ngFor="let arbol of arboles">\n\n        <button ion-button full outline icon-only item-end>\n            <ion-card-title padding>\n                {{arbol._type.name}}\n            </ion-card-title>\n            <ion-icon name="pin"></ion-icon>\n        </button>\n\n        <ion-card-content>\n            <ion-list>\n                <ion-item>\n                    <ion-label>\n                        <p>id:{{arbol.id}}</p>\n                        <p>\n                            latitud = {{arbol.lat}}\n                        </p>\n                        <p>\n                            longitud = {{arbol.lon}}\n                        </p>\n                        <p>\n                            size = {{arbol.size}}\n                        </p>\n                        <p>\n                            {{arbol.description}}\n                        </p>\n                    </ion-label>\n                </ion-item>\n            </ion-list>\n\n        </ion-card-content>\n\n    </ion-card>\n\n\n</ion-content>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\about\about.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
@@ -183,6 +183,7 @@ var ContactPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__arbol_arbol__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_pro_arboles_pro_arboles__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -232,11 +233,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, geolocation, http) {
+    function HomePage(navCtrl, geolocation, http, proveedor) {
         this.navCtrl = navCtrl;
         this.geolocation = geolocation;
         this.http = http;
+        this.proveedor = proveedor;
     }
     HomePage.prototype.openarbol = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__arbol_arbol__["a" /* ArbolPage */]);
@@ -246,6 +249,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.loadMap = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
             var rta, myLatLng, mapEle, mapOptions, map;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -260,13 +264,43 @@ var HomePage = /** @class */ (function () {
                         mapEle = document.getElementById('map');
                         mapOptions = {
                             center: myLatLng,
-                            zoom: 12
+                            zoom: 15,
+                            disableDefaultUI: true,
+                            zoomControl: true,
+                            rotateControl: true,
+                            fullscreenControl: true,
+                            controls: {
+                                myLocation: true,
+                                myLocationButton: true
+                            }
                         };
                         map = new google.maps.Map(mapEle, mapOptions);
-                        console.log(map);
+                        this.addMarker(myLatLng, map, "xd");
+                        this.http.get(this.proveedor.apiUrl + '/all/')
+                            .subscribe(function (data) {
+                            _this.arboles = data.data;
+                            for (var _i = 0, _a = _this.arboles; _i < _a.length; _i++) {
+                                var arbol = _a[_i];
+                                _this.addMarker({
+                                    lat: Number(arbol.lat),
+                                    lng: Number(arbol.lon)
+                                }, map, String(arbol.id));
+                            }
+                            ;
+                            console.log("fin for");
+                        }, function (err) {
+                            console.log(err);
+                        });
                         return [2 /*return*/];
                 }
             });
+        });
+    };
+    HomePage.prototype.addMarker = function (position, map, title) {
+        return new google.maps.Marker({
+            position: position,
+            map: map,
+            title: title
         });
     };
     HomePage = __decorate([
@@ -275,7 +309,8 @@ var HomePage = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__["a" /* Geolocation */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */]])
+            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */]])
     ], HomePage);
     return HomePage;
 }());
@@ -306,7 +341,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(281);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(204);
@@ -316,8 +351,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_camera__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_geolocation__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_google_map_google_map__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_pro_arboles_pro_arboles__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_google_map_google_map__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_pro_arboles_pro_arboles__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_common_http__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -390,7 +425,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 280:
+/***/ 281:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -436,7 +471,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 281:
+/***/ 282:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -547,8 +582,10 @@ var GoogleMapComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_pro_arboles_pro_arboles__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_pro_arboles_pro_arboles__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_jquery__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_jquery__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -558,6 +595,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -603,27 +641,36 @@ var ArbolPage = /** @class */ (function () {
         });
     };
     ArbolPage.prototype.subir = function () {
-        var _this = this;
         var datos = {
-            type_id: '300',
-            descripcion: this.descripcion,
-            lon: this.lon,
-            lat: this.lat,
-            size: this.tamano,
+            type_id: '1',
+            description: 'oe que huea',
+            lon: '-70.5919239',
+            lat: '-33.6141621',
+            size: '10',
             grounded: '21/12/1996',
-            hazard: '1'
+            circumference: '123',
         };
-        var options = {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+        /*
+            var data ={
+              json: JSON.stringify(json),
             }
-        };
-        var url = this.proveedor.apiUrl + '/agregar';
-        return new Promise(function (resolve) {
-            _this.http.post(url, JSON.stringify(datos), options)
-                .subscribe(function (data) {
-                resolve(data);
-            });
+        */
+        console.log(this.proveedor.apiUrl + '/agregar/');
+        __WEBPACK_IMPORTED_MODULE_6_jquery__["ajax"]({
+            url: this.proveedor.apiUrl + '/agregar/',
+            type: 'post',
+            dataType: 'json',
+            data: datos,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            // contentType: 'application/json', <-- no need this.
+            success: function (json) {
+                if (json) {
+                    alert('ok');
+                }
+                else {
+                    alert('failed');
+                }
+            },
         });
     };
     ArbolPage = __decorate([
@@ -643,7 +690,7 @@ var ArbolPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 82:
+/***/ 50:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -674,11 +721,7 @@ var ProArbolesProvider = /** @class */ (function () {
         console.log('Hello ProArbolesProvider Provider');
     }
     ProArbolesProvider.prototype.obtenerarbol = function () {
-        return this.http.get(this.apiUrl + '/all');
-    };
-    ProArbolesProvider.prototype.subirarbol = function () {
-        var subirarbol = new FormData();
-        subirarbol.append('key', 'value');
+        return this.http.get(this.apiUrl + '/all/');
     };
     ProArbolesProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),

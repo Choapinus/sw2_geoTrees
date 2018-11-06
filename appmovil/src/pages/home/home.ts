@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 import { hostViewClassName, analyzeAndValidateNgModules } from '@angular/compiler';
 import * as $ from 'jquery';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 declare var google;
 
@@ -51,15 +50,25 @@ export class HomePage implements OnInit
     
     let mapOptions: GoogleMapOptions = {
       center: myLatLng,
-      zoom: 15
+      zoom: 15,
+      disableDefaultUI: true,
+      zoomControl: true,
+      rotateControl: true,
+      fullscreenControl: true,
+      controls: {
+        myLocation: true,
+        myLocationButton: true
+      }
     }
 
     var map = new google.maps.Map(mapEle,mapOptions);
 
     this.addMarker(myLatLng,map,"xd");
     
+    
+
     this.http.get(this.proveedor.apiUrl+'/all/')
-    .subscribe(data => {
+    .subscribe((data:any) => {
       this.arboles = data.data;
       for(let arbol of this.arboles){
 
@@ -68,7 +77,7 @@ export class HomePage implements OnInit
           lng: Number(arbol.lon)
         }
         ,map
-        ,"xd");
+        ,String(arbol.id));
       };
       console.log("fin for");
 
