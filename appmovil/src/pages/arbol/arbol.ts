@@ -5,7 +5,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import * as $ from 'jquery'
+import * as $ from 'jquery';
 /**
  * Generated class for the ArbolPage page.
  *
@@ -114,14 +114,9 @@ export class ArbolPage {
             alert('failed');
         }
       },
-      });/*
-  var url = this.proveedor.apiUrl+'/agregar';
-  return new Promise(resolve => {
-  this.http.post(url,JSON.stringify(datos),options)
-     .subscribe(data => {
-       resolve(data);
-      });
- });*/
+    });
+
+
   }
 
 }

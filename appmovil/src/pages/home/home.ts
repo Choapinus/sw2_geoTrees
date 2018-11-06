@@ -5,7 +5,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps, GoogleMap, GoogleMapOptions, Marker, MarkerOptions } from '@ionic-native/google-maps';
 import { HttpClient } from '@angular/common/http';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
-import { hostViewClassName } from '@angular/compiler';
+import { hostViewClassName, analyzeAndValidateNgModules } from '@angular/compiler';
+import * as $ from 'jquery';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 declare var google;
 
@@ -15,10 +17,12 @@ declare var google;
 })
 export class HomePage implements OnInit
 {
+  map: any;
   constructor(
     public navCtrl: NavController,
     private geolocation: Geolocation,
-    public http: HttpClient
+    public http: HttpClient,
+    public proveedor: ProArbolesProvider
     ){
 
 
@@ -31,30 +35,55 @@ export class HomePage implements OnInit
   ngOnInit(){
     this.loadMap();
   }
+
+
+  public arboles: any;
+
   async loadMap() {
     const rta = await this.geolocation.getCurrentPosition();
 
-    const myLatLng = {
+    const myLatLng = {//se agrega por geoloc
       lat: rta.coords.latitude,
       lng: rta.coords.longitude
     };
     console.log(myLatLng);
-    const mapEle: HTMLElement = document.getElementById('map');
+    var mapEle: HTMLElement = document.getElementById('map');
     
     let mapOptions: GoogleMapOptions = {
       center: myLatLng,
-      zoom: 12
+      zoom: 15
     }
+
+    var map = new google.maps.Map(mapEle,mapOptions);
+
+    this.addMarker(myLatLng,map);
     
-    
+    this.http.get(this.proveedor.apiUrl+'/all/')
+    .subscribe(data => {
+      this.arboles = data.data;
+      for(let arbol of this.arboles){
 
-    const map = new google.maps.Map(mapEle,mapOptions);
-    console.log(map);
+        this.addMarker({
+          lat: Number(arbol.lat),
+          lng: Number(arbol.lon)
+        },map);
+      };
+      console.log("fin for");
 
-
-
-
+      
+    },err => {
+      console.log(err);
+    });
   }
+
+  addMarker(position,map){
+    return new google.maps.Marker({
+      position,
+      map
+    });
+  }
+
+
   
 
 

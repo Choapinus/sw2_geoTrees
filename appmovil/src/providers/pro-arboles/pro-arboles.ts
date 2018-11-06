@@ -16,7 +16,7 @@ export class ProArbolesProvider {
   }
   public apiUrl = 'http://www.comunitree.tk:8080/arbol';
   obtenerarbol(): Observable<any>{
-    return this.http.get(this.apiUrl+'/all');
+    return this.http.get(this.apiUrl+'/all/');
   }
 
 

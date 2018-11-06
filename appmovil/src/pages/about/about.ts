@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 import { HttpClient } from '@angular/common/http';
+import { NgForOf } from '@angular/common';
+import { _appIdRandomProviderFactory } from '@angular/core/src/application_tokens';
 
 @Component({
   selector: 'page-about',
