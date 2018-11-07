@@ -10,10 +10,6 @@ import * as $ from 'jquery';
 
 declare var google;
 
-@IonicPage({
-  name: 'page-home',
-  priority: 'high'
-})
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'

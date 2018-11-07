@@ -14,10 +14,7 @@ import { stringify } from '@angular/core/src/util';
  * Ionic pages and navigation.
  */
 
-@IonicPage({
-  name: 'page-arbol',
-  priority: 'high'
-})
+@IonicPage()
 @Component({
   selector: 'page-arbol',
   templateUrl: 'arbol.html',
@@ -54,43 +51,48 @@ export class ArbolPage {
 
   }
   
-
-  ionViewDidLoad() {
+  mylocation(){
+    console.log("inicio geolo");
     this.geo.getCurrentPosition().then( pos => {
       this.lat = pos.coords.latitude;
       this.lon = pos.coords.longitude;
+      console.log("position"+this.lat+"  "+this.lon);
     }
 
     ).catch( err => console.log(err));
+  }
+
+  ionViewDidLoad() {
+    
 
 
     console.log('ionViewDidLoad ArbolPage');
   }
 
-  refrescarCoord(){
+  async refrescarCoord(){
 
-    this.geo.getCurrentPosition().then( pos => {
+    await this.geo.getCurrentPosition().then( pos => {
       this.lat = pos.coords.latitude;
       this.lon = pos.coords.longitude;
+      console.log("position"+this.lat+"  "+this.lon);
     }
     ).catch( err => console.log(err));
 
   }
 
   sacarfoto(){
-    const options: CameraOptions = {
-      quality: 80,
-      destinationType: this.camera.DestinationType.FILE_URI,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+    let options: CameraOptions = {
+      destinationType: this.camera.DestinationType.DATA_URL,
+      targetHeight: 1000,
+      targetWidth: 1000,
+      quality: 100
     }
     
-    this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64 (DATA_URL):
+    this.camera.getPicture(options).
+    then(imageData => {
      this.fotografia = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-     // Handle error
+    }).catch(error =>{
+      console.error(error);
     });
 
     
@@ -119,6 +121,7 @@ export class ArbolPage {
       size: this.tamano,
       grounded: fechatemp,
       circumference: this.circunferencia,
+      photos: this.fotografia
       //hazard: ['1','2']
     }
 

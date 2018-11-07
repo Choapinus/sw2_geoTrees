@@ -89,7 +89,7 @@
         <ion-item>
             <div text-start>
                 Coordenadas
-                <button ion-button color="gris" outline item-end icon-start (click)="refrescarCoord()">
+                <button ion-button color="gris" outline item-end icon-start (click)="mylocation()">
                         <ion-icon color="primary" name="compass"></ion-icon>
                         actualizar coordenadas
                 </button>
@@ -117,7 +117,7 @@
 
         <ion-item>
             <p>Fotografia</p>
-            <p alling="center"> <img src="{{fotografia}}"></p>
+            <img [src]="fotografia" *ngIf="fotografia" />
         </ion-item>
 
         <ion-label>
