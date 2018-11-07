@@ -84,15 +84,36 @@
             <ion-label>Fecha</ion-label>
             <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fecha"></ion-datetime>
         </ion-item>
+
+
         <ion-item>
-            <p>Coordenadas</p>
-            <p>
-                {{lat}}
-            </p>
-            <p>
-                {{lon}}
-            </p>
+            <div text-start>
+                Coordenadas
+                <button ion-button color="gris" outline item-end icon-start (click)="refrescarCoord()">
+                        <ion-icon color="primary" name="compass"></ion-icon>
+                        actualizar coordenadas
+                </button>
+            </div>
+            <div>
+
+            </div>
+
+            <div>
+                <div float-left>
+                    <p>
+                        lat: {{lat}}
+                    </p>
+                </div>
+                <div float-right>
+                    <p>
+                        lon: {{lon}}
+                    </p>
+                </div>
+
+            </div>
         </ion-item>
+
+
 
         <ion-item>
             <p>Fotografia</p>

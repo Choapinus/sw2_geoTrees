@@ -16,21 +16,25 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMapComponent } from '../components/google-map/google-map';
 import { ProArbolesProvider } from '../providers/pro-arboles/pro-arboles';
 import { HttpClientModule } from '@angular/common/http';
+import { ArbolPageModule } from '../pages/arbol/arbol.module';
 
 @NgModule({
   declarations: [
     MyApp,
+    //ArbolPage,
     AboutPage,
     ContactPage,
     HomePage,
     TabsPage,
-    ArbolPage,
     GoogleMapComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    ArbolPageModule,
+    IonicModule.forRoot(MyApp, {
+      preloadModules:true
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

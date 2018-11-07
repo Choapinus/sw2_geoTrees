@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, IonicPage } from 'ionic-angular';
 import { ArbolPage } from '../arbol/arbol'
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps, GoogleMap, GoogleMapOptions, Marker, MarkerOptions } from '@ionic-native/google-maps';
@@ -10,6 +10,10 @@ import * as $ from 'jquery';
 
 declare var google;
 
+@IonicPage({
+  name: 'page-home',
+  priority: 'high'
+})
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -87,7 +91,7 @@ export class HomePage implements OnInit
     });
   }
 
-  addMarker(position,map, title){
+  async addMarker(position,map, title){
     return new google.maps.Marker({
       position,
       map,

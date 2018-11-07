@@ -14,7 +14,10 @@ import { stringify } from '@angular/core/src/util';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name: 'page-arbol',
+  priority: 'high'
+})
 @Component({
   selector: 'page-arbol',
   templateUrl: 'arbol.html',
@@ -62,6 +65,16 @@ export class ArbolPage {
 
 
     console.log('ionViewDidLoad ArbolPage');
+  }
+
+  refrescarCoord(){
+
+    this.geo.getCurrentPosition().then( pos => {
+      this.lat = pos.coords.latitude;
+      this.lon = pos.coords.longitude;
+    }
+    ).catch( err => console.log(err));
+
   }
 
   sacarfoto(){

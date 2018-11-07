@@ -11,23 +11,39 @@ import { _appIdRandomProviderFactory } from '@angular/core/src/application_token
 })
 export class AboutPage {
 
+  
+
 
   public arboles: any;
 
   constructor(public navCtrl: NavController, 
     public proveedor:ProArbolesProvider, public http: HttpClient) {
-      this.proveedor.obtenerarbol().subscribe(
-        data =>{
-          this.arboles = data.data;
-        }
-      )
+      this.mostrararboles();
   }
-  ionViewDidLoad(){/*
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
     this.proveedor.obtenerarbol().subscribe(
-      data => {this.arboles= data;},
-      (error)=>{console.log(error);}
-    )*/
+      data =>{
+        this.arboles = data.data;
+      }
+    )
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
-  
+
+
+  ionViewDidLoad(){
+  }
+
+  async mostrararboles(){
+    this.proveedor.obtenerarbol().subscribe(
+      data =>{
+        this.arboles = data.data;
+      }
+    )
+  }
 
 }
