@@ -85,12 +85,9 @@ export class ArbolPage {
         text: 'Dar permisos',
         handler: () =>{
           //dar permisos
-          this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.Geolocation).then(
-            result => console.log('Has permission?',result.hasPermission),
-            err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.Geolocation)
-
-          );
-          this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.Geolocation, this.androidPermissions.PERMISSION.ACCESS_FINE_LOCATION])
+          
+          this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.geolocation, this.androidPermissions.PERMISSION.ACCESS_FINE_LOCATION, this.androidPermissions.PERMISSION.LOCATION_HARDWARE]);
+          console.log("permisos");
         }
       },
       {

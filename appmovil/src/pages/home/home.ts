@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { ArbolPage } from '../arbol/arbol'
 import { Geolocation } from '@ionic-native/geolocation';
-import { GoogleMaps, GoogleMap, GoogleMapOptions, Marker, MarkerOptions } from '@ionic-native/google-maps';
+import { GoogleMaps, GoogleMap, GoogleMapOptions, Marker, MarkerOptions, GoogleMapsMapTypeId, Environment, GoogleMapsEvent } from '@ionic-native/google-maps';
 import { HttpClient } from '@angular/common/http';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 import { hostViewClassName, analyzeAndValidateNgModules } from '@angular/compiler';
@@ -39,6 +39,8 @@ export class HomePage implements OnInit
   public arboles: any;
 
   async loadMap() {
+
+
     var option = {//opciones no aplicadas en getCurrentPosition
       maximumAge: 0,
       timeout: 5000,
@@ -55,20 +57,18 @@ export class HomePage implements OnInit
     var mapEle: HTMLElement = document.getElementById('map');
     
     let mapOptions: GoogleMapOptions = {
+      controls: {
+        'myLocation': true
+      },
       center: myLatLng,
       zoom: 15,
-      disableDefaultUI: true,
       zoomControl: true,
-      rotateControl: true,
       fullscreenControl: true,
-      controls: {
-        myLocation: true,
-        myLocationButton: true
-      }
-    }
+      
+      
+    };
 
     var map = new google.maps.Map(mapEle,mapOptions);
-
     this.addMarker(myLatLng,map,"xd");
     
     
@@ -84,6 +84,7 @@ export class HomePage implements OnInit
         }
         ,map
         ,String(arbol.id));
+        
       };
       console.log("fin for");
 
@@ -91,14 +92,25 @@ export class HomePage implements OnInit
     },err => {
       console.log(err);
     });
-  }
 
-  async addMarker(position,map, title){
+
+
+  }//fin
+
+  async addMarker(position,map,title){
     return new google.maps.Marker({
       position,
       map,
-      title
+      title: title,
+      icon: {
+        url: 'assets/imgs/comunitree.png',
+        size:{
+          width: 32,
+          height: 24
+        }
+      }
     });
+  
   }
 
 
