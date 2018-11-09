@@ -17,6 +17,7 @@ import { GoogleMapComponent } from '../components/google-map/google-map';
 import { ProArbolesProvider } from '../providers/pro-arboles/pro-arboles';
 import { HttpClientModule } from '@angular/common/http';
 import { ArbolPageModule } from '../pages/arbol/arbol.module';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ArbolPageModule } from '../pages/arbol/arbol.module';
     ArbolPage,
   ],
   providers: [
+    AndroidPermissions,
     StatusBar,
     SplashScreen,
     Camera,

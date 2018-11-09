@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import * as $ from 'jquery';
 import { stringify } from '@angular/core/src/util';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
+
 /**
  * Generated class for the ArbolPage page.
  *
@@ -48,7 +50,8 @@ export class ArbolPage {
     public geo: Geolocation,
     public proveedor:ProArbolesProvider,
     public http: HttpClient,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    private androidPermissions: AndroidPermissions) {
 
   }
   
@@ -82,6 +85,12 @@ export class ArbolPage {
         text: 'Dar permisos',
         handler: () =>{
           //dar permisos
+          this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.Geolocation).then(
+            result => console.log('Has permission?',result.hasPermission),
+            err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.Geolocation)
+
+          );
+          this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.Geolocation, this.androidPermissions.PERMISSION.ACCESS_FINE_LOCATION])
         }
       },
       {
