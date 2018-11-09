@@ -39,7 +39,13 @@ export class HomePage implements OnInit
   public arboles: any;
 
   async loadMap() {
-    const rta = await this.geolocation.getCurrentPosition();
+    var option = {//opciones no aplicadas en getCurrentPosition
+      maximumAge: 0,
+      timeout: 5000,
+      enableHighAccuracy: true
+    };
+
+    const rta = await this.geolocation.getCurrentPosition(option);
 
     const myLatLng = {//se agrega por geoloc
       lat: rta.coords.latitude,

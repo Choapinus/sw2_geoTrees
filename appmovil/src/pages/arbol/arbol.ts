@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Button } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
@@ -47,20 +47,12 @@ export class ArbolPage {
     public camera: Camera, 
     public geo: Geolocation,
     public proveedor:ProArbolesProvider,
-    public http: HttpClient) {
+    public http: HttpClient,
+    private alertCtrl: AlertController) {
 
   }
   
-  mylocation(){
-    console.log("inicio geolo");
-    this.geo.getCurrentPosition().then( pos => {
-      this.lat = pos.coords.latitude;
-      this.lon = pos.coords.longitude;
-      console.log("position"+this.lat+"  "+this.lon);
-    }
-
-    ).catch( err => console.log(err));
-  }
+  
 
   ionViewDidLoad() {
     
@@ -69,15 +61,44 @@ export class ArbolPage {
     console.log('ionViewDidLoad ArbolPage');
   }
 
-  async refrescarCoord(){
 
-    await this.geo.getCurrentPosition().then( pos => {
+  mylocation(){
+    console.log("inicio geolo");
+    this.geo.getCurrentPosition(option).then( pos => {
       this.lat = pos.coords.latitude;
       this.lon = pos.coords.longitude;
       console.log("position"+this.lat+"  "+this.lon);
     }
-    ).catch( err => console.log(err));
 
+    ).catch( err => {
+      console.error("hola");
+      console.error(err);
+      alertgps.present();
+    });
+    let alertgps = this.alertCtrl.create({//alerta de gps
+      title: 'Error de GPS',
+      subTitle: 'No se pudo detectar su ubicación',
+      buttons: [{
+        text: 'Dar permisos',
+        handler: () =>{
+          //dar permisos
+        }
+      },
+      {
+        text: 'Cancelar',
+        handler: () => {
+          //cancelar
+        }
+      }
+      ]
+    });
+    //fin alerta gps
+
+    var option = {
+      maximumAge: 0,
+      timeout: 5000,
+      enableHighAccuracy: true
+    };
   }
 
   sacarfoto(){
@@ -87,12 +108,15 @@ export class ArbolPage {
       targetWidth: 1000,
       quality: 100
     }
+
     
+
     this.camera.getPicture(options).
     then(imageData => {
      this.fotografia = 'data:image/jpeg;base64,' + imageData;
     }).catch(error =>{
       console.error(error);
+      
     });
 
     
