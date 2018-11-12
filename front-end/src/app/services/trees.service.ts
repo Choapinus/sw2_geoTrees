@@ -17,11 +17,11 @@ export class TreesService {
   }
 
   getTree(idx: number): Observable<any> {
-    return this.http.get('http://comunitree.tk:8080/arbol/' + idx + '/');
+    return this.http.get('http://comunitree.tk:8081/arbol/' + idx + '/');
   }
 
   getTrees(): Observable<any> {
-    return this.http.get('http://comunitree.tk:8080/arbol/all/');
+    return this.http.get('http://comunitree.tk:8081/arbol/all/');
   }
 }
 

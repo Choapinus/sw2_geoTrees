@@ -22,8 +22,8 @@ export class MapComponent implements OnInit {
                     this.trees = data.data;
                   }
                 );
-                this.lat_init = -33.446947;
-                this.lng_init = -70.679253;
+                this.lat_init = -33.434986;
+                this.lng_init = -70.614955;
   }
   ngOnInit() {
 

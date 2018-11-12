@@ -79,21 +79,6 @@
             </div>
 
         </div>
-
-        <div>
-            <mat-form-field>
-                <mat-select [(ngModel)]="report.priority" matNativeControl matInput placeholder="Prioriedad" name="priority" #priority="ngModel" required>
-                    <mat-option value="1">Muy Baja</mat-option>
-                    <mat-option value="2">Baja</mat-option>
-                    <mat-option value="3">Media</mat-option>
-                    <mat-option value="4">Alta</mat-option>
-                    <mat-option value="5">Urgente</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <div *ngIf="priority.errors?.required">
-                <mat-hint align="end">Debe seleccionar una prioriedad</mat-hint>
-            </div>
-        </div>
         <button [disabled]="!form.valid" type="submit" mat-raised-button color="primary"> 
             Enviar reporte
     </button>

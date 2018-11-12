@@ -13,10 +13,6 @@
 
             <span class="example-spacer"></span>
             <div fxShow="true" fxHide.lt-md="true">
-                <a class="nav-link" [routerLink]="['alerts']" mat-button>
-                    <mat-icon>notifications_active</mat-icon>
-                    Alertas
-                </a>
                 <a class="nav-link" [routerLink]="['map']" mat-button>
                     <mat-icon>map</mat-icon>
                     Ver Mapa ComuniTree
@@ -32,10 +28,6 @@
     <mat-sidenav-container fxFlexFill>
         <mat-sidenav #sidenav>
             <mat-nav-list>
-                <a class="nav-link" [routerLink]="['alerts']" mat-list-item (click)="sidenav.toggle()">
-                    <mat-icon>notifications_active</mat-icon>
-                    Alertas
-                </a>
                 <a class="nav-link" [routerLink]="['map']" mat-list-item (click)="sidenav.toggle()">
                     <mat-icon>map</mat-icon>
                     Ver Mapa ComuniTree</a>
