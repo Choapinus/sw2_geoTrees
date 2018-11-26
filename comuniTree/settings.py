@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 	'api',
 	'tree.apps.TreeConfig',
 	'users.apps.UsersConfig',
+	'reports.apps.ReportConfig',
 ]
 
 MIDDLEWARE = [

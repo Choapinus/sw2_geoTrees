@@ -706,7 +706,6 @@ def get_type(request, type_id=None):
 			}
 			return JsonResponse(response)
 
-# todo
 @csrf_exempt
 def add_tree(request):
 	if request.method == 'POST':
