@@ -58,27 +58,33 @@ export class ArbolPage {
   
 
   ionViewDidLoad() {
-    
-
-
+    this.mylocation();
     console.log('ionViewDidLoad ArbolPage');
   }
 
 
   mylocation(){
+    var option = {
+      maximumAge: 0,
+      timeout: 5000,
+      enableHighAccuracy: true
+    };
+    
     console.log("inicio geolo");
-    this.geo.getCurrentPosition(option).then( pos => {
+    this.geo.getCurrentPosition(option).then( (pos) => {
       this.lat = pos.coords.latitude;
       this.lon = pos.coords.longitude;
       console.log("position"+this.lat+"  "+this.lon);
     }
 
-    ).catch( err => {
+    ).catch( (err) => {
       console.error("hola");
       console.error(err);
       alertgps.present();
     });
-    let alertgps = this.alertCtrl.create({//alerta de gps
+
+    //alerta de gps
+    let alertgps = this.alertCtrl.create({
       title: 'Error de GPS',
       subTitle: 'No se pudo detectar su ubicación',
       buttons: [{
@@ -100,11 +106,7 @@ export class ArbolPage {
     });
     //fin alerta gps
 
-    var option = {
-      maximumAge: 0,
-      timeout: 5000,
-      enableHighAccuracy: true
-    };
+    
   }
 
   sacarfoto(){
@@ -171,7 +173,7 @@ export class ArbolPage {
       // contentType: 'application/json', <-- no need this.
       success: function(json) {
         if (json) {
-            alert('ok');
+            alert('Árbol agregado');
         } else {
             alert('failed');
         }
