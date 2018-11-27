@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
- 
+import { HomePage } from '../../pages/home/home';
+import { HttpClient } from '@angular/common/http';
+import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
+
 declare var google;
- 
 @Injectable()
 export class JsMapsProvider {
  
   map: any;
  
-  constructor() {
+  constructor(
+    private http: HttpClient, 
+    public proveedor: ProArbolesProvider
+  ) {
     
   }
  
@@ -21,6 +26,50 @@ export class JsMapsProvider {
     };
  
     this.map = new google.maps.Map(element.nativeElement, opts);
+    console.log(latLng.lat)
+    this.addMarker(latLng,this.map);
+    
+    this.CargarArboles(this.map);
+
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: this.map
+    });
+    
+    
   }
+
+  addMarker(position, map){
+    console.log(map,  position.latitude);
+    var marker = new google.maps.Marker({
+      position:position,
+      map: map
+    });
+  }
+  public arboles: any;
+  CargarArboles(map){
+    console.log("CARGAR ARBOLES");
+    console.log(this.http.get('http://www.comunitree.tk:8081/arbol/all/'));
+    this.http.get('http://www.comunitree.tk:8081/arbol/all/')
+    .subscribe((data:any) => {
+      this.arboles = data.data;
+      for(let arbol of this.arboles){
+        console.log(arbol.lat,  arbol.lon);
+        this.addMarker({
+          latitude: arbol.lat, 
+          longitude: arbol.lon}
+          ,map);
+        
+      };
+      console.log("fin for");
+
+      
+    },err => {
+      console.log(err);
+    });
+  }
+
+
+
  
 }

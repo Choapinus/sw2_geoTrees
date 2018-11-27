@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GoogleMaps, LatLng, GoogleMapsEvent } from '@ionic-native/google-maps';
+import { GoogleMaps, LatLng, GoogleMapsEvent, GoogleMapsMapTypeId } from '@ionic-native/google-maps';
  
 @Injectable()
 export class NativeMapsProvider {
@@ -15,6 +15,11 @@ export class NativeMapsProvider {
     let latLng = new LatLng(location.latitude, location.longitude);
  
     let opts = {
+      mapType: GoogleMapsMapTypeId.ROADMAP,
+      controls:{
+        'myLocationButton': true,
+        'myLocation': true
+      },
       camera: {
         latLng: latLng,
         zoom: 11,
@@ -23,10 +28,12 @@ export class NativeMapsProvider {
     };
  
     this.map = this.googleMaps.create(element.nativeElement, opts);
- 
+
     this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
       console.log('Map is ready!');
     });
+
+    
   }
  
 }

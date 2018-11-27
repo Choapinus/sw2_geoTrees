@@ -14,7 +14,7 @@ export class ProArbolesProvider {
   constructor(public http: HttpClient) {
     console.log('Hello ProArbolesProvider Provider');
   }
-  public apiUrl = 'http://www.comunitree.tk:8080/arbol';
+  public apiUrl = 'http://www.comunitree.tk:8081/arbol';
   obtenerarbol(): Observable<any>{
     return this.http.get(this.apiUrl+'/all/');
   }

@@ -8,7 +8,6 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ArbolPage } from '../pages/arbol/arbol';
-import { MapaPage } from '../pages/mapa/mapa';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -28,7 +27,6 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 @NgModule({
   declarations: [
     MyApp,
-    MapaPage,
     //ArbolPage,
     AboutPage,
     ContactPage,
@@ -47,7 +45,6 @@ import { GoogleMaps } from '@ionic-native/google-maps';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    MapaPage,
     AboutPage,
     ContactPage,
     HomePage,
