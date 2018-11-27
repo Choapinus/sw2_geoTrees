@@ -16,6 +16,11 @@ class ReportView(generics.RetrieveAPIView):
 	queryset = models.Report.objects.all()
 	serializer_class = serializers.ReportSerializer
 
+class ReportViewGetByTree(generics.ListAPIView):
+	queryset = models.Report.objects.all()
+	serializer_class = serializers.ReportSerializer
+	lookup_field = 'tree_id'
+
 # todo: paginate reports
 # def get_reports(request):
 # 	skip = int(request.GET.get('desde', 1))
@@ -29,40 +34,6 @@ class ReportView(generics.RetrieveAPIView):
 # 		'data': serializer.data,
 # 	}
 # 	return JsonResponse(data)
-
-def get_report_treeId(request, tree_id):
-	if request.method == 'GET':
-		try:
-			reports = models.Report.objects.filter(tree_id=tree_id)
-			serializer = serializers.ReportSerializer(reports, many=True)
-
-			data = {
-				'ok': True,
-				'data': serializer.data
-			}
-			
-			return JsonResponse(data)
-
-		except models.Report.DoesNotExist:
-			response = {
-				'ok': False,
-				'status': 204,
-				'error': {
-					'message': 'There is no report asociated with tree_id {}'.format(tree_id),
-				}
-			}
-			return JsonResponse(response)
-
-	else:
-		response = {
-			'ok': False,
-			'status': 204,
-			'error': {
-				'message': 'method {} not implemented'.format(request.method),
-			}
-		}
-		return JsonResponse(response)
-
 
 @csrf_exempt
 def add_report(request):
