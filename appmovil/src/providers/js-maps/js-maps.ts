@@ -26,7 +26,6 @@ export class JsMapsProvider {
     };
  
     this.map = new google.maps.Map(element.nativeElement, opts);
-    console.log(latLng.lat)
     this.addMarker(latLng,this.map);
     
     this.CargarArboles(this.map);
@@ -40,13 +39,14 @@ export class JsMapsProvider {
   }
 
   addMarker(position, map){
-    console.log(map,  position.latitude);
     var marker = new google.maps.Marker({
       position:position,
       map: map
     });
   }
+  
   public arboles: any;
+  
   CargarArboles(map){
     console.log("CARGAR ARBOLES");
     console.log(this.http.get('http://www.comunitree.tk:8081/arbol/all/'));
@@ -54,10 +54,11 @@ export class JsMapsProvider {
     .subscribe((data:any) => {
       this.arboles = data.data;
       for(let arbol of this.arboles){
+        var myLatlng = new google.maps.LatLng(parseFloat(arbol.lat),parseFloat(arbol.lon));
         console.log(arbol.lat,  arbol.lon);
-        this.addMarker({
-          latitude: arbol.lat, 
-          longitude: arbol.lon}
+
+        this.addMarker(
+          myLatlng
           ,map);
         
       };
