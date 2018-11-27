@@ -30,6 +30,40 @@ class ReportView(generics.RetrieveAPIView):
 # 	}
 # 	return JsonResponse(data)
 
+def get_report_treeId(request, tree_id):
+	if request.method == 'GET':
+		try:
+			reports = models.Report.objects.filter(tree_id=tree_id)
+			serializer = serializers.ReportSerializer(reports, many=True)
+
+			data = {
+				'ok': True,
+				'data': serializer.data
+			}
+			
+			return JsonResponse(data)
+
+		except models.Report.DoesNotExist:
+			response = {
+				'ok': False,
+				'status': 204,
+				'error': {
+					'message': 'There is no report asociated with tree_id {}'.format(tree_id),
+				}
+			}
+			return JsonResponse(response)
+
+	else:
+		response = {
+			'ok': False,
+			'status': 204,
+			'error': {
+				'message': 'method {} not implemented'.format(request.method),
+			}
+		}
+		return JsonResponse(response)
+
+
 @csrf_exempt
 def add_report(request):
 	if request.method == 'POST':
@@ -39,7 +73,7 @@ def add_report(request):
 		report.tree = Tree.objects.get(pk=int(data["tree_id"]))
 		report.title = data["title"]
 		report.description = data["description"]
-		report.uploaded_by = CustomUser.objects.get(pk=int(data["user_id"]))
+		report.uploaded_by = CustomUser.objects.get(email=data["user_email"])
 		
 		report.save()
 
@@ -49,6 +83,7 @@ def add_report(request):
 			'ok': True,
 			'data': serializer.data
 		}
+
 		return JsonResponse(data)
 	else:
 		response = {
