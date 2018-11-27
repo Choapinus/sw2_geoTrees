@@ -7,7 +7,9 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { ArbolPage } from '../pages/arbol/arbol'
+import { ArbolPage } from '../pages/arbol/arbol';
+import { MapaPage } from '../pages/mapa/mapa';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,10 +20,15 @@ import { ProArbolesProvider } from '../providers/pro-arboles/pro-arboles';
 import { HttpClientModule } from '@angular/common/http';
 import { ArbolPageModule } from '../pages/arbol/arbol.module';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
+import { MapsProvider } from '../providers/maps/maps';
+import { JsMapsProvider } from '../providers/js-maps/js-maps';
+import { NativeMapsProvider } from '../providers/native-maps/native-maps';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 @NgModule({
   declarations: [
     MyApp,
+    MapaPage,
     //ArbolPage,
     AboutPage,
     ContactPage,
@@ -40,6 +47,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    MapaPage,
     AboutPage,
     ContactPage,
     HomePage,
@@ -47,6 +55,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions';
     ArbolPage,
   ],
   providers: [
+    GoogleMaps,
     AndroidPermissions,
     StatusBar,
     SplashScreen,
@@ -54,6 +63,9 @@ import { AndroidPermissions } from '@ionic-native/android-permissions';
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProArbolesProvider,
+    MapsProvider,
+    JsMapsProvider,
+    NativeMapsProvider,
   ]
 })
 export class AppModule {}

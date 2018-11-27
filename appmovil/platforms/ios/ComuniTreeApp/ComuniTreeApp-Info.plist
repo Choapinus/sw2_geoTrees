@@ -63,7 +63,7 @@
     <key>UILaunchStoryboardName</key>
     <string>CDVLaunchScreen</string>
     <key>Google Maps API Key</key>
-    <string>AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y</string>
+    <string>AIzaSyBJ2Bvp-NI7aLtYVIUH2HZODrfeUgqAVH0</string>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>This app wants to get your location while this app runs only.</string>
     <key>NSLocationAlwaysUsageDescription</key>

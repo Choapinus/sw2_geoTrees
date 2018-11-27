@@ -141,6 +141,7 @@ MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Gust
 		ADDED from D:\Project\SW2_geoTrees\appmovil\platforms\android\app\src\main\AndroidManifest.xml:16:20-65
 uses-sdk
 ADDED from D:\Project\SW2_geoTrees\appmovil\platforms\android\app\src\main\AndroidManifest.xml:18:5-74
+INJECTED from D:\Project\SW2_geoTrees\appmovil\platforms\android\app\src\main\AndroidManifest.xml:18:5-74
 MERGED from [:tbxml-android:] C:\Users\Gusta\.gradle\caches\transforms-1\files-1.1\tbxml-android.aar\05fa7982f96a4e744dd870546a458a4a\AndroidManifest.xml:7:5-9:41
 MERGED from [:tbxml-android:] C:\Users\Gusta\.gradle\caches\transforms-1\files-1.1\tbxml-android.aar\05fa7982f96a4e744dd870546a458a4a\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Gusta\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\d490aae7ff32eebcc75941c3aa59f448\AndroidManifest.xml:20:5-44
@@ -171,12 +172,15 @@ MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Gusta\.gradle\c
 MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Gusta\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\f49b59958f814ea351a2b768d9acc8e9\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Gusta\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\5dddbd45abfb4800c3447677b457291b\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Gusta\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\5dddbd45abfb4800c3447677b457291b\AndroidManifest.xml:20:5-44
+INJECTED from D:\Project\SW2_geoTrees\appmovil\platforms\android\app\src\main\AndroidManifest.xml:18:5-74
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\Gusta\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\b5c5580506f5299b00580b6b371697ae\AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
 		ADDED from D:\Project\SW2_geoTrees\appmovil\platforms\android\app\src\main\AndroidManifest.xml:18:42-71
 	android:minSdkVersion
 		ADDED from D:\Project\SW2_geoTrees\appmovil\platforms\android\app\src\main\AndroidManifest.xml:18:15-41
+		INJECTED from D:\Project\SW2_geoTrees\appmovil\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Project\SW2_geoTrees\appmovil\platforms\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from D:\Project\SW2_geoTrees\appmovil\platforms\android\app\src\main\AndroidManifest.xml:19:5-81
 	android:name

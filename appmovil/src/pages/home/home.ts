@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { ArbolPage } from '../arbol/arbol'
 import { Geolocation } from '@ionic-native/geolocation';
@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 import { hostViewClassName, analyzeAndValidateNgModules } from '@angular/compiler';
 import * as $ from 'jquery';
+import { MapsProvider } from './../../providers/maps/maps';
 
 declare var google;
 
@@ -14,30 +15,60 @@ declare var google;
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage implements OnInit
+export class HomePage
 {
+  
   map: any;
   constructor(
+    public mapsProvider: MapsProvider,
     public navCtrl: NavController,
     private geolocation: Geolocation,
     public http: HttpClient,
     public proveedor: ProArbolesProvider
     ){
-
-
   }
+  location:{
+    latitude:number,
+    longitude:number
+  };
 
+  @ViewChild('map') mapElement: ElementRef;
+  
   openarbol(){
     this.navCtrl.push( ArbolPage );
   }
 
-  ngOnInit(){
-    this.loadMap();
+  ionViewDidLoad(){
+    this.loadmaps();
   }
 
 
   public arboles: any;
 
+
+  loadmaps(){
+    let option = {//opciones no aplicadas en getCurrentPosition
+      maximumAge: 0,
+      timeout: 5000,
+      enableHighAccuracy: true
+    };
+
+    this.geolocation.getCurrentPosition(option).then((position)=>{
+      this.location = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      };
+      this.mapsProvider.init(this.location,this.mapElement);
+    }).catch((error)=>{
+      console.log('error getting location', error);
+    });
+
+  }
+  
+
+
+
+/*
   async loadMap() {
 
 
@@ -112,63 +143,5 @@ export class HomePage implements OnInit
     });
   
   }
-
-
-  
-
-
-
-
-
-
-/*
-  map: GoogleMap;
-
-  ngOnInit() {
-    this.loadMap();
-    //console.log('ionViewDidLoad PPrincipalPage');
-  }
-
-  loadMap() {
-
-    // This code is necessary for browser
-    /*Environment.setEnv({
-      'API_KEY_FOR_BROWSER_RELEASE': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap',
-      'API_KEY_FOR_BROWSER_DEBUG': 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAO_K67syAy4rYr8ROBCsbQGmMW9Knzy8Y&callback=initMap'
-    });
-
-    let mapOptions: GoogleMapOptions = {
-      controls: {
-        compass: true,
-        myLocation: true,
-        myLocationButton: true,
-        mapToolbar: true
-      },
-      camera: {
-         target: {
-           lat: -33.599623, 
-           lng: -70.577780
-         },
-         zoom: 18,
-         tilt: 30
-       }
-    };
-
-    this.map = GoogleMaps.create('map_canvas', mapOptions);
-
-
-/*
-    let marker: Marker = this.map.addMarkerSync({
-      title: 'Ionic',
-      icon: 'blue',
-      animation: 'DROP',
-      position: {
-        lat: -33.610554,
-        lng: -70.594103
-      }
-    });
-    marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-      alert('clicked');
-    });
 */
   }
