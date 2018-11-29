@@ -30,6 +30,7 @@ export class HomePage
     public proveedor: ProArbolesProvider,
     public nativeMap: NativeMapsProvider,
     public jsMap: JsMapsProvider){
+      this.loadmaps();
   }
   location:{
     latitude:number,
@@ -43,7 +44,6 @@ export class HomePage
   }
 
   async ionViewDidLoad(){
-    await this.loadmaps();
     await this.CargarDatos();
   }
 

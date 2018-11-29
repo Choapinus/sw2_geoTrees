@@ -19,9 +19,7 @@ export class NativeMapsProvider {
   };
  
   constructor(
-    public nhttp: HTTP,
     public googleMaps: GoogleMaps,
-    public http: HttpClient, 
     public proveedor: ProArbolesProvider,
     public alertCtrl: AlertController) {
 
@@ -58,9 +56,7 @@ export class NativeMapsProvider {
     this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
       this.alertmap.present();
       console.log('Map is ready!');
-
-      this.addMarker(latLng,"myposition");
-      this.CargarArboles();
+      this.CargaCompleta();
     });
 
     
@@ -93,13 +89,19 @@ export class NativeMapsProvider {
       });
   }
 
-
-
   CargarArboles(){
       for(let arbol of this.arboles){
         let latLng = new LatLng(arbol.lat, arbol.lon);
         this.addMarker(latLng, arbol.id);
       }
+  }
+
+  CargaCompleta(){
+    this.CargarDatos();
+    var that = this;
+    setTimeout(function(){
+      that.CargarArboles();
+    },3000);
   }
 
   addMarker(position, title){

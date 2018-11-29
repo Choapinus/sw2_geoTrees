@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HomePage } from '../../pages/home/home';
+import { GoogleMaps, LatLng, GoogleMapsEvent, GoogleMapsMapTypeId, Marker, CameraPosition, ILatLng } from '@ionic-native/google-maps';
 import { HttpClient } from '@angular/common/http';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 
@@ -9,12 +10,11 @@ export class JsMapsProvider {
 
   arbol: any;
   map: any;
- 
+  public arboles: any;
+
   constructor(
-    private http: HttpClient, 
     public proveedor: ProArbolesProvider
   ) {
-    
   }
  
   init(location, element){
@@ -27,55 +27,44 @@ export class JsMapsProvider {
     };
  
     this.map = new google.maps.Map(element.nativeElement, opts);
-    //this.addMarker(latLng,this.map);
-    
-    //this.CargarArboles(this.map);
 
 
+    this.CargaCompleta();
 
-
-
-    /*var marker = new google.maps.Marker({
-      position: latLng,
-      map: this.map
-    });*/
-    
-    
   }
 
-  addMarker(position, map){
+  addMarker(position, title){
     new google.maps.Marker({
+      title: title,
       position: position,
-      map: map
+      map: this.map
     });
   }
   
-  public arboles: any;
+  
 
-  CargarArboles(map){
-    console.log("CARGAR ARBOLES");
-    console.log(this.http.get('http://www.comunitree.tk:8081/arbol/all/'));
-    this.http.get('http://www.comunitree.tk:8081/arbol/all/')
-    .subscribe((data:any) => {
-      this.arboles = data.data;
-      for(let arbol of this.arboles){
-        var myLatlng = new google.maps.LatLng(parseFloat(arbol.lat),parseFloat(arbol.lon));
-        console.log(arbol.lat,  arbol.lon);
-
-        this.addMarker(
-          myLatlng
-          ,map);
-        
-      };
-      console.log("fin for");
-
-      
-    },err => {
-      console.log(err);
-    });
+  CargarDatos(){
+    console.log("cargando datos");
+    this.proveedor.obtenerarbol().subscribe(
+      data => {
+        this.arboles =data.data;
+      });
+    console.log("datos cargados");
   }
 
+  CargarArboles(){
+      for(let arbol of this.arboles){
+        let latLng = new LatLng(parseFloat(arbol.lat), parseFloat(arbol.lon));
+        this.addMarker(latLng, String(arbol.id));
+      }
+  }
 
+  CargaCompleta(){
+    var that = this;
+    this.CargarDatos();
+    setTimeout(function(){
+      that.CargarArboles();
+    },5000);
+  }
 
- 
 }

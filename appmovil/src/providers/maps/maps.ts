@@ -23,12 +23,12 @@ export class MapsProvider {
     if(this.platform.is('cordova') && 
       (this.platform.is('ios') || this.platform.is('android'))){
         platform.ready().then(()=>{
-          this.map = new NativeMapsProvider(nhttp, GoogleMaps, http, proveedor, alertCtrl);
+          this.map = new NativeMapsProvider(GoogleMaps, proveedor, alertCtrl);
           console.log("native");
         });
       
     } else {
-      this.map = new JsMapsProvider(http,proveedor);
+      this.map = new JsMapsProvider(proveedor);
       console.log("map JS");
     }
 

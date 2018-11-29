@@ -146,7 +146,7 @@ export class ArbolPage {
     console.log(this.fecha);
     console.log(fechatemp);
     let datos = {
-      type_id:'1', 
+      id:'1', 
       description: this.descripcion,
       lon: this.lon,
       lat: this.lat,
@@ -162,7 +162,6 @@ export class ArbolPage {
       json: JSON.stringify(json),
     }
 */
-
     console.log(this.proveedor.apiUrl+'/agregar/');
     $.ajax({
       url: this.proveedor.apiUrl+'/agregar/',

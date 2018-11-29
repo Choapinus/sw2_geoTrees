@@ -19,67 +19,25 @@
             <ion-item>
                 <ion-label stacked>Nombre</ion-label>
                 <ion-input type="text" [(ngModel)]="nombre"></ion-input>
-
-            </ion-item>
-            <ion-item>
-                <ion-label stacked>Nombre Cientifico</ion-label>
-                <ion-input type="text" [(ngModel)]="nombrecientifico"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label stacked>Descripción</ion-label>
                 <ion-input type="text" [(ngModel)]="descripcion"></ion-input>
             </ion-item>
-
             <ion-item>
-                <ion-label stacked>Familia</ion-label>
-                <ion-input type="text" [(ngModel)]="familia"></ion-input>
+                <ion-label stacked>Tamaño</ion-label>
+                <ion-input type="number" [(ngModel)]="tamano"></ion-input>
             </ion-item>
 
             <ion-item>
-                <ion-label stacked>Orden</ion-label>
-                <ion-input type="text" [(ngModel)]="orden"></ion-input>
+                <ion-label stacked>Circunferencia</ion-label>
+                <ion-input type="number" [(ngModel)]="circunferencia"></ion-input>
             </ion-item>
 
-            <ion-item>
-                <ion-label stacked>Clase</ion-label>
-                <ion-input type="text" [(ngModel)]="clase"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label stacked>subClase</ion-label>
-                <ion-input type="text" [(ngModel)]="subclase"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label stacked>Origen</ion-label>
-                <ion-input type="text" [(ngModel)]="origen"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label stacked>Preservación</ion-label>
-                <ion-input type="text" [(ngModel)]="preservacion"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label stacked>Color de la corteza</ion-label>
-                <ion-input type="text" [(ngModel)]="colorcorteza"></ion-input>
-            </ion-item>
         </ion-card>
-        <ion-item>
-            <ion-label floating>Descripcion General</ion-label>
-            <ion-textarea type="text" [(ngModel)]="descripciongeneral"></ion-textarea>
-        </ion-item>
 
-        <ion-item>
-            <ion-label floating>Tamaño</ion-label>
-            <ion-input type="number" [(ngModel)]="tamano"></ion-input>
-        </ion-item>
 
-        <ion-item>
-            <ion-label floating>Circunferencia</ion-label>
-            <ion-input type="number" [(ngModel)]="circunferencia"></ion-input>
-        </ion-item>
         <ion-item>
             <ion-label>Fecha</ion-label>
             <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fecha"></ion-datetime>

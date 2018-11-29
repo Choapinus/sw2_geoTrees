@@ -530,6 +530,7 @@ var HomePage = /** @class */ (function () {
         this.proveedor = proveedor;
         this.nativeMap = nativeMap;
         this.jsMap = jsMap;
+        this.loadmaps();
     }
     HomePage.prototype.openarbol = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__arbol_arbol__["a" /* ArbolPage */]);
@@ -538,11 +539,8 @@ var HomePage = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.loadmaps()];
+                    case 0: return [4 /*yield*/, this.CargarDatos()];
                     case 1:
-                        _a.sent();
-                        return [4 /*yield*/, this.CargarDatos()];
-                    case 2:
                         _a.sent();
                         return [2 /*return*/];
                 }
