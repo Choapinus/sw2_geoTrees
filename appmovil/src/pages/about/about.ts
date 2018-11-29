@@ -43,7 +43,7 @@ export class AboutPage {
       data =>{
         this.arboles = data.data;
       }
-    )
+    );
   }
 
 }

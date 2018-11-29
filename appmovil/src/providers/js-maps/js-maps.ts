@@ -6,7 +6,8 @@ import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 declare var google;
 @Injectable()
 export class JsMapsProvider {
- 
+
+  arbol: any;
   map: any;
  
   constructor(
@@ -26,27 +27,31 @@ export class JsMapsProvider {
     };
  
     this.map = new google.maps.Map(element.nativeElement, opts);
-    this.addMarker(latLng,this.map);
+    //this.addMarker(latLng,this.map);
     
-    this.CargarArboles(this.map);
+    //this.CargarArboles(this.map);
 
-    var marker = new google.maps.Marker({
+
+
+
+
+    /*var marker = new google.maps.Marker({
       position: latLng,
       map: this.map
-    });
+    });*/
     
     
   }
 
   addMarker(position, map){
-    var marker = new google.maps.Marker({
-      position:position,
+    new google.maps.Marker({
+      position: position,
       map: map
     });
   }
   
   public arboles: any;
-  
+
   CargarArboles(map){
     console.log("CARGAR ARBOLES");
     console.log(this.http.get('http://www.comunitree.tk:8081/arbol/all/'));

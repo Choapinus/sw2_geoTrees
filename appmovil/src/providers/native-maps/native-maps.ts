@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { GoogleMaps, LatLng, GoogleMapsEvent, GoogleMapsMapTypeId } from '@ionic-native/google-maps';
+import { GoogleMaps, LatLng, GoogleMapsEvent, GoogleMapsMapTypeId, Marker, CameraPosition, ILatLng } from '@ionic-native/google-maps';
 import { HttpClient } from '@angular/common/http';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
-import { AlertController, Button } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
+import { HTTP } from '@ionic-native/http';
+
 
 declare var google;
 
@@ -10,11 +12,20 @@ declare var google;
 export class NativeMapsProvider {
  
   map: any;
+  tree: any;
+  location:{
+    latitude:number,
+    longitude:number
+  };
  
-  constructor(public googleMaps: GoogleMaps,
+  constructor(
+    public nhttp: HTTP,
+    public googleMaps: GoogleMaps,
     public http: HttpClient, 
     public proveedor: ProArbolesProvider,
     public alertCtrl: AlertController) {
+
+      this.CargarDatos();
  
   }
  
@@ -23,68 +34,83 @@ export class NativeMapsProvider {
     let latLng = new LatLng(location.latitude, location.longitude);
  
     let opts = {
-      mapType: GoogleMapsMapTypeId.ROADMAP,
+      mapType: GoogleMapsMapTypeId.SATELLITE,
       controls:{
         'myLocationButton': true,
         'myLocation': true
       },
       camera: {
         latLng: latLng,
-        zoom: 11,
+        zoom: 14,
         tilt: 30
       }
     };
 
     
     this.map = this.googleMaps.create(element.nativeElement, opts);
-    this.addMarker(latLng,this.map);
+    
+    /*let marker: Marker = this.map.addMarkerSync({
+      title: 'tree',
+      position: latLng
+    });*/
     
 
     this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
-
-      this.CargarArboles(this.map);
       this.alertmap.present();
       console.log('Map is ready!');
+
+      this.addMarker(latLng,"myposition");
+      this.CargarArboles();
     });
 
     
-  }
+  }//fin init
   
   alertmap = this.alertCtrl.create({
     title: 'Map Ready',
-    buttons: ['Dismiss']
+    buttons: ['ok']
+  });
+  alerttree = this.alertCtrl.create({
+    title: 'Tree ready',
+    buttons: ['ok']
+  });
+  alerterror = this.alertCtrl.create({
+    title: 'error',
+    buttons: ['ok']
   });
 
   //########  Function add marker & CargarArboles
-  addMarker(position, map){
-    var marker = new google.maps.Marker({
-      position:position,
-      map: map
-    });
-  }
+  
+
 
   public arboles: any;
   
-  CargarArboles(map){
-    console.log("CARGAR ARBOLES");
-    console.log(this.http.get('http://www.comunitree.tk:8081/arbol/all/'));
-    this.http.get('http://www.comunitree.tk:8081/arbol/all/')
-    .subscribe((data:any) => {
-      this.arboles = data.data;
+
+  CargarDatos(){
+    this.proveedor.obtenerarbol().subscribe(
+      data => {
+        this.arboles =data.data;
+      });
+  }
+
+
+
+  CargarArboles(){
       for(let arbol of this.arboles){
-        var myLatlng = new google.maps.LatLng(parseFloat(arbol.lat),parseFloat(arbol.lon));
-        console.log(arbol.lat,  arbol.lon);
+        let latLng = new LatLng(arbol.lat, arbol.lon);
+        this.addMarker(latLng, arbol.id);
+      }
+  }
 
-        this.addMarker(
-          myLatlng
-          ,map);
-        
-      };
-      console.log("fin for");
-
-      
-    },err => {
-      console.log(err);
+  addMarker(position, title){
+    this.map.addMarkerSync({
+      title: String(title),
+      position: position,
+      icon: {
+        url: 'assets/imgs/comunitree.png'
+      }
+    }).on(GoogleMapsEvent.MARKER_CLICK).subscribe(()=>{
+      alert(title);
     });
   }
   //######## FIN  Function add marker & CargarArboles

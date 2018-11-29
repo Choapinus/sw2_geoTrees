@@ -23,6 +23,8 @@ import { MapsProvider } from '../providers/maps/maps';
 import { JsMapsProvider } from '../providers/js-maps/js-maps';
 import { NativeMapsProvider } from '../providers/native-maps/native-maps';
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { HTTP } from '@ionic-native/http';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     ArbolPage,
   ],
   providers: [
+    HTTP,
     GoogleMaps,
     AndroidPermissions,
     StatusBar,

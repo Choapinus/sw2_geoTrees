@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { ArbolPage } from '../arbol/arbol'
 import { Geolocation } from '@ionic-native/geolocation';
@@ -8,6 +8,8 @@ import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 import { hostViewClassName, analyzeAndValidateNgModules } from '@angular/compiler';
 import * as $ from 'jquery';
 import { MapsProvider } from './../../providers/maps/maps';
+import { JsMapsProvider } from '../../providers/js-maps/js-maps';
+import { NativeMapsProvider } from '../../providers/native-maps/native-maps';
 
 declare var google;
 
@@ -19,13 +21,15 @@ export class HomePage
 {
   
   map: any;
+  tree: any;
   constructor(
     public mapsProvider: MapsProvider,
     public navCtrl: NavController,
     private geolocation: Geolocation,
     public http: HttpClient,
-    public proveedor: ProArbolesProvider
-    ){
+    public proveedor: ProArbolesProvider,
+    public nativeMap: NativeMapsProvider,
+    public jsMap: JsMapsProvider){
   }
   location:{
     latitude:number,
@@ -38,8 +42,9 @@ export class HomePage
     this.navCtrl.push( ArbolPage );
   }
 
-  ionViewDidLoad(){
-    this.loadmaps();
+  async ionViewDidLoad(){
+    await this.loadmaps();
+    await this.CargarDatos();
   }
 
 
@@ -53,13 +58,13 @@ export class HomePage
     };
     
 
-    
+
     this.geolocation.getCurrentPosition(option).then((position)=>{
       this.location = {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude
       };
-      
+
       this.mapsProvider.init(this.location,this.mapElement);
 
     }).catch((error)=>{
@@ -72,26 +77,37 @@ export class HomePage
 
 
   addMarker(position, map){
-    console.log(map);
-    return new google.maps.Marker({
-      position: {
-        lat: parseFloat(position.latitude),
-        lng: parseFloat(position.longitude)
-      },
-      setMap: map
+    console.log(position);
+    new google.maps.Marker({
+      position: position,
+      map: map
     });
   }
 
+
+  
+  CargarDatos(){
+    
+    this.http.get(this.proveedor.apiUrl+'/all/').subscribe((datos:any) =>{
+      this.tree = datos.data;
+      
+    });
+    return this.tree;
+  }
+
+
   CargarArboles(map){
+    
     this.http.get(this.proveedor.apiUrl+'/all/')
     .subscribe((data:any) => {
       this.arboles = data.data;
       for(let arbol of this.arboles){
-        console.log(arbol.lat,  arbol.lon);
-        this.addMarker({
-          latitude: arbol.lat, 
-          longitude: arbol.lon}
-          ,map);
+        var myLatlng = new google.maps.LatLng(parseFloat(arbol.lat),parseFloat(arbol.lon));
+        console.log(myLatlng);
+        new google.maps.Marker({
+          position: myLatlng,
+          map: this.jsMap.map
+        });
         
       };
       console.log("fin for");

@@ -6,6 +6,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 import { HttpClient } from '@angular/common/http';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 import { AlertController } from 'ionic-angular';
+import { HTTP } from '@ionic-native/http';
 
 @Injectable()
 export class MapsProvider {
@@ -13,6 +14,7 @@ export class MapsProvider {
   map: any;
  
   constructor(
+    public nhttp: HTTP,
     public platform: Platform,
     public http: HttpClient, 
     public proveedor: ProArbolesProvider,
@@ -21,7 +23,7 @@ export class MapsProvider {
     if(this.platform.is('cordova') && 
       (this.platform.is('ios') || this.platform.is('android'))){
         platform.ready().then(()=>{
-          this.map = new NativeMapsProvider(GoogleMaps, http, proveedor, alertCtrl);
+          this.map = new NativeMapsProvider(nhttp, GoogleMaps, http, proveedor, alertCtrl);
           console.log("native");
         });
       
