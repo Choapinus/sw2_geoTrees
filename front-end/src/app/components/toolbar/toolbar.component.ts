@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Observable } from 'rxjs';
+import {RequestOptions, Request, Headers, RequestMethod } from '@angular/http';
+import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { TreesService } from '../../services/trees.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -6,10 +12,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-
-  constructor() { }
+  profile;
+  user = {
+    email: '',
+    name: ''
+  };
+  constructor(private _treesService: TreesService,
+              private auth: AuthService) {
+    auth.handleAuthentication();
+  }
 
   ngOnInit() {
+    if (this.auth.userProfile) {
+      this.profile = this.auth.userProfile;
+    } else {
+      this.auth.getProfile((err, profile) => {
+      });
+    }
+  }
+
+  login() {
+    this.auth.login();
+  }
+
+  logout() {
+    this.auth.logout();
   }
 
 }
