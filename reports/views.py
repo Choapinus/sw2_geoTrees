@@ -7,6 +7,7 @@ from tree.models import Tree
 from users.models import CustomUser
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+import json
 
 class ReportListView(generics.ListAPIView):
 	queryset = models.Report.objects.all()
@@ -38,7 +39,8 @@ class ReportViewGetByTree(generics.ListAPIView):
 @csrf_exempt
 def add_report(request):
 	if request.method == 'POST':
-		data = request.POST
+		# data = request.POST # por algun motivo, las cosas llegan por el body y no en el post
+		data = json.loads(request.body)
 
 		report = models.Report()
 		report.tree = Tree.objects.get(pk=int(data["tree_id"]))
