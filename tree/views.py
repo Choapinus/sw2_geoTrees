@@ -709,7 +709,10 @@ def get_type(request, type_id=None):
 @csrf_exempt
 def add_tree(request):
 	if request.method == 'POST':
-		data = request.POST
+		if request.META.get("CONTENT_TYPE").lower() == "application/json":
+			data = json.loads(request.body)
+		else:
+			data = request.POST
 
 		tree = Tree()
 		tree._type = TypeTree.objects.get(pk=int(data["type_id"]))

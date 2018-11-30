@@ -39,8 +39,10 @@ class ReportViewGetByTree(generics.ListAPIView):
 @csrf_exempt
 def add_report(request):
 	if request.method == 'POST':
-		# data = request.POST # por algun motivo, las cosas llegan por el body y no en el post
-		data = json.loads(request.body)
+		if request.META.get("CONTENT_TYPE").lower() == "application/json":
+			data = json.loads(request.body)
+		else:
+			data = request.POST
 
 		report = models.Report()
 		report.tree = Tree.objects.get(pk=int(data["tree_id"]))
