@@ -21,6 +21,8 @@ import {ErrorStateMatcher, ShowOnDirtyErrorStateMatcher} from '@angular/material
 import { TreesService } from './services/trees.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SeemoreComponent } from './components/seemore/seemore.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { SeemoreComponent } from './components/seemore/seemore.component';
   ],
   providers: [
     TreesService,
+    AuthService,
+    AuthGuardService,
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ],
   bootstrap: [AppComponent]

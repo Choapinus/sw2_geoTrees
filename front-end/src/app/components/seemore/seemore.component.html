@@ -32,7 +32,8 @@
         </mat-card-content>
         <mat-card-actions>
             <a [routerLink]="['/map']" mat-raised-button color="primary">Volver</a>
-            <button *ngIf="getData(); let trees" (click)="sendReport(tree.id)" mat-raised-button color="warn" type="button">Enviar reporte</button>
+            <button *ngIf="!auth.isAuthenticated()" mat-raised-button disabled type="button">Enviar reporte</button>
+            <button *ngIf="(getData() && auth.isAuthenticated() )" (click)="sendReport(tree.id)" mat-raised-button color="warn" type="button">Enviar reporte</button>
         </mat-card-actions>
     </mat-card>
     <div #sidenav *ngIf="tree">
