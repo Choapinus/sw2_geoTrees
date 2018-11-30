@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GoogleMaps, LatLng, GoogleMapsEvent, GoogleMapsMapTypeId, Marker, CameraPosition, ILatLng } from '@ionic-native/google-maps';
+import { GoogleMaps, LatLng, GoogleMapsEvent, GoogleMapsMapTypeId, Marker, CameraPosition, ILatLng, HtmlInfoWindow, GoogleMapsAnimation } from '@ionic-native/google-maps';
 import { HttpClient } from '@angular/common/http';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 import { AlertController } from 'ionic-angular';
@@ -39,8 +39,7 @@ export class NativeMapsProvider {
       },
       camera: {
         latLng: latLng,
-        zoom: 14,
-        tilt: 30
+        zoom: 14
       }
     };
 
@@ -92,7 +91,7 @@ export class NativeMapsProvider {
   CargarArboles(){
       for(let arbol of this.arboles){
         let latLng = new LatLng(arbol.lat, arbol.lon);
-        this.addMarker(latLng, arbol.id);
+        this.addMarker(latLng, arbol.id, arbol);
       }
   }
 
@@ -104,15 +103,34 @@ export class NativeMapsProvider {
     },3000);
   }
 
-  addMarker(position, title){
-    this.map.addMarkerSync({
+  addMarker(position, title, arbol){
+    let htmlInfoWindow = new HtmlInfoWindow();
+    let frame: HTMLElement = document.createElement('div');
+    frame.innerHTML = [
+      '<h1>' + arbol._type.name +'</h1>',
+      '<p>'+ 'id: '+ String(arbol.id) + '</p>',
+      '<p> coordenadas: ' + arbol.lat +' / '+ arbol.lon+'</p>',
+      '<p>descripción: </p>' + arbol.description + '<p></p>',
+      '<p>' + 'tamaño: '+ arbol.size + '</p>',
+      '<p> fecha: </p>'+ arbol.grounded + '<p></p>'
+    ].join("");
+    htmlInfoWindow.setContent(frame);
+    let marker: Marker = this.map.addMarkerSync({
       title: String(title),
       position: position,
+      animation: 'DROP',
       icon: {
         url: 'assets/imgs/comunitree.png'
       }
-    }).on(GoogleMapsEvent.MARKER_CLICK).subscribe(()=>{
-      alert(title);
+    });
+    marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(()=>{
+
+      htmlInfoWindow.open(marker);
+      this.map.moveCamera({
+        target: {lat: arbol.lat, lng: arbol.lon},
+        zoom: 20,
+        duration: 2000
+      });
     });
   }
   //######## FIN  Function add marker & CargarArboles

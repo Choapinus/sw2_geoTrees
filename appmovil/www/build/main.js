@@ -52,7 +52,7 @@ var JsMapsProvider = /** @class */ (function () {
     JsMapsProvider.prototype.CargarArboles = function () {
         for (var _i = 0, _a = this.arboles; _i < _a.length; _i++) {
             var arbol = _a[_i];
-            var latLng = new __WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["d" /* LatLng */](parseFloat(arbol.lat), parseFloat(arbol.lon));
+            var latLng = new __WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["e" /* LatLng */](parseFloat(arbol.lat), parseFloat(arbol.lon));
             this.addMarker(latLng, String(arbol.id));
         }
     };
@@ -65,10 +65,9 @@ var JsMapsProvider = /** @class */ (function () {
     };
     JsMapsProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */]])
     ], JsMapsProvider);
     return JsMapsProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=js-maps.js.map
@@ -118,7 +117,7 @@ var NativeMapsProvider = /** @class */ (function () {
     }
     NativeMapsProvider.prototype.init = function (location, element) {
         var _this = this;
-        var latLng = new __WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["d" /* LatLng */](location.latitude, location.longitude);
+        var latLng = new __WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["e" /* LatLng */](location.latitude, location.longitude);
         var opts = {
             mapType: __WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["c" /* GoogleMapsMapTypeId */].SATELLITE,
             controls: {
@@ -151,8 +150,8 @@ var NativeMapsProvider = /** @class */ (function () {
     NativeMapsProvider.prototype.CargarArboles = function () {
         for (var _i = 0, _a = this.arboles; _i < _a.length; _i++) {
             var arbol = _a[_i];
-            var latLng = new __WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["d" /* LatLng */](arbol.lat, arbol.lon);
-            this.addMarker(latLng, arbol.id);
+            var latLng = new __WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["e" /* LatLng */](arbol.lat, arbol.lon);
+            this.addMarker(latLng, arbol.id, arbol);
         }
     };
     NativeMapsProvider.prototype.CargaCompleta = function () {
@@ -162,23 +161,43 @@ var NativeMapsProvider = /** @class */ (function () {
             that.CargarArboles();
         }, 3000);
     };
-    NativeMapsProvider.prototype.addMarker = function (position, title) {
-        this.map.addMarkerSync({
+    NativeMapsProvider.prototype.addMarker = function (position, title, arbol) {
+        var _this = this;
+        var htmlInfoWindow = new __WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["d" /* HtmlInfoWindow */]();
+        var frame = document.createElement('div');
+        frame.innerHTML = [
+            '<h1>' + arbol._type.name + '</h1>',
+            '<p>' + 'id: ' + String(arbol.id) + '</p>',
+            '<p> coordenadas: ' + arbol.lat + ' / ' + arbol.lon + '</p>',
+            '<p>descripción: </p>' + arbol.description + '<p></p>',
+            '<p>' + 'tamaño: ' + arbol.size + '</p>',
+            '<p> fecha: </p>' + arbol.grounded + '<p></p>'
+        ].join("");
+        htmlInfoWindow.setContent(frame);
+        var marker = this.map.addMarkerSync({
             title: String(title),
             position: position,
+            animation: 'DROP',
             icon: {
                 url: 'assets/imgs/comunitree.png'
             }
-        }).on(__WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["b" /* GoogleMapsEvent */].MARKER_CLICK).subscribe(function () {
-            alert(title);
+        });
+        marker.on(__WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["b" /* GoogleMapsEvent */].MARKER_CLICK).subscribe(function () {
+            htmlInfoWindow.open(marker);
+            _this.map.moveCamera({
+                target: { lat: arbol.lat, lng: arbol.lon },
+                zoom: 20,
+                duration: 2000
+            });
         });
     };
     NativeMapsProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["a" /* GoogleMaps */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["a" /* GoogleMaps */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["a" /* GoogleMaps */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]])
     ], NativeMapsProvider);
     return NativeMapsProvider;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=native-maps.js.map
