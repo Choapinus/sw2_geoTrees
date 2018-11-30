@@ -75,7 +75,7 @@ export class SendreportComponent implements OnInit {
     if (user.includes( mail ) === false ) {
       this._treesService.addUser(this.user).subscribe(data => {
         res = data;
-        console.log(res);
+        console.log('Response: ' + res);
         this.sendReport();
       });
     } else {
