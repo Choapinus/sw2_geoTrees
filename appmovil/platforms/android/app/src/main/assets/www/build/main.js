@@ -126,8 +126,7 @@ var NativeMapsProvider = /** @class */ (function () {
             },
             camera: {
                 latLng: latLng,
-                zoom: 14,
-                tilt: 30
+                zoom: 14
             }
         };
         this.map = this.googleMaps.create(element.nativeElement, opts);
@@ -184,10 +183,10 @@ var NativeMapsProvider = /** @class */ (function () {
         });
         marker.on(__WEBPACK_IMPORTED_MODULE_1__ionic_native_google_maps__["b" /* GoogleMapsEvent */].MARKER_CLICK).subscribe(function () {
             htmlInfoWindow.open(marker);
-            _this.map.moveCamera({
+            _this.map.animateCamera({
                 target: { lat: arbol.lat, lng: arbol.lon },
                 zoom: 20,
-                duration: 2000
+                duration: 3000
             });
         });
     };

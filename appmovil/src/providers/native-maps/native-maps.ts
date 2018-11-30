@@ -126,10 +126,10 @@ export class NativeMapsProvider {
     marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(()=>{
 
       htmlInfoWindow.open(marker);
-      this.map.moveCamera({
+      this.map.animateCamera({
         target: {lat: arbol.lat, lng: arbol.lon},
         zoom: 20,
-        duration: 2000
+        duration: 3000
       });
     });
   }
