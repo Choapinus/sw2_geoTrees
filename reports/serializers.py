@@ -19,4 +19,4 @@ class ReportSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Report
-		fields = ('id', 'title', 'description', 'photos', 'uploaded_by', 'tree', 'photos', )
+		fields = ('id', 'title', 'description', 'photos', 'uploaded_by', 'tree', 'photos', 'created', )
