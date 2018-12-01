@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import * as $ from 'jquery';
 import { stringify } from '@angular/core/src/util';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the ArbolPage page.
@@ -146,14 +147,13 @@ export class ArbolPage {
     console.log(this.fecha);
     console.log(fechatemp);
     let datos = {
-      id:'1', 
+      type_id:'1', 
       description: this.descripcion,
       lon: this.lon,
       lat: this.lat,
       size: this.tamano,
       grounded: fechatemp,
-      circumference: this.circunferencia,
-      photos: this.fotografia
+      circumference: this.circunferencia
       //hazard: ['1','2']
     }
 
@@ -162,13 +162,19 @@ export class ArbolPage {
       json: JSON.stringify(json),
     }
 */
+    var url;
+    if(this.proveedor.opcion==false){
+      url = this.proveedor.apiUrl;
+
+    }else{
+      url = this.proveedor.apiUrl80;
+    }
     console.log(this.proveedor.apiUrl+'/agregar/');
     $.ajax({
-      url: this.proveedor.apiUrl+'/agregar/',
+      url: url+'/agregar/',
       type: 'post',
       dataType: 'json',
       data: datos,
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       // contentType: 'application/json', <-- no need this.
       success: function(json) {
         if (json) {

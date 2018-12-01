@@ -79,7 +79,6 @@ export class NativeMapsProvider {
 
 
   public arboles: any;
-  
 
   CargarDatos(){
     this.proveedor.obtenerarbol().subscribe(
@@ -94,13 +93,14 @@ export class NativeMapsProvider {
         this.addMarker(latLng, arbol.id, arbol);
       }
   }
-
+  
   CargaCompleta(){
     this.CargarDatos();
     var that = this;
     setTimeout(function(){
       that.CargarArboles();
     },3000);
+    
   }
 
   addMarker(position, title, arbol){
@@ -116,23 +116,26 @@ export class NativeMapsProvider {
     ].join("");
     htmlInfoWindow.setContent(frame);
     let marker: Marker = this.map.addMarkerSync({
-      title: String(title),
       position: position,
       animation: 'DROP',
       icon: {
         url: 'assets/imgs/comunitree.png'
       }
     });
+    
     marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(()=>{
 
       htmlInfoWindow.open(marker);
       this.map.animateCamera({
         target: {lat: arbol.lat, lng: arbol.lon},
         zoom: 20,
-        duration: 3000
+        duration: 1500
       });
     });
+
   }
+
+
   //######## FIN  Function add marker & CargarArboles
 
  

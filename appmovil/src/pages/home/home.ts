@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
+import { NavController, App , Events, Toggle } from 'ionic-angular';
 import { ArbolPage } from '../arbol/arbol'
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps, GoogleMap, GoogleMapOptions, Marker, GoogleMapsMapTypeId, Environment, GoogleMapsEvent, MarkerOptions, LatLng } from '@ionic-native/google-maps';
@@ -29,7 +29,9 @@ export class HomePage
     public http: HttpClient,
     public proveedor: ProArbolesProvider,
     public nativeMap: NativeMapsProvider,
-    public jsMap: JsMapsProvider){
+    public jsMap: JsMapsProvider,
+    public events: Events,
+    public appCtrl: App){
       this.loadmaps();
   }
   location:{
@@ -44,7 +46,7 @@ export class HomePage
   }
 
   async ionViewDidLoad(){
-    await this.CargarDatos();
+
   }
 
 
@@ -71,51 +73,11 @@ export class HomePage
       console.log('error getting location', error);
     });
     
-    
-    
   }
 
-
-  addMarker(position, map){
-    console.log(position);
-    new google.maps.Marker({
-      position: position,
-      map: map
-    });
-  }
-
-
-  
-  CargarDatos(){
-    
-    this.http.get(this.proveedor.apiUrl+'/all/').subscribe((datos:any) =>{
-      this.tree = datos.data;
-      
-    });
-    return this.tree;
-  }
-
-
-  CargarArboles(map){
-    
-    this.http.get(this.proveedor.apiUrl+'/all/')
-    .subscribe((data:any) => {
-      this.arboles = data.data;
-      for(let arbol of this.arboles){
-        var myLatlng = new google.maps.LatLng(parseFloat(arbol.lat),parseFloat(arbol.lon));
-        console.log(myLatlng);
-        new google.maps.Marker({
-          position: myLatlng,
-          map: this.jsMap.map
-        });
-        
-      };
-      console.log("fin for");
-
-      
-    },err => {
-      console.log(err);
-    });
+  recargar(){
+    this.appCtrl.getRootNav().setRoot(HomePage);
+    window.location.reload();
   }
 
   }

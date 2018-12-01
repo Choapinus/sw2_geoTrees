@@ -174,7 +174,6 @@ var NativeMapsProvider = /** @class */ (function () {
         ].join("");
         htmlInfoWindow.setContent(frame);
         var marker = this.map.addMarkerSync({
-            title: String(title),
             position: position,
             animation: 'DROP',
             icon: {
@@ -186,7 +185,7 @@ var NativeMapsProvider = /** @class */ (function () {
             _this.map.animateCamera({
                 target: { lat: arbol.lat, lng: arbol.lon },
                 zoom: 20,
-                duration: 3000
+                duration: 1500
             });
         });
     };
@@ -271,7 +270,7 @@ var ArbolPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__arbol__["a" /* ArbolPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__arbol__["a" /* ArbolPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__arbol__["a" /* ArbolPage */]),
             ],
         })
     ], ArbolPageModule);
@@ -417,7 +416,7 @@ var AboutPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-about',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\about\about.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Arbol\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n\n\n\n<ion-content>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">\n\n        </ion-refresher-content>\n    </ion-refresher>\n\n\n\n\n\n    <ion-card *ngFor="let arbol of arboles">\n\n        <button ion-button full outline icon-only item-end>\n            <ion-card-title padding>\n                {{arbol._type.name}}\n            </ion-card-title>\n            <ion-icon name="pin"></ion-icon>\n        </button>\n        <ion-card-content>\n            <ion-list>\n                <ion-item>\n                    <ion-label>\n                        <p>id:{{arbol.id}}</p>\n                        <p>\n                            latitud = {{arbol.lat}}\n                        </p>\n                        <p>\n                            longitud = {{arbol.lon}}\n                        </p>\n                        <p>\n                            size = {{arbol.size}}\n                        </p>\n                        <p>\n                            {{arbol.description}}\n                        </p>\n                    </ion-label>\n                </ion-item>\n            </ion-list>\n\n        </ion-card-content>\n\n    </ion-card>\n\n\n</ion-content>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\about\about.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], AboutPage);
     return AboutPage;
@@ -458,7 +457,7 @@ var ContactPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-contact',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\contact\contact.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Perfil\n        </ion-title>\n        <ion-buttons end>\n            <button ion-button small>Registrarse</button>\n        </ion-buttons>\n        <ion-buttons start>\n            <button ion-button small>Iniciar sesion</button>\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n    <ion-card>\n        <ion-card-content>\n            <ion-item>\n                <ion-label>\n                    Nombre\n                </ion-label>\n            </ion-item>\n            <ion-item>\n                <ion-label>\n                    Apellido\n                </ion-label>\n            </ion-item>\n            <ion-item>\n                <ion-label>\n                    Email\n                </ion-label>\n            </ion-item>\n            <!-- Add card content here! -->\n        </ion-card-content>\n\n    </ion-card>\n    <ion-card>\n        <ion-card-content>\n            <ion-label>\n                <button ion-button full color="secondary" icon-start (click)="openarbol()">\n                    Agregar árbol \n                    <ion-icon name="leaf"></ion-icon>\n                </button>\n            </ion-label>\n        </ion-card-content>\n    </ion-card>\n</ion-content>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\contact\contact.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
     ], ContactPage);
     return ContactPage;
 }());
@@ -535,7 +534,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 var HomePage = /** @class */ (function () {
-    function HomePage(mapsProvider, navCtrl, geolocation, http, proveedor, nativeMap, jsMap) {
+    function HomePage(mapsProvider, navCtrl, geolocation, http, proveedor, nativeMap, jsMap, events, appCtrl) {
         this.mapsProvider = mapsProvider;
         this.navCtrl = navCtrl;
         this.geolocation = geolocation;
@@ -543,20 +542,18 @@ var HomePage = /** @class */ (function () {
         this.proveedor = proveedor;
         this.nativeMap = nativeMap;
         this.jsMap = jsMap;
+        this.events = events;
+        this.appCtrl = appCtrl;
         this.loadmaps();
     }
+    HomePage_1 = HomePage;
     HomePage.prototype.openarbol = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__arbol_arbol__["a" /* ArbolPage */]);
     };
     HomePage.prototype.ionViewDidLoad = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.CargarDatos()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+                return [2 /*return*/];
             });
         });
     };
@@ -577,57 +574,30 @@ var HomePage = /** @class */ (function () {
             console.log('error getting location', error);
         });
     };
-    HomePage.prototype.addMarker = function (position, map) {
-        console.log(position);
-        new google.maps.Marker({
-            position: position,
-            map: map
-        });
-    };
-    HomePage.prototype.CargarDatos = function () {
-        var _this = this;
-        this.http.get(this.proveedor.apiUrl + '/all/').subscribe(function (datos) {
-            _this.tree = datos.data;
-        });
-        return this.tree;
-    };
-    HomePage.prototype.CargarArboles = function (map) {
-        var _this = this;
-        this.http.get(this.proveedor.apiUrl + '/all/')
-            .subscribe(function (data) {
-            _this.arboles = data.data;
-            for (var _i = 0, _a = _this.arboles; _i < _a.length; _i++) {
-                var arbol = _a[_i];
-                var myLatlng = new google.maps.LatLng(parseFloat(arbol.lat), parseFloat(arbol.lon));
-                console.log(myLatlng);
-                new google.maps.Marker({
-                    position: myLatlng,
-                    map: _this.jsMap.map
-                });
-            }
-            ;
-            console.log("fin for");
-        }, function (err) {
-            console.log(err);
-        });
+    HomePage.prototype.recargar = function () {
+        this.appCtrl.getRootNav().setRoot(HomePage_1);
+        window.location.reload();
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], HomePage.prototype, "mapElement", void 0);
-    HomePage = __decorate([
+    HomePage = HomePage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\home\home.html"*/'<!--HEADER-->\n<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Mapa\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n<!--CONTENIDO-->\n\n<ion-content>\n    <ion-fab top center edge>\n        <button ion-fab mini color="secondary">\n            <ion-icon name="leaf"></ion-icon>\n        </button>\n        <ion-fab-list>\n            <button ion-fab (click)="openarbol()"><ion-icon name="leaf"></ion-icon></button>\n            <button ion-fab (click)="jsMap.CargaCompleta()"><ion-icon name="refresh"></ion-icon></button>\n        </ion-fab-list>\n    </ion-fab>\n\n    <div #map id="map"></div>\n</ion-content>\n\n<!--FOOTER-->\n\n<ion-footer>\n\n\n</ion-footer>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\home\home.html"*/'<!--HEADER-->\n<ion-header>\n    <ion-navbar>\n        <ion-title style="float:left">Mapa</ion-title>\n\n\n        <ion-toggle style="float: right" [(ngModel)]="proveedor.opcion"></ion-toggle>\n        <ion-label style="float: right" color="gris">puerto: {{this.proveedor.puerto}}</ion-label>\n        <button small ion-button icon-only style="float: right" (click)="recargar()"><ion-icon name="refresh"></ion-icon></button>\n        <button small ion-button icon-only style="float: right" (click)="openarbol()"><ion-icon name="leaf"></ion-icon></button>\n\n    </ion-navbar>\n</ion-header>\n<!--CONTENIDO-->\n\n<ion-content>\n    <!--ion-fab top center edge>\n        <button ion-fab mini color="secondary">\n            <ion-icon name="leaf"></ion-icon>\n        </button>\n        <ion-fab-list>\n            <button ion-fab (click)="openarbol()"><ion-icon name="leaf"></ion-icon></button>\n            <button ion-fab (click)="recargar()"><ion-icon name="refresh"></ion-icon></button>\n        </ion-fab-list>\n    </ion-fab-->\n\n    <div #map id="map"></div>\n</ion-content>\n\n<!--FOOTER-->\n\n<ion-footer>\n\n\n</ion-footer>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__providers_maps_maps__["a" /* MapsProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__["a" /* Geolocation */],
             __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */],
             __WEBPACK_IMPORTED_MODULE_5__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */],
             __WEBPACK_IMPORTED_MODULE_8__providers_native_maps_native_maps__["a" /* NativeMapsProvider */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_js_maps_js_maps__["a" /* JsMapsProvider */]])
+            __WEBPACK_IMPORTED_MODULE_7__providers_js_maps_js_maps__["a" /* JsMapsProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]])
     ], HomePage);
     return HomePage;
+    var HomePage_1;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -691,7 +661,7 @@ var MapsProvider = /** @class */ (function () {
     MapsProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7__ionic_native_http__["a" /* HTTP */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["g" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */],
             __WEBPACK_IMPORTED_MODULE_6__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */],
             __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */]])
@@ -792,7 +762,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_15__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_arbol_arbol_module__["ArbolPageModule"],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {
                     preloadModules: true
                 }, {
                     links: [
@@ -800,7 +770,7 @@ var AppModule = /** @class */ (function () {
                     ]
                 })
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_4__pages_about_about__["a" /* AboutPage */],
@@ -817,7 +787,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */],
                 __WEBPACK_IMPORTED_MODULE_11__ionic_native_camera__["a" /* Camera */],
                 __WEBPACK_IMPORTED_MODULE_12__ionic_native_geolocation__["a" /* Geolocation */],
-                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
+                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_14__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */],
                 __WEBPACK_IMPORTED_MODULE_18__providers_maps_maps__["a" /* MapsProvider */],
                 __WEBPACK_IMPORTED_MODULE_19__providers_js_maps_js_maps__["a" /* JsMapsProvider */],
@@ -869,7 +839,7 @@ var MyApp = /** @class */ (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
 }());
@@ -1008,10 +978,22 @@ var ProArbolesProvider = /** @class */ (function () {
     function ProArbolesProvider(http) {
         this.http = http;
         this.apiUrl = 'http://www.comunitree.tk:8081/arbol';
+        this.apiUrl80 = 'http://www.comunitree.tk:8080/arbol';
         console.log('Hello ProArbolesProvider Provider');
     }
     ProArbolesProvider.prototype.obtenerarbol = function () {
-        return this.http.get(this.apiUrl + '/all/');
+        if (this.opcion == false) {
+            this.puerto = "8081";
+            return this.http.get(this.apiUrl + '/all/');
+        }
+        else if (this.opcion == true) {
+            this.puerto = "8080";
+            return this.http.get(this.apiUrl80 + '/all/');
+        }
+        else {
+            this.puerto = "8081";
+            return this.http.get(this.apiUrl + '/all/');
+        }
     };
     ProArbolesProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
@@ -1144,14 +1126,13 @@ var ArbolPage = /** @class */ (function () {
         console.log(this.fecha);
         console.log(fechatemp);
         var datos = {
-            id: '1',
+            type_id: '1',
             description: this.descripcion,
             lon: this.lon,
             lat: this.lat,
             size: this.tamano,
             grounded: fechatemp,
-            circumference: this.circunferencia,
-            photos: this.fotografia
+            circumference: this.circunferencia
             //hazard: ['1','2']
         };
         /*
@@ -1159,13 +1140,19 @@ var ArbolPage = /** @class */ (function () {
               json: JSON.stringify(json),
             }
         */
+        var url;
+        if (this.proveedor.opcion == false) {
+            url = this.proveedor.apiUrl;
+        }
+        else {
+            url = this.proveedor.apiUrl80;
+        }
         console.log(this.proveedor.apiUrl + '/agregar/');
         __WEBPACK_IMPORTED_MODULE_6_jquery__["ajax"]({
-            url: this.proveedor.apiUrl + '/agregar/',
+            url: url + '/agregar/',
             type: 'post',
             dataType: 'json',
             data: datos,
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             // contentType: 'application/json', <-- no need this.
             success: function (json) {
                 if (json) {
@@ -1179,9 +1166,9 @@ var ArbolPage = /** @class */ (function () {
     };
     ArbolPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-arbol',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\arbol\arbol.html"*/'<!--\n\n  Generated template for the ArbolPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <ion-title>Árbol</ion-title>\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-list>\n\n        <ion-card>\n\n            <ion-item>\n\n                <ion-label stacked>Nombre</ion-label>\n\n                <ion-input type="text" [(ngModel)]="nombre"></ion-input>\n\n            </ion-item>\n\n\n\n            <ion-item>\n\n                <ion-label stacked>Descripción</ion-label>\n\n                <ion-input type="text" [(ngModel)]="descripcion"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label stacked>Tamaño</ion-label>\n\n                <ion-input type="number" [(ngModel)]="tamano"></ion-input>\n\n            </ion-item>\n\n\n\n            <ion-item>\n\n                <ion-label stacked>Circunferencia</ion-label>\n\n                <ion-input type="number" [(ngModel)]="circunferencia"></ion-input>\n\n            </ion-item>\n\n\n\n        </ion-card>\n\n\n\n\n\n        <ion-item>\n\n            <ion-label>Fecha</ion-label>\n\n            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fecha"></ion-datetime>\n\n        </ion-item>\n\n\n\n\n\n        <ion-item>\n\n            <div text-start>\n\n                Coordenadas\n\n                <button ion-button color="gris" outline item-end icon-start (click)="mylocation()">\n\n                        <ion-icon color="primary" name="compass"></ion-icon>\n\n                        actualizar coordenadas\n\n                </button>\n\n            </div>\n\n            <div>\n\n\n\n            </div>\n\n\n\n            <div>\n\n                <div float-left>\n\n                    <p>\n\n                        lat: {{lat}}\n\n                    </p>\n\n                </div>\n\n                <div float-right>\n\n                    <p>\n\n                        lon: {{lon}}\n\n                    </p>\n\n                </div>\n\n\n\n            </div>\n\n        </ion-item>\n\n\n\n\n\n\n\n        <ion-item>\n\n            <p>Fotografia</p>\n\n            <img [src]="fotografia" *ngIf="fotografia" />\n\n        </ion-item>\n\n\n\n        <ion-label>\n\n            <button ion-button full icon-start (click)="sacarfoto()">\n\n                        Tomar Fotografia \n\n                        <ion-icon name="camera"></ion-icon>\n\n                    </button>\n\n        </ion-label>\n\n\n\n        <ion-label>\n\n            <button ion-button full (click)="subir()">Guardar</button>\n\n        </ion-label>\n\n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\arbol\arbol.html"*/,
+            selector: 'page-arbol',template:/*ion-inline-start:"D:\Project\SW2_geoTrees\appmovil\src\pages\arbol\arbol.html"*/'<!--\n\n  Generated template for the ArbolPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <ion-title style="float:left">Árbol</ion-title>\n\n        <!-->ion-toggle style="float: right" [(ngModel)]="proveedor.opcion"></ion-toggle-->\n\n        <ion-label style="float: right" color="gris">puerto: {{this.proveedor.puerto}}</ion-label>\n\n\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-list>\n\n        <ion-card>\n\n            <ion-item>\n\n                <ion-label stacked>Nombre</ion-label>\n\n                <ion-input type="text" [(ngModel)]="nombre"></ion-input>\n\n            </ion-item>\n\n\n\n            <ion-item>\n\n                <ion-label stacked>Descripción</ion-label>\n\n                <ion-input type="text" [(ngModel)]="descripcion"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label stacked>Tamaño</ion-label>\n\n                <ion-input type="number" [(ngModel)]="tamano"></ion-input>\n\n            </ion-item>\n\n\n\n            <ion-item>\n\n                <ion-label stacked>Circunferencia</ion-label>\n\n                <ion-input type="number" [(ngModel)]="circunferencia"></ion-input>\n\n            </ion-item>\n\n\n\n        </ion-card>\n\n\n\n\n\n        <ion-item>\n\n            <ion-label>Fecha</ion-label>\n\n            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fecha"></ion-datetime>\n\n        </ion-item>\n\n\n\n\n\n        <ion-item>\n\n            <div text-start>\n\n                Coordenadas\n\n                <button ion-button color="gris" outline item-end icon-start (click)="mylocation()">\n\n                        <ion-icon color="primary" name="compass"></ion-icon>\n\n                        actualizar coordenadas\n\n                </button>\n\n            </div>\n\n            <div>\n\n\n\n            </div>\n\n\n\n            <div>\n\n                <div float-left>\n\n                    <p>\n\n                        lat: {{lat}}\n\n                    </p>\n\n                </div>\n\n                <div float-right>\n\n                    <p>\n\n                        lon: {{lon}}\n\n                    </p>\n\n                </div>\n\n\n\n            </div>\n\n        </ion-item>\n\n\n\n\n\n\n\n        <ion-item>\n\n            <p>Fotografia</p>\n\n            <img [src]="fotografia" *ngIf="fotografia" />\n\n        </ion-item>\n\n\n\n        <ion-label>\n\n            <button ion-button full icon-start (click)="sacarfoto()">\n\n                        Tomar Fotografia \n\n                        <ion-icon name="camera"></ion-icon>\n\n                    </button>\n\n        </ion-label>\n\n\n\n        <ion-label>\n\n            <button ion-button full (click)="subir()">Guardar</button>\n\n        </ion-label>\n\n\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"D:\Project\SW2_geoTrees\appmovil\src\pages\arbol\arbol.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__["a" /* Geolocation */],
             __WEBPACK_IMPORTED_MODULE_4__providers_pro_arboles_pro_arboles__["a" /* ProArbolesProvider */],
