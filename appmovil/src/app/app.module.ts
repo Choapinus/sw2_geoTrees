@@ -8,6 +8,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ArbolPage } from '../pages/arbol/arbol';
+import { LoginPage } from '../pages/login/login';
+import { RegistroPage } from '../pages/registro/registro';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -28,6 +30,8 @@ import { HTTP } from '@ionic-native/http';
 
 @NgModule({
   declarations: [
+    RegistroPage,
+    LoginPage,
     MyApp,
     //ArbolPage,
     AboutPage,
@@ -46,6 +50,8 @@ import { HTTP } from '@ionic-native/http';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    RegistroPage,
+    LoginPage,
     MyApp,
     AboutPage,
     ContactPage,

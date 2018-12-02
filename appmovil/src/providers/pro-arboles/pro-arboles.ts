@@ -16,6 +16,10 @@ export class ProArbolesProvider {
   }
   public apiUrl = 'http://www.comunitree.tk:8081/arbol';
   public apiUrl80 = 'http://www.comunitree.tk:8080/arbol';
+
+  public urlv1 = 'http://www.comunitree.tk:8080/api/v1'
+
+
   opcion: boolean;
   puerto: any;
   
@@ -31,6 +35,10 @@ export class ProArbolesProvider {
       return this.http.get(this.apiUrl+'/all/');
     }
     
+  }
+
+  obtenerUsuarios(): Observable<any>{
+    return this.http.get(this.urlv1+'/users/');
   }
 
 
