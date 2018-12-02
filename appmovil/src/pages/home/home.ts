@@ -10,6 +10,7 @@ import * as $ from 'jquery';
 import { MapsProvider } from './../../providers/maps/maps';
 import { JsMapsProvider } from '../../providers/js-maps/js-maps';
 import { NativeMapsProvider } from '../../providers/native-maps/native-maps';
+import { TabsPage } from '../tabs/tabs';
 
 declare var google;
 
@@ -78,6 +79,9 @@ export class HomePage
   recargar(){
     this.appCtrl.getRootNav().setRoot(HomePage);
     window.location.reload();
+  }
+  recargarPag(){
+    this.navCtrl.push(TabsPage);
   }
 
   }

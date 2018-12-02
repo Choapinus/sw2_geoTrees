@@ -16,23 +16,19 @@
 
         </ion-refresher-content>
     </ion-refresher>
+    <ion-searchbar>
 
-
-
-
-
+    </ion-searchbar>
     <ion-card *ngFor="let arbol of arboles">
-
-        <button ion-button full outline icon-only item-end>
+        <img *ngFor="let photo of arbol.photos" src="{{'http://www.comunitree.tk:8080' + photo.url}}">
+        <ion-card-content>
             <ion-card-title padding>
                 {{arbol._type.name}}
             </ion-card-title>
-            <ion-icon name="pin"></ion-icon>
-        </button>
-        <ion-card-content>
             <ion-list>
                 <ion-item>
                     <ion-label>
+
                         <p>id:{{arbol.id}}</p>
                         <p>
                             latitud = {{arbol.lat}}

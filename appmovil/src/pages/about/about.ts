@@ -44,7 +44,9 @@ export class AboutPage {
   }
 
 
-
+  getImg(){
+    
+  }
   ionViewDidLoad(){
   }
 
