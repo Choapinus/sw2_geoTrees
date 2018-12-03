@@ -1,24 +1,32 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>
+        <ion-title id="titleArbol">
             Arbol
         </ion-title>
+        <ion-label id="puerto" color="gris">puerto: {{this.proveedor.puerto}}</ion-label>
     </ion-navbar>
 </ion-header>
 
 
 
 
-
 <ion-content>
+    <ion-fab right bottom>
+        <button ion-fab mini (click)="irArriba()"><ion-icon name="arrow-dropup"></ion-icon></button>
+    </ion-fab>
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
 
         </ion-refresher-content>
     </ion-refresher>
-    <ion-searchbar>
 
-    </ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
+    <ion-list>
+        <ion-item *ngFor="let item of items">
+            {{ item }}
+        </ion-item>
+    </ion-list>
+
     <ion-card *ngFor="let arbol of arboles">
         <img *ngFor="let photo of arbol.photos" src="{{'http://www.comunitree.tk:8080' + photo.url}}">
         <ion-card-content>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, Tab } from 'ionic-angular';
+import { Component, ViewChild  } from '@angular/core';
+import { NavController, Content  } from 'ionic-angular';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
 import { HttpClient } from '@angular/common/http';
 import { NgForOf } from '@angular/common';
@@ -16,6 +16,7 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class AboutPage {
 
+  @ViewChild(Content) content: Content;
   
 
 
@@ -28,6 +29,8 @@ export class AboutPage {
     public nativeMap: NativeMapsProvider,
     public jsMap: JsMapsProvider) {
       this.CargarDatos();
+      this.searchQuery = '';
+      
   }
 
   doRefresh(refresher) {
@@ -44,10 +47,43 @@ export class AboutPage {
   }
 
 
-  getImg(){
-    
+  irArriba() {
+    this.content.scrollToTop(500);
   }
+
   ionViewDidLoad(){
+  }
+
+
+  searchQuery: string = '';
+  items = [];
+  initializeItems() {
+    for( let arbol of this.arboles){
+      this.items[0]=arbol.id;
+    }
+    console.log(" ARBOLES "+this.arboles);
+    var i=0;
+    console.log(this.items[0]);
+  }
+
+  getItems(searchbar) {
+    // Reset items back to all of the items
+    this.initializeItems();
+
+    // set q to the value of the searchbar
+    var q = searchbar.value;
+
+    // if the value is an empty string don't filter the items
+    if (q.trim() == '') {
+      return;
+    }
+
+    this.items = this.items.filter((v) => {
+      if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+        return true;
+      }
+      return false;
+    })
   }
 
 

@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Component} from '@angular/core';
 import { GoogleMaps, LatLng, GoogleMapsEvent, GoogleMapsMapTypeId, Marker, CameraPosition, ILatLng, HtmlInfoWindow, GoogleMapsAnimation } from '@ionic-native/google-maps';
 import { HttpClient } from '@angular/common/http';
 import { ProArbolesProvider } from '../../providers/pro-arboles/pro-arboles';
-import { AlertController } from 'ionic-angular';
+import { AlertController, NavController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
-
+import { ReportePage } from '../../pages/reporte/reporte';
 
 declare var google;
 
@@ -105,19 +105,30 @@ export class NativeMapsProvider {
 
   addMarker(position, title, arbol){
     let htmlInfoWindow = new HtmlInfoWindow();
+
     let frame: HTMLElement = document.createElement('div');
     frame.innerHTML = [
       '<h1>' + arbol._type.name +'</h1>',
-      '<p>'+ 'id: '+ String(arbol.id) + '</p>',
-      '<p> coordenadas: ' + arbol.lat +' / '+ arbol.lon+'</p>',
-      '<p>descripción: </p>' + arbol.description + '<p></p>',
-      '<p>' + 'tamaño: '+ arbol.size + '</p>',
-      '<p> fecha: </p>'+ arbol.grounded + '<p></p>'
+      '<img align="left" margin 5px height="92" width="64" src="http://www.comunitree.tk:8080/media/trees/6.jpg">',
+      'id: '+ String(arbol.id) + '<br/>',
+      'coordenadas: ' + arbol.lat +' / '+ arbol.lon+'<br/>',
+      'descripción: ' + arbol.description + '<br/>',
+      'tamaño: '+ arbol.size + '<br/>',
+      'fecha: '+ arbol.grounded + '</p>',
+      '<input type="button" value="Reportar" class="button button-default" onclick="return this.irReporte();">'
     ].join("");
-    htmlInfoWindow.setContent(frame);
+
+
+    htmlInfoWindow.setContent(frame, {
+      width: "280px",
+      height: "330px"
+    });
+
+
     let marker: Marker = this.map.addMarkerSync({
       position: position,
       animation: 'DROP',
+      flat: true,
       icon: {
         url: 'assets/imgs/comunitree.png'
       }
@@ -133,6 +144,12 @@ export class NativeMapsProvider {
       });
     });
 
+  }
+
+  irReporte(){
+    window.location.reload();
+    this.alerttree.present();
+    NavController.prototype.push(ReportePage);
   }
 
 

@@ -26,10 +26,12 @@ import { JsMapsProvider } from '../providers/js-maps/js-maps';
 import { NativeMapsProvider } from '../providers/native-maps/native-maps';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { HTTP } from '@ionic-native/http';
+import { ReportePage } from '../pages/reporte/reporte';
 
 
 @NgModule({
   declarations: [
+    ReportePage,
     RegistroPage,
     LoginPage,
     MyApp,
@@ -50,6 +52,7 @@ import { HTTP } from '@ionic-native/http';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    ReportePage,
     RegistroPage,
     LoginPage,
     MyApp,
