@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     FormsModule,
     ReactiveFormsModule,
     ScrollingModule,
-    MatTabsModule
+    MatTabsModule,
+    ChartsModule
   ],
   exports: [
     MatToolbarModule,
@@ -54,7 +56,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     FormsModule,
     ReactiveFormsModule,
     ScrollingModule,
-    MatTabsModule
+    MatTabsModule,
+    ChartsModule
   ],
   declarations: []
 })

@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SeemoreComponent } from './components/seemore/seemore.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { ChartComponent } from './components/chart/chart.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     HomeComponent,
     TreeComponent,
     SuccessComponent,
-    SeemoreComponent
+    SeemoreComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
