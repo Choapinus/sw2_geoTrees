@@ -30,12 +30,6 @@ export class MapComponent implements OnInit {
 		this.lat_init = -33.434986;
 		this.lng_init = -70.614955;
 		auth.handleAuthentication();
-		if (this.auth.userProfile) {
-			this.profile = this.auth.userProfile;
-		} else {
-			this.auth.getProfile((err, profile) => {
-			});
-		}
 	}
 	ngOnInit() {
 		if (this.auth.userProfile) {
