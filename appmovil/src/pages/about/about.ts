@@ -9,12 +9,15 @@ import { NativeMapsProvider } from '../../providers/native-maps/native-maps';
 import { JsMapsProvider } from '../../providers/js-maps/js-maps';
 import { animate } from '@angular/core/src/animation/dsl';
 import { TabsPage } from '../tabs/tabs';
+import { ReportePage } from '../reporte/reporte';
 
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
 })
 export class AboutPage {
+  cargando: boolean = false;
+
 
   @ViewChild(Content) content: Content;
   
@@ -66,35 +69,24 @@ export class AboutPage {
     console.log(this.items[0]);
   }
 
-  getItems(searchbar) {
-    // Reset items back to all of the items
-    this.initializeItems();
-
-    // set q to the value of the searchbar
-    var q = searchbar.value;
-
-    // if the value is an empty string don't filter the items
-    if (q.trim() == '') {
+  getItems( termino: string ) {
+    if ( termino.length <= 0 ) {
+      this.CargarDatos();
       return;
     }
-
-    this.items = this.items.filter((v) => {
-      if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-        return true;
-      }
-      return false;
-    })
   }
 
 
 
 
   CargarDatos(){
+    this.cargando=true;
     this.proveedor.obtenerarbol().subscribe(
       data => {
         this.arboles =data.data;
       });
   }
+
 
 
 }

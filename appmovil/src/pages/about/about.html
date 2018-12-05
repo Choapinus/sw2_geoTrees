@@ -19,44 +19,43 @@
 
         </ion-refresher-content>
     </ion-refresher>
-
-    <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
-    <ion-list>
-        <ion-item *ngFor="let item of items">
-            {{ item }}
-        </ion-item>
-    </ion-list>
+    <ion-searchbar #input (keyup)="getItems( input.value )" type="text" class="form-control" placeholder="Buscar Arbol..."></ion-searchbar>
 
     <ion-card *ngFor="let arbol of arboles">
-        <img *ngFor="let photo of arbol.photos" src="{{'http://www.comunitree.tk:8080' + photo.url}}">
-        <ion-card-content>
-            <ion-card-title padding>
-                {{arbol._type.name}}
-            </ion-card-title>
-            <ion-list>
-                <ion-item>
-                    <ion-label>
+        <div *ngIf="arbol.id == input.value 
+        || input.value == ''
+        || arbol.description[0]+arbol.description[1] == input.value
+        || arbol.description[0] == input.value
+        || arbol.description[0]+arbol.description[1]+arbol.description[2] == input.value">
+            <img *ngFor="let photo of arbol.photos" src="{{'http://www.comunitree.tk:8080' + photo.url}}">
+            <ion-card-content>
+                <ion-card-title padding>
+                    {{arbol._type.name}}
+                </ion-card-title>
+                <ion-list>
+                    <ion-item>
+                        <ion-label>
 
-                        <p>id:{{arbol.id}}</p>
-                        <p>
-                            latitud = {{arbol.lat}}
-                        </p>
-                        <p>
-                            longitud = {{arbol.lon}}
-                        </p>
-                        <p>
-                            size = {{arbol.size}}
-                        </p>
-                        <p>
-                            {{arbol.description}}
-                        </p>
-                    </ion-label>
-                </ion-item>
-            </ion-list>
+                            <p>id:{{arbol.id}}</p>
+                            <p>
+                                latitud = {{arbol.lat}}
+                            </p>
+                            <p>
+                                longitud = {{arbol.lon}}
+                            </p>
+                            <p>
+                                size = {{arbol.size}}
+                            </p>
+                            <p>
+                                {{arbol.description}}
+                            </p>
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
 
-        </ion-card-content>
+            </ion-card-content>
+        </div>
 
     </ion-card>
-
 
 </ion-content>

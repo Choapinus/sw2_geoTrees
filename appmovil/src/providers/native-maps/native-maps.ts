@@ -114,8 +114,7 @@ export class NativeMapsProvider {
       'coordenadas: ' + arbol.lat +' / '+ arbol.lon+'<br/>',
       'descripción: ' + arbol.description + '<br/>',
       'tamaño: '+ arbol.size + '<br/>',
-      'fecha: '+ arbol.grounded + '</p>',
-      '<input type="button" value="Reportar" class="button button-default" onclick="return this.irReporte();">'
+      'fecha: '+ arbol.grounded + '</p>'
     ].join("");
 
 
