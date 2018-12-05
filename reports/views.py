@@ -18,9 +18,11 @@ class ReportView(generics.RetrieveAPIView):
 	serializer_class = serializers.ReportSerializer
 
 class ReportViewGetByTree(generics.ListAPIView):
-	queryset = models.Report.objects.all()
 	serializer_class = serializers.ReportSerializer
-	lookup_field = 'tree_id'
+
+	def get_queryset(self):
+		return models.Report.objects.filter(tree__id=self.kwargs["tree_id"])
+
 
 # todo: paginate reports
 # def get_reports(request):
